@@ -5,3 +5,6 @@ Name: Artem Lavrov
 email: artemlavrov@brandeis.edu
 Jason Lin
 Jasonlin@brandeis.edu
+Jasonlin@brandeis.edu
+Elan Romo
+elanromo@brandeis.edu
