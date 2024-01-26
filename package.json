@@ -1,9 +1,15 @@
 {
-  "devDependencies": {
-    "jes": "^0.6.1"
+  "name": "cosi-103a",
+  "version": "1.0.0",
+  "description": "John Vnek <br> johnvnek@brandeis.edu <br> Name: Artem Lavrov <br> email: artemlavrov@brandeis.edu <br> Jason Lin <br> Jasonlin@brandeis.edu <br> Elan Romo <br> elanromo@brandeis.edu <br>",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
   },
-  "scripts": 
-       {     
-           "test": "jest"   
-       } 
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
 }
