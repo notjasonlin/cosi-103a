@@ -2,12 +2,14 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Dropdown from 'react-bootstrap/Dropdown';
+import Recipe from './recipe';
 
 const DropDown = () => {
+    const [showRecipe, setRecipe] = useState(false);
+
 
     const openRecipe1 = () => { // Change it so 7 arrow functions aren't hardcoded in
-        var divText = document.getElementById("display");
-        divText.textContent = "Recipe 1\nIngredients";
+        setRecipe(true);
     };
 
     const openRecipe2 = () => {
@@ -55,6 +57,7 @@ const DropDown = () => {
                 <Dropdown.Item onClick={openRecipe6}>California Sushi Roll</Dropdown.Item>
                 <Dropdown.Item onClick={openRecipe7}>Grilled Avocados</Dropdown.Item>
 
+                {showRecipe && <Recipe />}
             </Dropdown.Menu>
 
             <div id="display"></div>
