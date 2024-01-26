@@ -4,8 +4,8 @@
   "description": "John Vnek <br> johnvnek@brandeis.edu <br> Name: Artem Lavrov <br> email: artemlavrov@brandeis.edu <br> Jason Lin <br> Jasonlin@brandeis.edu <br> Elan Romo <br> elanromo@brandeis.edu <br>",
   "main": "index.js",
   "dependencies": {
-    "react": "<current-version>",
-    "react-dom": "<current-version>"
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
   "scripts": {
     "test": "jest"
