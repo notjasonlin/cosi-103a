@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Recipe from './recipe';
+import { useState } from 'react';
 
 const DropDown = () => {
     const [showRecipe, setRecipe] = useState(false);
@@ -57,10 +58,12 @@ const DropDown = () => {
                 <Dropdown.Item onClick={openRecipe6}>California Sushi Roll</Dropdown.Item>
                 <Dropdown.Item onClick={openRecipe7}>Grilled Avocados</Dropdown.Item>
 
-                {showRecipe && <Recipe />}
+                
             </Dropdown.Menu>
 
-            <div id="display"></div>
+            <div id="display">
+                {showRecipe && <Recipe />}
+            </div>
 
         </Dropdown>
     );

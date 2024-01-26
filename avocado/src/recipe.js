@@ -6,7 +6,7 @@ const Recipe = () => {
             <h1>Avocado Toast</h1>
             <body>
                 <p1>
-                    <Strong>Ingredients</Strong><br></br>
+                    Ingredients<br></br>
                     - 1 ripe avocado<br></br>
                     - 2 slices of your favorite bread (sourdough, whole grain, or multigrain work well)<br></br>
                     - Salt and pepper, to taste<br></br>
