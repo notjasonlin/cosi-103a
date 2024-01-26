@@ -20,7 +20,7 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 20.x
-    - run: npm install
+    - run: npm ci
     - run: npm install --save-dev babel-jest @babel/preset-env
     - run: npm install --save-dev jest
     - run: npm install --save-dev react-test-renderer
