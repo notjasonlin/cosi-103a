@@ -6,7 +6,13 @@ import Dropdown from 'react-bootstrap/Dropdown';
 const DropDown = () => {
 
     const openRecipe1 = () => {
-        console.log('Action 1 clicked');
+        var divText = document.getElementById("display");
+        divText.textContent = "Recipe 1\nIngredients";
+    };
+
+    const openRecipe2 = () => {
+        var divText = document.getElementById("display");
+        divText.textContent = "Recipe 2\nIngredients";
     };
 
     return (
@@ -17,7 +23,7 @@ const DropDown = () => {
 
             <Dropdown.Menu>
                 <Dropdown.Item onClick={openRecipe1}>Avocado Toast</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Avocado Smoothie</Dropdown.Item>
+                <Dropdown.Item onClick={openRecipe2}>Avocado Smoothie</Dropdown.Item>
                 <Dropdown.Item href="#/action-3">Bacon Guac Bombs</Dropdown.Item>
                 <Dropdown.Item href="#/action-4">Avocado Salad</Dropdown.Item>
                 <Dropdown.Item href="#/action-5">Fried Avocado Bites</Dropdown.Item>
@@ -25,6 +31,9 @@ const DropDown = () => {
                 <Dropdown.Item href="#/action-7">Grilled Avocados</Dropdown.Item>
 
             </Dropdown.Menu>
+
+            <div id="display"></div>
+
         </Dropdown>
     );
 };
