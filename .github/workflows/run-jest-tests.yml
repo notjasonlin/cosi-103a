@@ -23,7 +23,7 @@ jobs:
     - run: npm ci
     - run: npm install --save-dev jest
     - run: npm install --save-dev react-test-renderer
-    - run: npm install npm install --save-dev jest babel-jest @babel/preset-env @babel/preset-react react-test-renderer
+    - run: npm install --save-dev jest babel-jest @babel/preset-env @babel/preset-react react-test-renderer
     - run: npm install --save-dev @testing-library/react
     - run: npm run test
 
