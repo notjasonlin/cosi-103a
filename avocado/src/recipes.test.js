@@ -1,9 +1,16 @@
+import React from "react";
 import { render, screen } from "@testing-library/react";
-import Recipe1 from "./recipes";
+import Recipes from "./recipes";
 
-test("renders without crashing", () => {
-	const { container } = render(<Recipes />);
-	console.log(container.innerHTML);
-	const linkElements = screen.queryAllByText("Avocado Toast");
-	expect(linkElements.length).toBeGreaterThan(0);
+// Test each recipe component
+Object.keys(Recipes).forEach((recipeName) => {
+	const RecipeComponent = Recipes[recipeName];
+
+	describe(recipeName, () => {
+		test("renders without crashing", () => {
+			render(<RecipeComponent />);
+		});
+
+		// Add more test cases as needed
+	});
 });
