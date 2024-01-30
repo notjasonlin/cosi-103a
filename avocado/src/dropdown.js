@@ -3,12 +3,17 @@ import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Recipes from './recipes';
+import '/workspaces/cosi-103a/avocado/src/dropDown.css';
 
 const DropDown = () => {
     const [selectedRecipe, setSelectedRecipe] = useState('');
 
     const handleSelectRecipe = (recipeName) => {
         setSelectedRecipe(recipeName);
+    };
+
+    const resetView = () => {
+        setSelectedRecipe(''); // Resetting the selected recipe
     };
 
     const renderRecipe = () => {
@@ -18,7 +23,8 @@ const DropDown = () => {
 
     return (
         <Dropdown as={ButtonGroup}>
-            <Button variant="success">Avocado Recipes</Button>
+            {/* Reset view on button click */}
+            <Button variant="success" onClick={resetView}>Avocado Recipes</Button>
 
             <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
 

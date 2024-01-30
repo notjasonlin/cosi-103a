@@ -14,7 +14,13 @@ function App() {
       </header>
 
       <div className="App-body">
+        <div className="Scroll-Instruction">
+          When you select a recipe,
+          scroll down to view full recipe!
+        </div>
+
         <DropDown />
+
       </div>
 
       <footer className="footer">
