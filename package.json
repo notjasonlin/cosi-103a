@@ -9,6 +9,7 @@
   "scripts": {
     "test": "jest"
   },
+  "testEnvironment": "jsdom",
   "keywords": [],
   "author": "",
   "license": "ISC",
