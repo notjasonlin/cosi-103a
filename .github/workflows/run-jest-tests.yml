@@ -21,9 +21,6 @@ jobs:
       with:
         node-version: 20.x
     - run: npm ci
-    - run: npm install --save-dev jest
-    - run: npm install --save-dev react-test-renderer
-    - run: npm install npm install --save-dev jest babel-jest @babel/preset-env @babel/preset-react react-test-renderer
-    - run: npm install --save-dev @testing-library/react
+    - run: npm install --save-dev jest babel-jest @babel/preset-env @babel/preset-react react-test-renderer @testing-library/react @babel/plugin-syntax-jsx
     - run: npm run test
 
