@@ -1,10 +1,12 @@
 import React from 'react';
+import '/workspaces/cosi-103a/avocado/src/dropDown.css';
+
 
 const Recipe1 = () => {
     return (
         <div>
             <h1>Avocado Toast</h1>
-            <img src="/avocado-toast.png" alt="Avocado Toast" />
+            <img src="/images/avocado-toast.png" alt="Avocado Toast" />
             <div>
                 <h2>Ingredients</h2>
                 <p>
@@ -31,7 +33,7 @@ const Recipe2 = () => {
     return (
         <div>
             <h1>Avocado Smoothie</h1>
-            <img src="/avocado_milkshake.jpg" alt="Avocado Smoothie" />
+            <img src="/images/avocado_milkshake.jpg" alt="Avocado Smoothie" />
             <div>
                 <h2>Ingredients</h2>
                 <p>
@@ -62,7 +64,7 @@ const Recipe3 = () => {
     return (
         <div>
             <h1>Bacon Guac Bomb</h1>
-            <img src="/bacon-guac-bombs.jpg" alt="Bacon Guact Bomb" />
+            <img src="/images/bacon-guac-bombs.jpg" alt="Bacon Guact Bomb" />
             <div>
                 <h2>Ingredients</h2>
                 <p>
@@ -90,7 +92,7 @@ const Recipe3 = () => {
                     8. Garnish with crushed red pepper flakes, if desired.<br />
                     9. Serve immediately with your favorite chips or as a side dish. Enjoy your flavorful Bacon Guac Bomb!
                 </p>
-                    
+
             </div>
         </div>
     );
@@ -100,7 +102,7 @@ const Recipe4 = () => {
     return (
         <div>
             <h1>Avocado Salad</h1>
-            <img src="/avocado-salad.jpg" alt="Avocado Salad" />
+            <img src="/images/avocado-salad.jpg" alt="Avocado Salad" />
             <div>
                 <h2>Ingredients</h2>
                 <p>
@@ -136,7 +138,7 @@ const Recipe5 = () => {
     return (
         <div>
             <h1>Fried Avocado Bites</h1>
-            <img src="/avocado-bites.jpg" alt="Fried Avocado Bites" />
+            <img src="/images/avocado-bites.jpg" alt="Fried Avocado Bites" />
             <div>
                 <h2>Ingredients</h2>
                 <p>
@@ -169,7 +171,7 @@ const Recipe6 = () => {
     return (
         <div>
             <h1>California Sushi Roll</h1>
-            <img src="/california-roll.jpg" alt="California Sushi Roll" />
+            <img src="/images/california-roll.jpg" alt="California Sushi Roll" />
             <div>
                 <h2>Ingredients</h2>
                 <p>
@@ -203,7 +205,7 @@ const Recipe7 = () => {
     return (
         <div>
             <h1>Grilled Avocados</h1>
-            <img src="/grilled-avocado.jpg" alt="Grilled Avocados" />
+            <img src="/images/grilled-avocado.jpg" alt="Grilled Avocados" />
             <div>
                 <h2>Ingredients</h2>
                 <p>
