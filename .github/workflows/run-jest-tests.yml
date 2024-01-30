@@ -23,4 +23,3 @@ jobs:
     - run: npm ci
     - run: npm install --save-dev jest babel-jest @babel/preset-env @babel/preset-react react-test-renderer @testing-library/react @babel/plugin-syntax-jsx
     - run: npm run test
-

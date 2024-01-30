@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "John Vnek <br> johnvnek@brandeis.edu <br> Name: Artem Lavrov <br> email: artemlavrov@brandeis.edu <br> Jason Lin <br> Jasonlin@brandeis.edu <br> Elan Romo <br> elanromo@brandeis.edu <br>",
   "main": "index.js",
+  "dependencies": {
+    "react": "^18.2.0"
+  },
   "scripts": {
     "test": "jest"
   },
@@ -10,7 +13,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/plugin-syntax-jsx": "^7.23.3",
     "@babel/preset-env": "^7.23.9",
     "@babel/preset-react": "^7.23.3",
     "@testing-library/react": "^14.1.2",
