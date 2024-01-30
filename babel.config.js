@@ -1,7 +1,4 @@
 module.exports = {
-  presets: [
-    'module:@babel/plugin-syntax-jsx',
-    '@babel/preset-env',
-    ['@babel/preset-react', {runtime: 'automatic'}],
-  ],
+	presets: ["@babel/preset-env", "@babel/preset-react"],
+	plugins: ["@babel/plugin-syntax-jsx"],
 };
