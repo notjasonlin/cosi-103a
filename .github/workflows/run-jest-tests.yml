@@ -21,4 +21,4 @@ jobs:
           node-version: 20.x
       - run: npm ci --prefix ./avocado
       - run: npm install ---prefix ./avocado --save-dev jest babel-jest @babel/preset-env @babel/preset-react react-test-renderer @testing-library/react @babel/plugin-syntax-jsx identity-obj-proxy react-bootstrap
-      - run: npm run --prefix ./avocado test
+      - run: npm run test --prefix ./avocado
