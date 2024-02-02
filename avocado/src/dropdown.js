@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Dropdown from "react-bootstrap/Dropdown";
-import Recipes from "./recipes";
+import RecipeList from "./recipes";
 import "./dropDown.css";
 
 const DropDown = () => {
@@ -31,7 +31,7 @@ const DropDown = () => {
 			<Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
 
 			<Dropdown.Menu>
-				{Object.keys(Recipes).map((recipeName, index) => (
+				{Object.keys(RecipeList).map((recipeName, index) => (
 					<Dropdown.Item
 						key={index}
 						onClick={() => handleSelectRecipe(recipeName)}
