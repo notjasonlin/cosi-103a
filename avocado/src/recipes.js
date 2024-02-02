@@ -8,19 +8,18 @@ const RecipeList = ({ recipeId }) => {
 
 	// Check if a recipe with the specified id exists
 	if (!selectedRecipe) {
-	  return <div>Recipe not found</div>;
+	  return <div></div>;
 	}
 
 	return (
 	  <div className="recipe-list">
-		{recipesData.map((recipe) => (
-		  <div key={recipe.id} className="recipe">
-			<h1>{recipe.name}</h1>
-			<img src={recipe.image} alt={recipe.name} />
+		<div key={selectedRecipe.id} className="recipe">
+			<h1>{selectedRecipe.name}</h1>
+			<img src={selectedRecipe.image} alt={selectedRecipe.name} />
 			<div className="ingredients">
 			  <h2>Ingredients</h2>
 			  <ul>
-				{recipe.ingredients.map((ingredient, index) => (
+				{selectedRecipe.ingredients.map((ingredient, index) => (
 				  <li key={index}>{ingredient}</li>
 				))}
 			  </ul>
@@ -28,15 +27,14 @@ const RecipeList = ({ recipeId }) => {
 			<div className="instructions">
 			  <h2>Instructions</h2>
 			  <ol>
-				{recipe.instructions.map((instruction, index) => (
+				{selectedRecipe.instructions.map((instruction, index) => (
 				  <li key={index}>{instruction}</li>
 				))}
 			  </ol>
 			</div>
 		  </div>
-		))}
 	  </div>
 	);
-  };
+};
 
 export default RecipeList;
