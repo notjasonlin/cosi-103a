@@ -1,5 +1,5 @@
 import React from "react";
-import recipesData from "./recipesData";
+import recipesData from "./data/recipeData.js";
 import "./dropDown.css";
 
 const RecipeList = () => {
