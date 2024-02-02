@@ -31,13 +31,12 @@ const DropDown = () => {
 			<Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
 
 			<Dropdown.Menu>
-				{Object.keys(RecipeList).map((recipeName, index) => (
-					<Dropdown.Item
-						key={index}
-						onClick={() => handleSelectRecipe(recipeName)}
-					>
-						{recipeName}
-					</Dropdown.Item>
+				{RecipeList.map((recipe) => (
+  					<Dropdown.Item
+    					onClick={() => handleSelectRecipe(recipe.name)}
+ 					>
+    					{recipe.name}
+  					</Dropdown.Item>
 				))}
 			</Dropdown.Menu>
 

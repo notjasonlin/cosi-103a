@@ -2,7 +2,15 @@ import React from "react";
 import recipesData from "./data/recipeData.js";
 import "./dropDown.css";
 
-const RecipeList = () => {
+const RecipeList = ({ recipeId }) => {
+	// Find the recipe with the specified id
+	const selectedRecipe = recipesData.find((recipe) => recipe.id === recipeId);
+
+	// Check if a recipe with the specified id exists
+	if (!selectedRecipe) {
+	  return <div>Recipe not found</div>;
+	}
+
 	return (
 	  <div className="recipe-list">
 		{recipesData.map((recipe) => (
