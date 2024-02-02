@@ -17,7 +17,7 @@ const DropDown = () => {
 	};
 
 	const renderRecipe = () => {
-		const RecipeComponent = Recipes[selectedRecipe];
+		const RecipeComponent = RecipesList[selectedRecipe];
 		return RecipeComponent ? <RecipeComponent /> : null;
 	};
 
