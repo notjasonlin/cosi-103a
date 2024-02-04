@@ -32,7 +32,7 @@ const AvocadoToast = () => {
     return (
         <div>
             <p>
-                Hello
+                .
             </p>
         </div>
     );
