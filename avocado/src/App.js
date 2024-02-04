@@ -14,13 +14,8 @@ function App() {
         {/* Navigation Links */}
         <nav>
           <ul>
-            {/* Use Link instead of <a> for internal navigation */}
-            <li><Link to="/test">Test</Link></li>
           </ul>
         </nav>
-
-      
-        {/* Route Configuration */}
         <Routes>
           <Route path="/" element={showMainContent ? <AvocadoToast /> : null} />
           <Route path="/test" element={<TestPage setShowMainContent={setShowMainContent} />} />
@@ -44,7 +39,7 @@ function App() {
           scroll down to view full recipe!
         </div>
 
-        <DropDown />
+        <DropDown/> 
 
       </div>
 

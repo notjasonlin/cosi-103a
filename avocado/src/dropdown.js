@@ -4,6 +4,7 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Dropdown from "react-bootstrap/Dropdown";
 import RecipeList from "./recipes";
 import recipesData from "./data/recipeData";
+import { Link, useNavigate } from "react-router-dom"
 import "./dropDown.css";
 
 const DropDown = () => {
@@ -39,12 +40,13 @@ const DropDown = () => {
 
       <Dropdown.Menu>
         {recipesData.map((recipe, index) => ( // Iterate over recipesData
+        <Link to={`/recipe/${recipe.id}`} key={index}>
           <Dropdown.Item
-            key={index}
             onClick={() => handleSelectRecipe(recipe.name)} // Pass recipe name
           >
             {recipe.name}
           </Dropdown.Item>
+        </Link>
         ))}
       </Dropdown.Menu>
 
