@@ -1,10 +1,35 @@
 import './App.css';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import AvocadoToast from "./RecipePage";
 import DropDown from './dropdown';
 
 function App() {
   return (
     <div className="App">
+      <Router>
+      <div>
+        {/* Navigation Links */}
+        <nav>
+          <ul>
+            <li><a href="/">Test</a></li>
+          </ul>
+        </nav>
+
+        {/* Route Configuration */}
+        <Routes>
+          <Route path="/" component={AvocadoToast} />
+        </Routes>
+      </div>
+    </Router>
+
+
+
+
+
+
+
+
       <header className="App-header">
         <img src="/images/avocado-transparent.png" alt="Logo" className="App-logo" />
         <div className="Header-content">
