@@ -9,12 +9,12 @@ const recipesData = [
         "Optional toppings: poached or fried egg, cherry tomatoes, red pepper flakes, feta cheese, or a drizzle of balsamic glaze",
       ],
       instructions: [
-        "1. Begin by slicing the avocado in half, removing the pit, and scooping out the flesh into a bowl.",
-        "2. Using a fork, mash the avocado to your desired consistency. Add salt and pepper to taste.",
-        "3. Toast the bread slices to your preferred level of crispiness.",
-        "4. Spread the mashed avocado evenly over each slice of toast.",
-        "5. If desired, add your choice of optional toppings like a poached or fried egg, cherry tomatoes, red pepper flakes, feta cheese, or a drizzle of balsamic glaze.",
-        "6. Serve immediately and enjoy your delicious avocado toast!",
+        "Begin by slicing the avocado in half, removing the pit, and scooping out the flesh into a bowl.",
+        "Using a fork, mash the avocado to your desired consistency. Add salt and pepper to taste.",
+        "Toast the bread slices to your preferred level of crispiness.",
+        "Spread the mashed avocado evenly over each slice of toast.",
+        "If desired, add your choice of optional toppings like a poached or fried egg, cherry tomatoes, red pepper flakes, feta cheese, or a drizzle of balsamic glaze.",
+        "Serve immediately and enjoy your delicious avocado toast!",
       ],
       image: "/images/avocado-toast.png",
     },
@@ -31,15 +31,15 @@ const recipesData = [
         "Fresh mint leaves for garnish (optional)",
       ],
       instructions: [
-        "1. Combine the peeled and pitted avocado, milk, yogurt, honey, and vanilla extract in a blender.",
-        "2. Blend the mixture until smooth. If the smoothie is too thick, you can add a bit more milk to reach your desired consistency.",
-        "3. If using, add ice cubes to the blender and blend again until the smoothie is chilled and frothy.",
-        "4. Taste and adjust the sweetness if necessary, by adding more honey.",
-        "5. Pour the smoothie into glasses.",
-        "6. Garnish with fresh mint leaves if desired.",
-        "7. Serve immediately and enjoy your refreshing avocado smoothie!",
+        "Combine the peeled and pitted avocado, milk, yogurt, honey, and vanilla extract in a blender.",
+        "Blend the mixture until smooth. If the smoothie is too thick, you can add a bit more milk to reach your desired consistency.",
+        "If using, add ice cubes to the blender and blend again until the smoothie is chilled and frothy.",
+        "Taste and adjust the sweetness if necessary, by adding more honey.",
+        "Pour the smoothie into glasses.",
+        "Garnish with fresh mint leaves if desired.",
+        "Serve immediately and enjoy your refreshing avocado smoothie!",
       ],
-      image: "/images/avocado-smoothie.png",
+      image: "/images/avocado_milkshake.jpg",
     },
     {
         id: 3,
@@ -58,15 +58,15 @@ const recipesData = [
           "Crushed red pepper flakes (optional, for garnish)"
         ],
         instructions: [
-          "1. In a medium bowl, mash the avocados to your desired consistency.",
-          "2. Add the crumbled bacon, red onion, Roma tomato, garlic, lime juice, and cilantro to the mashed avocados.",
-          "3. Season the mixture with salt and pepper. Stir well to combine all the ingredients.",
-          "4. For a spicy kick, add the minced jalapeño and ground cumin, if using.",
-          "5. Mix everything thoroughly.",
-          "6. Taste and adjust the seasoning as needed.",
-          "7. Transfer the guacamole to a serving dish.",
-          "8. Garnish with crushed red pepper flakes, if desired.",
-          "9. Serve immediately with your favorite chips or as a side dish. Enjoy your flavorful Bacon Guac Bomb!"
+          "In a medium bowl, mash the avocados to your desired consistency.",
+          "Add the crumbled bacon, red onion, Roma tomato, garlic, lime juice, and cilantro to the mashed avocados.",
+          "Season the mixture with salt and pepper. Stir well to combine all the ingredients.",
+          "For a spicy kick, add the minced jalapeño and ground cumin, if using.",
+          "Mix everything thoroughly.",
+          "Taste and adjust the seasoning as needed.",
+          "Transfer the guacamole to a serving dish.",
+          "Garnish with crushed red pepper flakes, if desired.",
+          "Serve immediately with your favorite chips or as a side dish. Enjoy your flavorful Bacon Guac Bomb!"
         ],
         image: "/images/bacon-guac-bombs.jpg"
       },
@@ -88,13 +88,13 @@ const recipesData = [
           "2 tbsp pumpkin seeds or sunflower seeds (optional)"
         ],
         instructions: [
-          "1. In a large salad bowl, combine the sliced avocados, cucumber, cherry tomatoes, red onion, corn kernels, and red bell pepper.",
-          "2. Add the chopped cilantro to the bowl.",
-          "3. In a small bowl, whisk together the lime juice, olive oil, salt, and pepper to create the dressing.",
-          "4. Pour the dressing over the salad and gently toss to coat the ingredients evenly.",
-          "5. If desired, sprinkle the salad with crumbled feta cheese and pumpkin seeds or sunflower seeds for added texture and flavor.",
-          "6. Serve the salad immediately, or chill in the refrigerator for a refreshing and healthy meal or side dish.",
-          "7. Enjoy your vibrant and tasty Avocado Salad!"
+          "In a large salad bowl, combine the sliced avocados, cucumber, cherry tomatoes, red onion, corn kernels, and red bell pepper.",
+          "Add the chopped cilantro to the bowl.",
+          "In a small bowl, whisk together the lime juice, olive oil, salt, and pepper to create the dressing.",
+          "Pour the dressing over the salad and gently toss to coat the ingredients evenly.",
+          "If desired, sprinkle the salad with crumbled feta cheese and pumpkin seeds or sunflower seeds for added texture and flavor.",
+          "Serve the salad immediately, or chill in the refrigerator for a refreshing and healthy meal or side dish.",
+          "Enjoy your vibrant and tasty Avocado Salad!"
         ],
         image: "/images/avocado-salad.jpg"
       },
@@ -113,13 +113,13 @@ const recipesData = [
           "Your choice of dipping sauce (like ranch dressing, aioli, or hot sauce)"
         ],
         instructions: [
-          "1. Set up a breading station with three bowls: one for flour, one for beaten eggs, and one for panko breadcrumbs mixed with garlic powder, paprika, salt, and pepper.",
-          "2. Coat each avocado piece first in flour, then dip in the beaten eggs, and finally coat with the panko mixture, pressing gently to adhere.",
-          "3. Heat vegetable oil in a frying pan over medium heat. You'll need enough oil to cover the bottom of the pan.",
-          "4. Once the oil is hot, fry the avocado bites in batches, being careful not to overcrowd the pan. Fry until they are golden and crispy, about 2-3 minutes per side.",
-          "5. Use a slotted spoon to transfer the fried avocado bites to a plate lined with paper towels to drain excess oil.",
-          "6. Serve the fried avocado bites hot with your choice of dipping sauce, such as ranch dressing, aioli, or hot sauce.",
-          "7. Enjoy your delicious and crispy Fried Avocado Bites!"
+          "Set up a breading station with three bowls: one for flour, one for beaten eggs, and one for panko breadcrumbs mixed with garlic powder, paprika, salt, and pepper.",
+          "Coat each avocado piece first in flour, then dip in the beaten eggs, and finally coat with the panko mixture, pressing gently to adhere.",
+          "Heat vegetable oil in a frying pan over medium heat. You'll need enough oil to cover the bottom of the pan.",
+          "Once the oil is hot, fry the avocado bites in batches, being careful not to overcrowd the pan. Fry until they are golden and crispy, about 2-3 minutes per side.",
+          "Use a slotted spoon to transfer the fried avocado bites to a plate lined with paper towels to drain excess oil.",
+          "Serve the fried avocado bites hot with your choice of dipping sauce, such as ranch dressing, aioli, or hot sauce.",
+          "Enjoy your delicious and crispy Fried Avocado Bites!"
         ],
         image: "/images/avocado-bites.jpg"
       },
@@ -138,14 +138,14 @@ const recipesData = [
           "Pickled ginger, for serving (optional)"
         ],
         instructions: [
-          "1. Lay a sheet of nori on a bamboo sushi mat. Spread a thin layer of sushi rice over the nori, leaving about a half-inch border at the top.",
-          "2. Place a few pieces of cucumber, avocado slices, and 2 crab sticks near the bottom edge of the rice.",
-          "3. Carefully start rolling the sushi using the bamboo mat, pressing gently but firmly. Roll it away from you until you reach the end of the nori.",
-          "4. Wet the top border slightly with water to seal the roll.",
-          "5. With a sharp knife, cut the roll into six equal pieces. Wetting the knife between cuts will make slicing easier.",
-          "6. Sprinkle the rolls with sesame seeds if desired.",
-          "7. Serve the California rolls with soy sauce, wasabi, and pickled ginger on the side.",
-          "8. Enjoy your delicious homemade California Sushi Rolls!"
+          "Lay a sheet of nori on a bamboo sushi mat. Spread a thin layer of sushi rice over the nori, leaving about a half-inch border at the top.",
+          "Place a few pieces of cucumber, avocado slices, and 2 crab sticks near the bottom edge of the rice.",
+          "Carefully start rolling the sushi using the bamboo mat, pressing gently but firmly. Roll it away from you until you reach the end of the nori.",
+          "Wet the top border slightly with water to seal the roll.",
+          "With a sharp knife, cut the roll into six equal pieces. Wetting the knife between cuts will make slicing easier.",
+          "Sprinkle the rolls with sesame seeds if desired.",
+          "Serve the California rolls with soy sauce, wasabi, and pickled ginger on the side.",
+          "Enjoy your delicious homemade California Sushi Rolls!"
         ],
         image: "/images/california-roll.jpg"
       }, 
@@ -165,17 +165,17 @@ const recipesData = [
           "Optional: drizzle of balsamic glaze or your choice of dressing",
         ],
         instructions: [
-          "1. Preheat your grill to medium-high heat.",
-          "2. Brush the cut sides of the avocados with olive oil and season with salt and pepper.",
-          "3. Place the avocados, cut side down, on the grill. Grill for about 5-7 minutes, or until they have nice grill marks and are slightly softened.",
-          "4. While the avocados are grilling, mix together diced tomatoes, red onion, cilantro, and minced garlic in a bowl. Squeeze the lime juice over the mixture and stir to combine.",
-          "5. Once the avocados are grilled, remove them from the grill and fill the cavities with the tomato-onion mixture.",
-          "6. If desired, garnish with crumbled feta or cotija cheese.",
-          "7. For an extra flavor, drizzle balsamic glaze or your choice of dressing over the filled avocados.",
-          "8. Serve immediately and enjoy your flavorful Grilled Avocados!",
+          "Preheat your grill to medium-high heat.",
+          "Brush the cut sides of the avocados with olive oil and season with salt and pepper.",
+          "Place the avocados, cut side down, on the grill. Grill for about 5-7 minutes, or until they have nice grill marks and are slightly softened.",
+          "While the avocados are grilling, mix together diced tomatoes, red onion, cilantro, and minced garlic in a bowl. Squeeze the lime juice over the mixture and stir to combine.",
+          "Once the avocados are grilled, remove them from the grill and fill the cavities with the tomato-onion mixture.",
+          "If desired, garnish with crumbled feta or cotija cheese.",
+          "For an extra flavor, drizzle balsamic glaze or your choice of dressing over the filled avocados.",
+          "Serve immediately and enjoy your flavorful Grilled Avocados!",
         ],
         image: "/images/grilled-avocado.jpg",
-      },   
+      },
   ];
   
   export default recipesData;
