@@ -8,9 +8,11 @@ import RecipeCard from "./card";
 function RecipeContainer() {
 	return (
 		<Container>
-			{recipesData.map((recipe) => {
-				<RecipeCard key={recipe.id} recipeId={recipe.id} />;
-			})}
+			<Row>
+				{recipesData.map((recipe) => (
+					<RecipeCard key={recipe.id} recipeId={recipe.id} />
+				))}
+			</Row>
 		</Container>
 	);
 }
