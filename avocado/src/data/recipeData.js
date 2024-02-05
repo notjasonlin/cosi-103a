@@ -176,6 +176,25 @@ const recipesData = [
         ],
         image: "/images/grilled-avocado.jpg",
       },
+      {
+      id: 1,
+      name: "Avocado Toast",
+      ingredients: [
+        "1 ripe avocado",
+        "2 slices of your favorite bread (sourdough, whole grain, or multigrain work well)",
+        "Salt and pepper, to taste",
+        "Optional toppings: poached or fried egg, cherry tomatoes, red pepper flakes, feta cheese, or a drizzle of balsamic glaze",
+      ],
+      instructions: [
+        "Begin by slicing the avocado in half, removing the pit, and scooping out the flesh into a bowl.",
+        "Using a fork, mash the avocado to your desired consistency. Add salt and pepper to taste.",
+        "Toast the bread slices to your preferred level of crispiness.",
+        "Spread the mashed avocado evenly over each slice of toast.",
+        "If desired, add your choice of optional toppings like a poached or fried egg, cherry tomatoes, red pepper flakes, feta cheese, or a drizzle of balsamic glaze.",
+        "Serve immediately and enjoy your delicious avocado toast!",
+      ],
+      image: "/images/avocado-toast.png",
+    },
   ];
   
   export default recipesData;

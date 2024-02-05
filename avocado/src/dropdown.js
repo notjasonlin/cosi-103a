@@ -42,7 +42,7 @@ const DropDown = () => {
       <Dropdown.Menu>
         {recipesData.map((recipe, index) => (
           <Dropdown.Item key={index} onClick={() => handleSelectRecipe(index)}>
-          <Link to={`/${basename}recipe/${recipe.id}`}>{recipe.name}</Link>
+          <Link to={`/recipe/${recipe.id}`}>{recipe.name}</Link>
         </Dropdown.Item>        
         ))}
       </Dropdown.Menu>

@@ -13,8 +13,7 @@ function RecipeCard({ recipeId }) {
 				borderRadius: "3rem",
 				margin: "1rem",
 				borderColor: "green",
-				borderWidth: "0.2rem",
-				boxShadow: "0 0 0.5rem 0.2rem green",
+				borderWidth: "0.5rem",
 			}}
 		>
 			<Card.Img
@@ -26,7 +25,7 @@ function RecipeCard({ recipeId }) {
 					height: "20vw",
 					objectFit: "cover",
 					padding: "1rem",
-					borderRadius: "3rem",
+					borderRadius: "2rem 2rem 2rem 2rem",
 				}}
 			/>
 			<Card.Body>
