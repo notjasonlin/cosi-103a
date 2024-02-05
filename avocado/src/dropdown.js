@@ -1,51 +1,49 @@
+// dropdown.js
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Dropdown from "react-bootstrap/Dropdown";
 import RecipeList from "./recipes";
 import recipesData from "./data/recipeData";
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { useMyContext } from './myContext'; // Import the context
 import "./dropDown.css";
 
 const DropDown = () => {
+  const { basename } = useMyContext(); // Access the basename from the context
 
   const [selectedRecipe, setSelectedRecipe] = useState("");
 
-  const handleSelectRecipe = (recipeName) => {
-    // Find the selected recipe based on the provided recipe name
-    const selectedRecipe = recipesData.find((recipe) => recipe.name === recipeName);
+  const handleSelectRecipe = (index) => {
+    const selectedRecipe = recipesData[index];
     if (selectedRecipe) {
-      setSelectedRecipe(selectedRecipe.id); // Set the selected recipe ID
+      setSelectedRecipe(selectedRecipe.id);
     } else {
-      setSelectedRecipe(""); // Reset selected recipe if not found
+      setSelectedRecipe("");
     }
   };
 
   const resetView = () => {
-    setSelectedRecipe(""); // Resetting the selected recipe
+    setSelectedRecipe("");
   };
 
   const renderRecipe = () => {
-    // Pass the selected recipe ID to the RecipeList component
     return <RecipeList recipeId={selectedRecipe} />;
   };
 
   return (
     <Dropdown as={ButtonGroup}>
-      {/* Reset view on button click */}
       <Button variant="success" onClick={resetView}>
         Avocado Recipes
       </Button>
 
-      <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
+      <Dropdown.Toggle variant="success" id="dropdown-split-basic" />
 
       <Dropdown.Menu>
-        {recipesData.map((recipe, index) => ( // Iterate over recipesData
-          <Dropdown.Item
-            onClick={() => handleSelectRecipe(recipe.name)} // Pass recipe name
-          >
-            {recipe.name}
-          </Dropdown.Item>
+        {recipesData.map((recipe, index) => (
+          <Dropdown.Item key={index} onClick={() => handleSelectRecipe(index)}>
+          <Link to={`/${basename}recipe/${recipe.id}`}>{recipe.name}</Link>
+        </Dropdown.Item>        
         ))}
       </Dropdown.Menu>
 
