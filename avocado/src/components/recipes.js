@@ -20,6 +20,9 @@ const RecipeList = ({ recipeId }) => {
       <div key={selectedRecipe.id} className="recipe">
         <h1>{selectedRecipe.name}</h1>
         <img src={selectedRecipe.image} alt={selectedRecipe.name} />
+        <div className="description">
+          <p>{selectedRecipe.description}</p>
+        </div>
         <div className="ingredients">
           <h2>Ingredients</h2>
           <ul>
@@ -44,3 +47,4 @@ const RecipeList = ({ recipeId }) => {
 };
 
 export default RecipeList;
+
