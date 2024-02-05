@@ -1,10 +1,10 @@
 // index.js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './cssfiles/index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { MyContextProvider } from './myContext'; // Import the context provider
+import reportWebVitals from './extra/reportWebVitals';
+import { MyContextProvider } from './extra/myContext'; // Import the context provider
 
 ReactDOM.render(
   <React.StrictMode>

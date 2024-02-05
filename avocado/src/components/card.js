@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import recipesData from "./data/recipeData";
+import recipesData from "../data/recipeData";
 import { Link } from "react-router-dom";
 
 function RecipeCard({ recipeId }) {

@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes, useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
-import RecipeContainer from "./container";
-import RecipeList from "./recipes";
+import "./cssfiles/App.css";
+import RecipeContainer from "./components/container";
+import RecipeList from "./components/recipes";
 
 
 function App() {

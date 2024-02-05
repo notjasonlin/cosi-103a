@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import DropDown from "./dropdown";
+import DropDown from "../components/dropdown";
 
 test("renders without crashing", () => {
 	render(<DropDown />);
