@@ -1,49 +1,55 @@
+// dropdown.js
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Dropdown from "react-bootstrap/Dropdown";
-import Recipes from "./recipes";
+import RecipeList from "./recipes";
+import recipesData from "./data/recipeData";
+import { Link } from "react-router-dom";
+import { useMyContext } from './myContext'; // Import the context
 import "./dropDown.css";
 
 const DropDown = () => {
-	const [selectedRecipe, setSelectedRecipe] = useState("");
+  const { basename } = useMyContext(); // Access the basename from the context
 
-	const handleSelectRecipe = (recipeName) => {
-		setSelectedRecipe(recipeName);
-	};
+  const [selectedRecipe, setSelectedRecipe] = useState("");
 
-	const resetView = () => {
-		setSelectedRecipe(""); // Resetting the selected recipe
-	};
+  const handleSelectRecipe = (index) => {
+    const selectedRecipe = recipesData[index];
+    if (selectedRecipe) {
+      setSelectedRecipe(selectedRecipe.id);
+    } else {
+      setSelectedRecipe("");
+    }
+  };
 
-	const renderRecipe = () => {
-		const RecipeComponent = Recipes[selectedRecipe];
-		return RecipeComponent ? <RecipeComponent /> : null;
-	};
+  const resetView = () => {
+    setSelectedRecipe("");
+  };
 
-	return (
-		<Dropdown as={ButtonGroup}>
-			{/* Reset view on button click */}
-			<Button variant="success" onClick={resetView}>
-				Avocado Recipes
-			</Button>
+  const renderRecipe = () => {
+    return <RecipeList recipeId={selectedRecipe} />;
+  };
 
-			<Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
+  return (
+    <Dropdown as={ButtonGroup}>
+      <Button variant="success" onClick={resetView}>
+        Avocado Recipes
+      </Button>
 
-			<Dropdown.Menu>
-				{Object.keys(Recipes).map((recipeName, index) => (
-					<Dropdown.Item
-						key={index}
-						onClick={() => handleSelectRecipe(recipeName)}
-					>
-						{recipeName}
-					</Dropdown.Item>
-				))}
-			</Dropdown.Menu>
+      <Dropdown.Toggle variant="success" id="dropdown-split-basic" />
 
-			<div id="display">{renderRecipe()}</div>
-		</Dropdown>
-	);
+      <Dropdown.Menu>
+        {recipesData.map((recipe, index) => (
+          <Dropdown.Item key={index} onClick={() => handleSelectRecipe(index)}>
+          <Link to={`/recipe/${recipe.id}`}>{recipe.name}</Link>
+        </Dropdown.Item>        
+        ))}
+      </Dropdown.Menu>
+
+      <div id="display">{renderRecipe()}</div>
+    </Dropdown>
+  );
 };
 
 export default DropDown;
