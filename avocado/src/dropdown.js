@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom"
 import "./dropDown.css";
 
 const DropDown = () => {
+
   const [selectedRecipe, setSelectedRecipe] = useState("");
 
   const handleSelectRecipe = (recipeName) => {
@@ -40,13 +41,11 @@ const DropDown = () => {
 
       <Dropdown.Menu>
         {recipesData.map((recipe, index) => ( // Iterate over recipesData
-        <Link to={`/recipe/${recipe.id}`} key={index}>
           <Dropdown.Item
             onClick={() => handleSelectRecipe(recipe.name)} // Pass recipe name
           >
             {recipe.name}
           </Dropdown.Item>
-        </Link>
         ))}
       </Dropdown.Menu>
 
