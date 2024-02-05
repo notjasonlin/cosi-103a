@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import AvocadoToast from "./RecipePage";
-import DropDown from "./dropdown";
 import RecipeContainer from "./container";
+import RecipeList from "./recipes";
 
 function App() {
 	const [showMainContent, setShowMainContent] = useState(true);
@@ -14,17 +13,12 @@ function App() {
 				<div>
 					{/* Navigation Links */}
 					<nav>
-						<ul></ul>
+						<ul>{/* Add navigation links here if needed */}</ul>
 					</nav>
 					<Routes>
-						<Route
-							path="/"
-							element={showMainContent ? <AvocadoToast /> : null}
-						/>
-						<Route
-							path="/test"
-							element={<TestPage setShowMainContent={setShowMainContent} />}
-						/>
+						<Route path="/selectedRecipe" />
+						<Route path="/recipe/:recipeId" element={<RecipeList />} />{" "}
+						{/* Route for individual recipe pages */}
 					</Routes>
 				</div>
 			</Router>
@@ -57,19 +51,6 @@ function App() {
 				</>
 			)}
 			;
-		</div>
-	);
-}
-
-function TestPage({ setShowMainContent }) {
-	// This function will hide the main content when the test page is rendered
-	setShowMainContent(false);
-
-	// You can return whatever content you want to show in the test page
-	return (
-		<div>
-			<h2>This is the Test Page</h2>
-			<button onClick={() => setShowMainContent(true)}>Go Back</button>
 		</div>
 	);
 }
