@@ -1,19 +1,22 @@
+import React from "react";
 import Card from "react-bootstrap/Card";
 import recipesData from "./data/recipeData";
+import { Link } from "react-router-dom";
 
 function RecipeCard({ recipeId }) {
 	const recipeData = recipesData.find((recipe) => recipe.id === recipeId);
 	return (
 		<Card
-			bg={"dark"}
 			text={"light"}
 			border="success"
 			style={{
+				backgroundColor: "#272727",
 				width: "30%",
 				borderRadius: "3rem",
 				margin: "1rem",
 				borderColor: "green",
 				borderWidth: "0.5rem",
+				boxShadow: "0 0 0.5rem 0.3rem green",
 			}}
 		>
 			<Card.Img
@@ -30,9 +33,8 @@ function RecipeCard({ recipeId }) {
 			/>
 			<Card.Body>
 				<Card.Title>{recipeData.name}</Card.Title>
-				<Card.Link href={"#"} key={recipeData.id}>
-					Go To Recipe!
-				</Card.Link>
+				<Card.Text>{recipeData.description}</Card.Text>
+				<Link to={`/recipe/${recipeData.id}`}>Go To Recipe!</Link>
 			</Card.Body>
 		</Card>
 	);
