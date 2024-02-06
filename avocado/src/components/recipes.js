@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import recipesData from "../data/recipeData.js";
 import "../cssfiles/dropDown.css";
+import "../cssfiles/recipes.css";
 
 const RecipeList = ({ recipeId }) => {
   // Convert recipeId to an integer
