@@ -9,7 +9,7 @@ function RecipeContainer() {
 		<Container>
 			<Row>
 				{recipesData.map((recipe) => (
-					<RecipeCard key={recipe} recipeId={recipe.id} />
+					<RecipeCard key={recipe} recipe={recipe} />
 				))}
 			</Row>
 		</Container>

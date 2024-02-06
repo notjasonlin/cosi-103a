@@ -1,12 +1,10 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import recipesData from "../data/recipeData";
 
-function RecipeCard({ recipeId }) {
-	const recipeData = recipesData.find((recipe) => recipe.id === recipeId);
+function RecipeCard({ recipe }) {
 
-	if (!recipeData) {
+	if (!recipe) {
 		return <div>Recipe not found!</div>;
 	}
 
@@ -26,8 +24,8 @@ function RecipeCard({ recipeId }) {
 		>
 			<Card.Img
 				variant="top"
-				src={recipeData.image}
-				alt={recipeData.name}
+				src={recipe.image}
+				alt={recipe.name}
 				style={{
 					width: "100%",
 					height: "20vw",
@@ -37,9 +35,9 @@ function RecipeCard({ recipeId }) {
 				}}
 			/>
 			<Card.Body>
-				<Card.Title>{recipeData.name}</Card.Title>
-				<Card.Text>{recipeData.description}</Card.Text>
-				<Link to={`/recipe/${recipeData.id}`} style={{ textDecoration: 'none' }}>
+				<Card.Title>{recipe.name}</Card.Title>
+				<Card.Text>{recipe.description}</Card.Text>
+				<Link to={`/recipe/${recipe.id}`} style={{ textDecoration: 'none' }}>
 					<Button variant="success" style={{ borderRadius: '2rem' }}>Go To Recipe!</Button>
 				</Link>
 			</Card.Body>
