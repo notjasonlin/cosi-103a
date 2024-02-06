@@ -1,3 +1,5 @@
+import './recipe.css';
+
 const recipesData = [
 	{
 		id: 1,

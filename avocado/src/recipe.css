@@ -1,0 +1,108 @@
+/* General styles for the recipe list */
+.recipe-list {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f5f5f5;
+    min-height: 60vh;
+    /* Ensure it takes at least the full height of the viewport */
+}
+
+/* Styles for individual recipe cards */
+.recipe {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: flex;
+    /* Use flexbox to lay out children horizontally */
+    align-items: center;
+    /* Align children vertically */
+    padding: 5px;
+    max-width: 100%;
+    /* Ensure it does not overflow the screen width */
+    margin: 20px;
+    overflow: hidden;
+    /* Hide overflow to maintain border-radius */
+}
+
+/* Recipe image styles */
+.recipe img {
+    max-width: 200px;
+    /* Set a max-width for the image */
+    height: auto;
+    border-radius: 8px;
+    margin-right: 20px;
+    /* Add margin between image and content */
+}
+
+/* Recipe content styles */
+.recipe-content {
+    display: flex;
+    flex-direction: column;
+    /* Lay out content vertically */
+    align-items: flex-start;
+    /* Align content to the start of the flex container */
+}
+
+/* Ingredient list styles */
+.ingredients,
+.instructions {
+    margin-right: 20px;
+    /* Add space between the ingredients and instructions */
+}
+
+/* List styles */
+.ingredients ul,
+.instructions ol {
+    padding-left: 20px;
+    /* Add padding inside the list */
+}
+
+/* Back link styles */
+.recipe a {
+    background-color: green;
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    margin-top: auto;
+    /* Push the button to the bottom of the card */
+    align-self: flex-start;
+    /* Align button to the start of the flex container */
+}
+
+.recipe a:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 1024px) {
+    .recipe {
+        flex-direction: column;
+        /* Stack elements vertically on smaller screens */
+        align-items: center;
+        /* Center align items for better appearance */
+    }
+
+    .recipe img {
+        max-width: 100%;
+        /* Allow image to fill the card width */
+        margin-right: 0;
+        /* Remove margin between image and content */
+        margin-bottom: 20px;
+        /* Add space below the image */
+    }
+
+    .recipe-content {
+        width: 100%;
+        /* Allow content to fill the width of the card */
+    }
+
+    .ingredients,
+    .instructions {
+        margin-right: 0;
+        /* Remove margin between the ingredients and instructions */
+    }
+}
