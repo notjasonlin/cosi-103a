@@ -4,10 +4,10 @@ import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Dropdown from "react-bootstrap/Dropdown";
 import RecipeList from "./recipes";
-import recipesData from "./data/recipeData";
+import recipesData from "../data/recipeData";
 import { Link } from "react-router-dom";
-import { useMyContext } from './myContext'; // Import the context
-import "./dropDown.css";
+import { useMyContext } from '../extra/myContext'; // Import the context
+import "../cssfiles/dropDown.css";
 
 const DropDown = () => {
   const { basename } = useMyContext(); // Access the basename from the context

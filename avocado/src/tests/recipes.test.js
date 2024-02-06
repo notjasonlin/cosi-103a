@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import Recipes from "./recipes";
+import Recipes from "../components/recipes";
 
 // Test each recipe component
 Object.keys(Recipes).forEach((recipeName) => {

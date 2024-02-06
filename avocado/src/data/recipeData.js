@@ -2,6 +2,7 @@ const recipesData = [
 	{
 		id: 1,
 		name: "Avocado Toast",
+		description: "Toasted bread topped with mashed avocado, seasoned with salt, pepper, and a splash of citrus juice. Customize with toppings like tomatoes or poached eggs for a quick and tasty meal.",
 		ingredients: [
 			"1 ripe avocado",
 			"2 slices of your favorite bread (sourdough, whole grain, or multigrain work well)",
@@ -21,6 +22,7 @@ const recipesData = [
 	{
 		id: 2,
 		name: "Avocado Smoothie",
+		description: "Blend ripe avocado with banana, spinach, Greek yogurt, and a splash of almond milk for a creamy and nutritious beverage. This green delight offers a balance of flavors and a boost of vitamins, making it a refreshing and wholesome choice for a quick and easy smoothie.",
 		ingredients: [
 			"1 ripe avocado, peeled and pitted",
 			"1/2 cup milk or almond milk",
@@ -44,6 +46,7 @@ const recipesData = [
 	{
 		id: 3,
 		name: "Bacon Guac Bomb",
+		description: "A savory delight featuring crispy bacon wrapped around a creamy guacamole center. These flavor-packed bites are perfect for a party or a tasty snack. The combination of smoky bacon and zesty guacamole creates an explosion of taste in every bite.",
 		ingredients: [
 			"2 ripe avocados, peeled and pitted",
 			"2-3 slices of cooked bacon, crumbled",
@@ -73,6 +76,7 @@ const recipesData = [
 	{
 		id: 4,
 		name: "Avocado Salad",
+		description: "A refreshing mix of ripe avocados, cherry tomatoes, cucumber, and red onion tossed in a zesty vinaigrette dressing. This vibrant salad offers a perfect balance of creamy and crunchy textures, making it a light and flavorful dish suitable for any meal. Customize with herbs or feta cheese for an extra burst of flavor.",
 		ingredients: [
 			"2 ripe avocados, peeled, pitted, and sliced",
 			"1 cucumber, sliced",
@@ -101,6 +105,7 @@ const recipesData = [
 	{
 		id: 5,
 		name: "Fried Avocado Bites",
+		description: "Crispy on the outside, creamy on the inside – these bite-sized treats feature slices of avocado coated in a seasoned breadcrumb or batter, then fried to golden perfection. Served with a zesty dipping sauce, these indulgent bites are a delicious combination of textures and flavors, making them a delightful appetizer or snack.",
 		ingredients: [
 			"2 ripe avocados, peeled, pitted, and cut into bite-sized pieces",
 			"1 cup all-purpose flour",
@@ -126,6 +131,7 @@ const recipesData = [
 	{
 		id: 6,
 		name: "California Sushi Roll",
+		description: "A classic sushi roll filled with imitation crab, avocado, and cucumber. Wrapped in seaweed and rice, and often topped with sesame seeds, this iconic roll is a fusion of creamy avocado, sweet crab, and refreshing cucumber. Served with soy sauce and wasabi, the California Roll is a popular and accessible choice for sushi enthusiasts.",
 		ingredients: [
 			"2 cups sushi rice, cooked and seasoned with sushi vinegar",
 			"4 sheets nori (seaweed)",
@@ -152,6 +158,7 @@ const recipesData = [
 	{
 		id: 7,
 		name: "Grilled Avocados",
+		description: "Halved avocados lightly brushed with olive oil, seasoned with salt and pepper, and grilled until they develop a smoky char. The heat enhances the natural creaminess of the avocado while adding a hint of smokiness. Grilled avocados can be enjoyed on their own, as a side dish, or incorporated into various recipes, offering a unique twist to the beloved fruit.",
 		ingredients: [
 			"2 ripe avocados, halved and pitted",
 			"Olive oil, for brushing",
