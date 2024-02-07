@@ -23,8 +23,8 @@ function TeamCard({ member }) {
 		>
 			<Card.Img
 				variant="top"
-				src={Member.image}
-				alt={Member.name}
+				src={member.image}
+				alt={member.name}
 				style={{
 					width: "100%",
 					height: "20vw",
