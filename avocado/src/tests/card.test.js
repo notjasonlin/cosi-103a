@@ -28,5 +28,8 @@ test("renders properly", async () => {
 	await waitFor(() => {
 		const linkElements = screen.getAllByText(testRecipe.name);
 		expect(linkElements.length).toBeGreaterThan(0);
+		expect(screen.getAllByText(testRecipe.description).length).toBeGreaterThan(
+			0
+		);
 	});
 });
