@@ -2,8 +2,8 @@ import React from "react";
 import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
+// Creates a recipe card containing all recipe data
 function RecipeCard({ recipe }) {
-
 	if (!recipe) {
 		return <div>Recipe not found!</div>;
 	}
@@ -37,8 +37,10 @@ function RecipeCard({ recipe }) {
 			<Card.Body>
 				<Card.Title>{recipe.name}</Card.Title>
 				<Card.Text>{recipe.description}</Card.Text>
-				<Link to={`/recipe/${recipe.id}`} style={{ textDecoration: 'none' }}>
-					<Button variant="success" style={{ borderRadius: '2rem' }}>Go To Recipe!</Button>
+				<Link to={`/recipe/${recipe.id}`} style={{ textDecoration: "none" }}>
+					<Button variant="success" style={{ borderRadius: "2rem" }}>
+						Go To Recipe!
+					</Button>
 				</Link>
 			</Card.Body>
 		</Card>
