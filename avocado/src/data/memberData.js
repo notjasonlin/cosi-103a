@@ -18,13 +18,15 @@ const memberData = [
         name: "Jason Lin",
         description: 
             "This is Jason, he is a dog!",
-        image: "/images/ratAvocado.png",
+        image: "/images/goldenAvocado.png",
     },
     {
         id: 3,
         name: "John Vnek",
         description: 
             "This is John, he is a bird!",
-        image: "/images/ratAvocado.png",
+        image: "/images/birdAvocado.png",
     }
-]
+];
+
+export default memberData;
