@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes, useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./cssfiles/App.css";
-import RecipeContainer from "./components/container";
+import RecipeContainer from "./components/recipeContainer";
 import RecipeList from "./components/recipes";
 
 

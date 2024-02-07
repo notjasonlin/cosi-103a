@@ -41,4 +41,4 @@ function TeamCard({ member }) {
 	);
 }
 
-export default RecipeCard;
+export default TeamCard;
