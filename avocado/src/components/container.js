@@ -4,6 +4,7 @@ import recipesData from "../data/recipeData";
 
 import RecipeCard from "./card";
 
+// Container for all recipe cards
 function RecipeContainer() {
 	return (
 		<Container>
