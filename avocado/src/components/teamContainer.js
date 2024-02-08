@@ -1,7 +1,8 @@
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import memberData from "../data/memberData";
-import TeamCard from "./teamcard";
+
+import TeamCard from "./teamCard";
 
 // Container for all recipe cards
 function TeamContainer() {
