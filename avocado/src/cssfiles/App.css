@@ -1,111 +1,111 @@
-.App-logo {
-  position: absolute;
-  left: 20px;
-  height: 175px;
-
+.Logo-Container {
+	position: absolute;
+	left: 2vw;
+	height: 30vh;
 }
 
+.App-logo {
+	position: relative;
+	height: 100%;
+}
 
 .App-header {
-  color: white;
-  background: darkgreen;
-  text-align: center;
-  font-family: sans-serif;
-  font-size: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  width: 100%;
-  height: auto;
+	color: white;
+	background: darkgreen;
+	text-align: center;
+	font-family: sans-serif;
+	font-size: 80px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+	width: 100%;
+	height: auto;
 }
 
 .Header-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .Subtitle {
-  font-size: 40px;
-  /* Adjust subtitle size */
+	font-size: 40px;
+	/* Adjust subtitle size */
 }
 
 .App-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  min-height: 60vh;
-  padding: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	min-height: 60vh;
+	padding: 20px;
 }
 
 .Scroll-Instruction {
-  position: absolute;
-  bottom: 200px;
-  left: 20px;
-  font-size: 1.2em;
-  color: darkgreen;
-  font-weight: bold;
+	position: absolute;
+	bottom: 200px;
+	left: 20px;
+	font-size: 1.2em;
+	color: darkgreen;
+	font-weight: bold;
 }
 
 /* Styling for footer at bottom */
 .footer {
-  background-color: darkgreen;
-  color: white;
-  font: sans-serif;
-  padding: 40px;
-  text-align: center;
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 0%;
+	background-color: darkgreen;
+	color: white;
+	font: sans-serif;
+	padding: 40px;
+	text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 0%;
 }
 
 /* Styles the copyright to take up half of the width of the footer */
 #copyright {
-  width: 50%;
+	width: 50%;
 }
-
 
 /* Styles the social media icons in the footer */
 .fa {
-  padding: 30px;
-  width: 40px;
-  height: 40px;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 40%;
-  justify-content: flex-end;
+	padding: 30px;
+	width: 40px;
+	height: 40px;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 40%;
+	justify-content: flex-end;
 }
-
 
 /*Styling for Facebook */
 .fa-facebook {
-  background: #3B5998;
-  color: white;
+	background: #3b5998;
+	color: white;
 }
 
 /*Styling for Twitter */
 .fa-twitter {
-  background: #55ACEE;
-  color: white;
+	background: #55acee;
+	color: white;
 }
 
 /*Styling for Instagram */
 .fa-instagram {
-  background: #833AB4;
-  color: white;
-
+	background: #833ab4;
+	color: white;
 }
 
 /*Styling for Youtube */
 .fa-youtube {
-  background: #b2071d;
-  color: white;
+	background: #b2071d;
+	color: white;
 }
 
 /*Styling for linkedIN */
 .fa-linkedin {
-  background: #0072b1;
-  color: white;
+	background: #0072b1;
+	color: white;
 }
