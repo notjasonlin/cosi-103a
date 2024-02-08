@@ -2,7 +2,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import recipesData from "../data/recipeData";
 
-import RecipeCard from "./card";
+import RecipeCard from "./recipeCard";
 
 // Container for all recipe cards
 function RecipeContainer() {
