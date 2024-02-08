@@ -1,5 +1,11 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes, NavLink, useParams } from "react-router-dom";
+import {
+	BrowserRouter as Router,
+	Route,
+	Routes,
+	useParams,
+	Link,
+} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./cssfiles/App.css";
 import RecipeContainer from "./components/recipeContainer";
@@ -8,16 +14,22 @@ import TeamContainer from "./components/teamContainer";
 import HomePage from "./components/home-page";
 
 function App() {
-  return (
-    <Router>
-      <div className="App">
-        <header className="App-header">
-          <img src="/images/avocado-transparent.png" alt="Logo" className="App-logo" />
-          <div className="Header-content">
-            <div>Avocado Inc.</div>
-            <div className="Subtitle">Delicious Recipes</div>
-          </div>
-        </header>
+	return (
+		<Router>
+			<div className="App">
+				<header className="App-header">
+					<Link to="/" className="Logo-Container">
+						<img
+							src="/images/avocado-transparent.png"
+							alt="Logo"
+							className="App-logo"
+						/>
+					</Link>
+					<div className="Header-content">
+						<div>Avocado Inc.</div>
+						<div className="Subtitle">Delicious Recipes</div>
+					</div>
+				</header>
 
         <nav className="navbar">
           <NavLink to="/" className="nav-link" exact>Home</NavLink>
@@ -46,8 +58,8 @@ function App() {
 }
 
 function RecipeListPage() {
-  const { recipeId } = useParams(); // Extract recipeId from URL params
-  return <RecipeList recipeId={recipeId} />;
+	const { recipeId } = useParams(); // Extract recipeId from URL params
+	return <RecipeList recipeId={recipeId} />;
 }
 
 export default App;
