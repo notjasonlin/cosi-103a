@@ -1,6 +1,6 @@
 import { render, screen, waitFor, cleanup } from "@testing-library/react";
 import React from "react";
-import RecipeCard from "../components/card";
+import RecipeCard from "../components/recipeCard";
 import {
 	BrowserRouter as Router,
 	Route,

@@ -2,8 +2,9 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes, useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./cssfiles/App.css";
-import RecipeContainer from "./components/container";
+import RecipeContainer from "./components/recipeContainer";
 import RecipeList from "./components/recipes";
+import TeamContainer from "./components/teamContainer";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         </header>
 
         <Routes>
+          <Route path="/team" element={<TeamContainer/>} />
           <Route path="/recipe/:recipeId" element={<RecipeListPage />} />
           <Route path="/" element={<RecipeContainer />} />
         </Routes>
