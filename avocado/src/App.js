@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./cssfiles/App.css";
 import RecipeContainer from "./components/recipeContainer";
 import RecipeList from "./components/recipes";
+import HomePage from "./components/home-page";
 import TeamContainer from "./components/teamContainer";
 
 
@@ -20,9 +21,10 @@ function App() {
         </header>
 
         <Routes>
+          <Route path="/" element={<HomePage />} />
           <Route path="/team" element={<TeamContainer />} />
           <Route path="/recipe/:recipeId" element={<RecipeListPage />} />
-          <Route path="/" element={<RecipeContainer />} />
+          <Route path="/recipes" element={<RecipeContainer />} />
         </Routes>
 
         <footer className="footer">
