@@ -25,7 +25,7 @@ const memberData = [
         name: "John Vnek",
         description: 
             "This is John, he is a bird!",
-        image: "/images/birdAvocado.png",
+        image: "/images/birdAvocado.jpeg",
     }
 ];
 
