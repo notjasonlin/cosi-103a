@@ -20,7 +20,7 @@ function App() {
         </header>
 
         <Routes>
-          <Route path="/team" element={<TeamContainer/>} />
+          <Route path="/team" element={<TeamContainer />} />
           <Route path="/recipe/:recipeId" element={<RecipeListPage />} />
           <Route path="/" element={<RecipeContainer />} />
         </Routes>

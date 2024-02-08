@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
 // Creates a recipe card containing all recipe data
 function TeamCard({ member }) {
