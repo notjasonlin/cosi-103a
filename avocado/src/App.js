@@ -5,13 +5,14 @@ import {
 	Routes,
 	useParams,
 	Link,
+	NavLink,
 } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./cssfiles/App.css";
 import RecipeContainer from "./components/recipeContainer";
 import RecipeList from "./components/recipes";
-import HomePage from "./components/home-page";
 import TeamContainer from "./components/teamContainer";
+import HomePage from "./components/home-page";
 
 function App() {
 	return (
@@ -31,15 +32,27 @@ function App() {
 					</div>
 				</header>
 
+				<nav className="navbar">
+					<NavLink to="/" className="nav-link" exact>
+						Home
+					</NavLink>
+					<NavLink to="/recipes" className="nav-link">
+						Recipes
+					</NavLink>
+					<NavLink to="/team" className="nav-link">
+						Team
+					</NavLink>
+				</nav>
+
 				<Routes>
-					<Route path="/" element={<HomePage />} />
 					<Route path="/team" element={<TeamContainer />} />
-					<Route path="/recipe/:recipeId" element={<RecipeListPage />} />
 					<Route path="/recipes" element={<RecipeContainer />} />
+					<Route path="/" element={<HomePage />} exact />
+					<Route path="/recipe/:recipeId" element={<RecipeListPage />} />
 				</Routes>
 
 				<footer className="footer">
-					<h2 id="copyright">© 2024 Avocado Inc.</h2>
+					<h2>© 2024 Avocado Inc.</h2>
 					<a href="https://facebook.com" className="fa fa-facebook"></a>
 					<a href="https://twitter.com" className="fa fa-twitter"></a>
 					<a href="https://youtube.com" className="fa fa-youtube"></a>

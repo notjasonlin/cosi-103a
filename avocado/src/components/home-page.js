@@ -4,7 +4,7 @@ import "../cssfiles/home-page.css";
 function HomePage() {
 	return (
 		<div className="home-page">
-			<h1 className="header">Welcome to Avocado Inc.!</h1>
+			<h1 className="header">Welcome to Avocado Inc!</h1>
 			<p className="directions">
 				Click on the avocado to see our delicious recipes!
 			</p>
