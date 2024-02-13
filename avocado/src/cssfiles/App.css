@@ -7,6 +7,26 @@
 .App-logo {
 	position: relative;
 	height: 100%;
+	left: 20px;
+	animation: App-logo-shake 3 0.3s linear;
+}
+
+@keyframes App-logo-shake {
+	0% {
+		transform: rotate(0deg) translate(0px, 0px);
+	}
+	25% {
+		transform: rotate(100deg) translate(40px, 40px);
+	}
+	50% {
+		transform: rotate(0deg) translate(0px, 0px);
+	}
+	75% {
+		transform: rotate(-100deg) translate(-40px, 40px);
+	}
+	100% {
+		transform: rotate(0deg) translate(0px, 0px);
+	}
 }
 
 .App-header {
@@ -36,39 +56,38 @@
 
 /* Navigation Bar Styling */
 .navbar {
-  background-color: darkgreen;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  /* Adjust the space between navigation links */
-  padding: 10px 0;
-  font-size: 150%;
+	background-color: darkgreen;
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+	/* Adjust the space between navigation links */
+	padding: 10px 0;
+	font-size: 150%;
 }
 
 .nav-link {
-  background-color: darkgreen;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s, color 0.3s;
+	background-color: darkgreen;
+	color: white;
+	padding: 10px 20px;
+	border-radius: 5px;
+	text-decoration: none;
+	transition: background-color 0.3s, color 0.3s;
 }
 
 .nav-link:hover,
 .nav-link:focus {
-  background-color: green;
-  /* Lighter shade when hovered */
-  color: #ffffff;
-  /* You can change this if you want a different hover text color */
+	background-color: green;
+	/* Lighter shade when hovered */
+	color: #ffffff;
+	/* You can change this if you want a different hover text color */
 }
 
 /* Active Link Styling */
 .nav-link.active {
-  background-color: #004d00;
-  /* Darker shade for the active page */
-  color: #ffffff;
+	background-color: #004d00;
+	/* Darker shade for the active page */
+	color: #ffffff;
 }
-
 
 .App-body {
 	display: flex;
