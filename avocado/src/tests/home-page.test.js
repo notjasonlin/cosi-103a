@@ -20,7 +20,7 @@ test("renders the home page properly", async () => {
 		</Router>
 	);
 	await waitFor(() => {
-		const header = screen.getByText("Welcome to Avocado Inc.!");
+		const header = screen.getByText("Welcome to Avocado Inc!");
 		expect(header).toBeInTheDocument();
 		const directions = screen.getByText(
 			"Click on the avocado to see our delicious recipes!"
