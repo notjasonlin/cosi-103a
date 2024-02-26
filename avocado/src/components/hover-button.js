@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { GroceryCard } from "./grocery-card";
+import GroceryCard from "./grocery-card";
 
 const HoverButton = () => {
   const [isHovered, setHovered] = useState(false);

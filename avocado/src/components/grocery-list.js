@@ -2,7 +2,7 @@ import React from 'react';
 import { useGroceryContext } from '../data/grocery-context';
 
 const GroceryList = () => {
-  const { items, removeGrocery } = useTodoContext();
+  const { items, removeGrocery } = useGroceryContext();
 
   return (
     <div>

@@ -14,7 +14,7 @@ import RecipeList from "./components/recipes";
 import TeamContainer from "./components/teamContainer";
 import HomePage from "./components/home-page";
 import { GroceryProvider } from "./data/grocery-context";
-import HoverButton from "./components/hover-button";
+import GroceryButton from "./components/grocery-button";
 
 function App() {
 	return (
@@ -46,7 +46,7 @@ function App() {
 							Team
 						</NavLink>
 					</nav>
-					<HoverButton>Test</HoverButton>
+					<GroceryButton/>
 
 					<Routes>
 						<Route path="/team" element={<TeamContainer />} />
