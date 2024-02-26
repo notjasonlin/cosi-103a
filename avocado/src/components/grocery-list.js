@@ -10,7 +10,7 @@ const GroceryList = () => {
       <ul>
         {items.map((item) => (
           <li key={item.id}>
-            {item.text}
+            {item.item}
             <button onClick={() => removeGrocery(item.id)}>Remove</button>
           </li>
         ))}
