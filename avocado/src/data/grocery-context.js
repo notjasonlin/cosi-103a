@@ -13,8 +13,12 @@ export const GroceryProvider = ({ children }) => {
         setItems(items.filter((item) => item.id !== id));
     };
 
+    const removeAllGrocery = () => {
+        setItems([]);
+    };
+
     return (
-        <GroceryContext.Provider value={{ items, addGrocery, removeGrocery }}>
+        <GroceryContext.Provider value={{ items, addGrocery, removeGrocery, removeAllGrocery }}>
             { children }
         </GroceryContext.Provider>
     );
