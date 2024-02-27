@@ -25,7 +25,7 @@ const RecipeList = ({ recipeId }) => {
 
   return (
     <div className="recipe-list">
-      <div key={selectedRecipe.id} className="recipe">
+      <div key={selectedRecipe.id} className="recipe" data-testid="recipe-card">
         <h1>{selectedRecipe.name}</h1>
         <img src={selectedRecipe.image} alt={selectedRecipe.name} />
         <div className="description">
@@ -60,4 +60,3 @@ const RecipeList = ({ recipeId }) => {
 };
 
 export default RecipeList;
-
