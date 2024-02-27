@@ -36,8 +36,9 @@ const RecipeList = ({ recipeId }) => {
           <ul>
             {selectedRecipe.ingredients.map((ingredient, index) => (
               <li key={index}>
+                {ingredient}{" "}
                 <button onClick={() => handleAddToGrocery(ingredient)}>
-                  {ingredient}
+                  +
                 </button>
               </li>
             ))}
