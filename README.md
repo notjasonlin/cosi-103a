@@ -7,6 +7,7 @@ Website includes a home page with an interactible avocado.<br>
 Clicking this avocado redirects the user to the recipes list.<br>
 Each recipe card in the list has link to webpage for entire recipe<br>
 Also includes team page for authors of website.<br>
+Has grocery list menu on each page which allows user to add recipe ingredients to list<br>
 
 
 Testing: <br>
