@@ -4,9 +4,9 @@ WORKDIR /usr
 
 COPY avocado/src/ ./src
 COPY avocado/public ./public
-COPY avocado/package.json package.json
-COPY avocado/package-lock.json package-lock.json
-
+COPY ./package.json package.json
+COPY ./package-lock.json package-lock.json
+COPY ./babel.config.js babel.config.js
 
 RUN npm install
 RUN tar -czvf node_modules.tar.gz ./node_modules
