@@ -1,0 +1,54 @@
+/* GroceryCard.css */
+.groceryCard {
+    background-color: #272727;
+    width: 30%;
+    min-height: 200px;
+    /* Adjust min-height as needed for initial size */
+    margin: 1rem;
+    border-color: green;
+    border-width: 0.1rem;
+    box-shadow: 0 0 0.5rem 0.3rem green;
+    position: absolute;
+    z-index: 1000;
+    overflow: hidden;
+    /* Adjust this as necessary */
+}
+
+.groceryCard {
+    /* Other styles */
+    max-height: 500px;
+    /* Example: sets a maximum height */
+    overflow-y: auto;
+    /* Enables vertical scrolling */
+}
+
+/* GroceryCard.css */
+.groceryCard {
+    /* Existing styles */
+    max-height: 500px;
+    /* Example: adjust as necessary */
+    overflow-y: auto;
+}
+
+/* Styles for the scrollbar track (background) */
+.groceryCard::-webkit-scrollbar {
+    width: 5px;
+    height: 10px;
+    /* Reduced width for a thinner scrollbar */
+}
+
+/* Handle */
+.groceryCard::-webkit-scrollbar-thumb {
+    background-color: #4CAF50;
+    /* Adjust the color to match your theme */
+    border-radius: 2.5px;
+    /* Smaller radius for a sleeker look */
+    border: 1px solid #272727;
+    /* Optional: adjust the border for subtlety */
+}
+
+/* Handle on hover */
+.groceryCard::-webkit-scrollbar-thumb:hover {
+    background-color: #357a38;
+    /* Darker shade for hover effect */
+}
