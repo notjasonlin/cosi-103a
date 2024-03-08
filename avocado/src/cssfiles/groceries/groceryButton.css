@@ -1,0 +1,21 @@
+/* Assuming we're adding to GroceryList.css or creating GroceryButton.css */
+
+
+.openButton,
+.closedButton {
+    background-color: #4CAF50;
+    /* Match the grocery list button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 15px;
+    font-size: 16px;
+    /* Adjust size as needed */
+}
+
+.openButton:hover,
+.closedButton:hover {
+    background-color: #357a38;
+    /* Darker green on hover, match grocery list button */
+}

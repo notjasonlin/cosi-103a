@@ -1,0 +1,42 @@
+.grocery-list-container {
+    font-family: Arial, sans-serif;
+    color: #333;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.grocery-list-title {
+    color: #4CAF50;
+}
+
+.grocery-list-button,
+.item-remove-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-left: 10px;
+}
+
+.grocery-list-button:hover,
+.item-remove-button:hover {
+    background-color: #357a38;
+}
+
+.grocery-list-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.grocery-list-container li {
+    margin: 10px 0;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    /* Changed to black as per your request for all recipe content */
+}
+
+/* Corrected typo in 'li' from 'padding: 5px;t' to 'padding: 5px;' */
+/* Changed 'li' color from white to black to match your request for text color */
