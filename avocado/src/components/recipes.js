@@ -1,11 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import recipesData from "../data/recipeData.js";
 import { useGroceryContext } from "../data/grocery-context";
 import "../cssfiles/dropDown.css";
 import "../cssfiles/recipes.css";
 
-const RecipeList = ({ recipeId }) => {
+const RecipeList = ({ recipeId }, { recipesData }) => {
 	const { addGrocery } = useGroceryContext();
 
 	// Convert recipeId to an integer

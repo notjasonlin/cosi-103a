@@ -1,7 +1,11 @@
+import recipeData from "./data/recipeData";
+
 const express = require("express");
 const app = express();
 
-app.get("/api", (req, res) => {});
+app.get("/api", (req, res) => {
+	res.json({ recipeData });
+});
 
 app.post("/api", (req, res) => {});
 

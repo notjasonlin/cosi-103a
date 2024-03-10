@@ -18,19 +18,16 @@ import GroceryButton from "./components/grocery-button";
 import { useEffect, useState } from "react";
 
 function App() {
-	const [backendData, setBackendData] = useState([{}])
+	const [backendData, setBackendData] = useState([{}]);
 
 	useEffect(() => {
-		fetch("/api").then(
-			response => response.json()
-		).then(
-			data => {
-				setBackendData(data)
-			}
-		)
-	}, [])
+		fetch("/api")
+			.then((response) => response.json())
+			.then((data) => {
+				setBackendData(data);
+			});
+	}, []);
 
-	
 	return (
 		<Router>
 			<GroceryProvider>
@@ -60,13 +57,19 @@ function App() {
 							Team
 						</NavLink>
 					</nav>
-					<GroceryButton/>
+					<GroceryButton />
 
 					<Routes>
 						<Route path="/team" element={<TeamContainer />} />
-						<Route path="/recipes" element={<RecipeContainer />} />
+						<Route
+							path="/recipes"
+							element={<MakeRecipeContainers backendData={backendData} />}
+						/>
 						<Route path="/" element={<HomePage />} exact />
-						<Route path="/recipe/:recipeId" element={<RecipeListPage />} />
+						<Route
+							path="/recipe/:recipeId"
+							element={<RecipeListPage backendData={backendData} />}
+						/>
 					</Routes>
 
 					<footer className="footer">
@@ -83,9 +86,13 @@ function App() {
 	);
 }
 
-function RecipeListPage() {
+function RecipeListPage({ backendData }) {
 	const { recipeId } = useParams(); // Extract recipeId from URL params
-	return <RecipeList recipeId={recipeId} />;
+	return <RecipeList recipeId={recipeId} recipesData={backendData} />;
+}
+
+function MakeRecipeContainers({ backendData }) {
+	return <RecipeContainer recipesData={backendData} />;
 }
 
 export default App;
