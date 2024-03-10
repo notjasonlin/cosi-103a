@@ -19,7 +19,7 @@ app.get("/api", (req, res) => {
 		const recipeData = JSON.parse(data);
 
 		// Send the JSON data as a response
-		res.json({ recipeData });
+		req.json({ recipeData });
     });
 });
 
