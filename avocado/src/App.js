@@ -15,8 +15,22 @@ import TeamContainer from "./components/teamContainer";
 import HomePage from "./components/home-page";
 import { GroceryProvider } from "./data/grocery-context";
 import GroceryButton from "./components/grocery-button";
+import { useEffect, useState } from "react";
 
 function App() {
+	const [backendData, setBackendData] = useState([{}])
+
+	useEffect(() => {
+		fetch("/api").then(
+			response => response.json()
+		).then(
+			data => {
+				setBackendData(data)
+			}
+		)
+	}, [])
+
+	
 	return (
 		<Router>
 			<GroceryProvider>
