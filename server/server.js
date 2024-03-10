@@ -7,8 +7,7 @@ const app = express();
 const jsonFilePath = path.join(__dirname, "data", "recipeData.json");
 
 app.get("/api", (req, res) => {
-
-    fs.readFile(jsonFilePath, "utf8", (err, data) => {
+	fs.readFile(jsonFilePath, "utf8", (err, data) => {
 		if (err) {
 			console.error("Error reading JSON file:", err);
 			res.status(500).json({ error: "Internal Server Error" });
@@ -20,7 +19,7 @@ app.get("/api", (req, res) => {
 
 		// Send the JSON data as a response
 		res.json({ recipeData });
-    });
+	});
 });
 
 app.post("/api", (req, res) => {});
