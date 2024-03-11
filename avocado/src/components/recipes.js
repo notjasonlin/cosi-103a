@@ -4,7 +4,10 @@ import { useGroceryContext } from "../data/grocery-context";
 import "../cssfiles/dropDown.css";
 import "../cssfiles/recipes.css";
 
-const RecipeList = ({ recipeId }, { recipesData }) => {
+const RecipeList = ({ recipeId, recipesData }) => {
+	console.log("recipesData: ", recipesData);
+	console.log("recipeId: ", recipeId);
+
 	const { addGrocery } = useGroceryContext();
 
 	// Convert recipeId to an integer

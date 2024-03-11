@@ -9,7 +9,7 @@ const app = express();
 // callback(null, true);
 
 const corsOptions = {
-	origin: "*",
+	origin: "*", // Need to change this to proper header
 	methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 	preflightContinue: true,
 	optionsSuccessStatus: 204,
@@ -40,7 +40,6 @@ app.get("/api", cors(corsOptions), (req, res) => {
 
 		// Send the JSON data as a response
 		res.json({ recipeData });
-		console.log("YES");
 	});
 });
 

@@ -21,14 +21,15 @@ function App() {
 	const [backendData, setBackendData] = useState([{}]);
 
 	useEffect(() => {
-		let data = null;
 		fetch("http://localhost:5000/api").then(async (response) => {
-			data = await response.json();
+			let data = await response.json();
 			setBackendData(data.recipeData);
 		});
+	}, []);
 
-		console.log(backendData);
-	});
+	useEffect(() => {
+		console.log("backendData: ", backendData);
+	}, [backendData]);
 
 	return (
 		<Router>
@@ -90,10 +91,12 @@ function App() {
 
 function RecipeListPage({ backendData }) {
 	const { recipeId } = useParams(); // Extract recipeId from URL params
+	console.log("Data to Recipes: ", backendData);
 	return <RecipeList recipeId={recipeId} recipesData={backendData} />;
 }
 
 function MakeRecipeContainers({ backendData }) {
+	// console.log(backendData);
 	return <RecipeContainer recipesData={backendData} />;
 }
 
