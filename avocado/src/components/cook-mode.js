@@ -14,7 +14,7 @@ function CookMode({ recipeId }) {
   }
 
   return (
-    <div className="cookMode">
+    <div className="cookMode" data-testid="cook-mode">
       <Container className="cookModeContainer">
         <RecipeCarousel selectedRecipe={selectedRecipe}></RecipeCarousel>
 		<Link to={`/recipe/${recipeId}`}>Go Back</Link>

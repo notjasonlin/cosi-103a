@@ -36,8 +36,8 @@ const Carousel = ({ items }) => {
 const RecipeCarousel = ({ selectedRecipe }) => {
   return (
     <div className="recipe-carousel-container">
-      {selectedRecipe.ingredients.length > 0 && (
-        <Carousel items={selectedRecipe.ingredients} />
+      {selectedRecipe.instructions.length > 0 && (
+        <Carousel items={selectedRecipe.instructions} />
       )}
     </div>
   );
