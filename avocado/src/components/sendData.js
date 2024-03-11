@@ -3,10 +3,12 @@ import React from "react";
 /**
  * Sends data through a post request to the backend server
  */
-function PostData({ data }) {
+function PostData(data) {
 	const url = "http://localhost:5000/api";
 
-	fetch(url, data, {
+	console.log("Trying to post data: ", data);
+
+	fetch(url, {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -22,6 +24,8 @@ function PostData({ data }) {
 
 function GetInputtedData() {
 	const input = document.getElementById("input").value;
+	document.getElementById("input").value = "";
+	console.log("input: ", input);
 	PostData(input);
 }
 

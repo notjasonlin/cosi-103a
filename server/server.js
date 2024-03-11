@@ -43,7 +43,11 @@ app.get("/api", cors(corsOptions), (req, res) => {
 	});
 });
 
-app.post("/api", (req, res) => {});
+app.post("/api", cors(corsOptions), (req, res) => {
+	console.log("POST request received at /api");
+	console.log("req.body: ", req.body);
+	res.status(200).send("POST request received");
+});
 
 app.listen(5000, () => {
 	console.log("Server started on port 5000");
