@@ -15,6 +15,7 @@ import TeamContainer from "./components/teamContainer";
 import HomePage from "./components/home-page";
 import { GroceryProvider } from "./data/grocery-context";
 import GroceryButton from "./components/grocery-button";
+import CookMode from "./components/cook-mode";
 
 function App() {
 	return (
@@ -53,6 +54,8 @@ function App() {
 						<Route path="/recipes" element={<RecipeContainer />} />
 						<Route path="/" element={<HomePage />} exact />
 						<Route path="/recipe/:recipeId" element={<RecipeListPage />} />
+						<Route path="/recipe/:recipeId/cookingMode" element={<CookModePage />} />
+						
 					</Routes>
 
 					<footer className="footer">
@@ -73,5 +76,11 @@ function RecipeListPage() {
 	const { recipeId } = useParams(); // Extract recipeId from URL params
 	return <RecipeList recipeId={recipeId} />;
 }
+
+function CookModePage() {
+	const { recipeId } = useParams(); // Extract recipeId from URL params
+	return <CookMode recipeId={recipeId} />;
+}
+
 
 export default App;
