@@ -1,0 +1,14 @@
+recipe-carousel-container {
+    width: 100%; /* Ensure the carousel takes up the full width of its container */
+  }
+  
+  .carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .carousel-content {
+    flex-grow: 1; /* Allow the content to take up all available space */
+    overflow: hidden; /* Hide overflow to prevent content from overflowing */
+  }

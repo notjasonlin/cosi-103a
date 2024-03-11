@@ -19,6 +19,7 @@ import GroceryButton from "./components/grocery-button";
 import DataInputForm from "./components/sendData";
 
 import { useEffect, useState } from "react";
+import CookMode from "./components/cook-mode";
 
 function App() {
 	const [backendData, setBackendData] = useState([{}]);
@@ -80,6 +81,8 @@ function App() {
 							element={<RecipeListPage backendData={backendData} />}
 						/>
 						<Route path="/add-recipes" element={<DataInputForm />} />
+						<Route path="/recipe/:recipeId/cookingMode" element={<CookModePage backendData={backendData}/>} />
+						
 					</Routes>
 
 					<footer className="footer">
@@ -106,5 +109,11 @@ function MakeRecipeContainers({ backendData }) {
 	// console.log(backendData);
 	return <RecipeContainer recipesData={backendData} />;
 }
+
+function CookModePage({ backendData }) {
+	const { recipeId } = useParams(); // Extract recipeId from URL params
+	return <CookMode recipeId={recipeId} recipesData={backendData} />;
+}
+
 
 export default App;

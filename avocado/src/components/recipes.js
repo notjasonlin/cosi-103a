@@ -1,6 +1,7 @@
-import React from "react";
+import React from 'react';
 import { Link } from "react-router-dom";
-import { useGroceryContext } from "../data/grocery-context";
+import { Button } from 'react-bootstrap';
+import { useGroceryContext } from '../data/grocery-context';
 import "../cssfiles/dropDown.css";
 import "../cssfiles/recipes.css";
 
@@ -25,40 +26,45 @@ const RecipeList = ({ recipeId, recipesData }) => {
 		addGrocery(ingredient);
 	};
 
-	return (
-		<div className="recipe-list">
-			<div key={selectedRecipe.id} className="recipe" data-testid="recipe-card">
-				<h1>{selectedRecipe.name}</h1>
-				<img src={selectedRecipe.image} alt={selectedRecipe.name} />
-				<div className="description">
-					<p>{selectedRecipe.description}</p>
-				</div>
-				<div className="ingredients">
-					<h2>Ingredients</h2>
-					<ul>
-						{selectedRecipe.ingredients.map((ingredient, index) => (
-							<li key={index}>
-								{ingredient}{" "}
-								<button onClick={() => handleAddToGrocery(ingredient)}>
-									+
-								</button>
-							</li>
-						))}
-					</ul>
-				</div>
-				<div className="instructions">
-					<h2>Instructions</h2>
-					<ol>
-						{selectedRecipe.instructions.map((instruction, index) => (
-							<li key={index}>{instruction}</li>
-						))}
-					</ol>
-				</div>
-				{/* Back button */}
-				<Link to="/">Go Back</Link>
-			</div>
-		</div>
-	);
+  return (
+    <div className="recipe-list">
+      <div key={selectedRecipe.id} className="recipe" data-testid="recipe-card">
+        <h1>{selectedRecipe.name}</h1>
+		<Link to={`/recipe/${recipeId}/cookingMode`} style={{ textDecoration: "none" }}>
+					<Button variant="success" style={{ borderRadius: "2rem" }}>
+						Cooking Mode
+					</Button>
+				</Link>
+        <img src={selectedRecipe.image} alt={selectedRecipe.name} />
+        <div className="description">
+          <p>{selectedRecipe.description}</p>
+        </div>
+        <div className="ingredients">
+          <h2>Ingredients</h2>
+          <ul>
+            {selectedRecipe.ingredients.map((ingredient, index) => (
+              <li key={index}>
+                {ingredient}{" "}
+                <button onClick={() => handleAddToGrocery(ingredient)}>
+                  +
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="instructions">
+          <h2>Instructions</h2>
+          <ol>
+            {selectedRecipe.instructions.map((instruction, index) => (
+              <li key={index}>{instruction}</li>
+            ))}
+          </ol>
+        </div>
+        {/* Back button */}
+        <Link to="/">Go Back</Link>
+      </div>
+    </div>
+  );
 };
 
 export default RecipeList;
