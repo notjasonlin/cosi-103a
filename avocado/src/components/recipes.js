@@ -1,6 +1,7 @@
-import React from "react";
+import React from 'react';
 import { Link } from "react-router-dom";
 import recipesData from "../data/recipeData.js";
+import { Button } from 'react-bootstrap';
 import { useGroceryContext } from '../data/grocery-context';
 import "../cssfiles/dropDown.css";
 import "../cssfiles/recipes.css";
@@ -27,6 +28,11 @@ const RecipeList = ({ recipeId }) => {
     <div className="recipe-list">
       <div key={selectedRecipe.id} className="recipe" data-testid="recipe-card">
         <h1>{selectedRecipe.name}</h1>
+        <Link to={`/recipe/${recipeId}/cookingMode`} style={{ textDecoration: "none" }}>
+					<Button variant="success" style={{ borderRadius: "2rem" }}>
+						Cooking Mode
+					</Button>
+				</Link>
         <img src={selectedRecipe.image} alt={selectedRecipe.name} />
         <div className="description">
           <p>{selectedRecipe.description}</p>

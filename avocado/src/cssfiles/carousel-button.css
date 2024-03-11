@@ -1,0 +1,24 @@
+/* CarouselButtons.css */
+
+.carousel-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 15px;
+    font-size: 16px;
+    margin-right: 10px; /* Adjust spacing between buttons if needed */
+  }
+  
+  .carousel-button:hover {
+    background-color: #45a049; /* Darken the background on hover if desired */
+  }
+
+  .carousel-button.left {
+    margin-right: auto;
+  }
+  
+  .carousel-button.right {
+    margin-left: auto;
+  }
