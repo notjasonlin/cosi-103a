@@ -2,8 +2,7 @@ const express = require("express");
 const fs = require("fs");
 const path = require("path");
 const cors = require("cors");
-const bodyParser = require('body-parser');
-
+const bodyParser = require("body-parser");
 
 // Your existing setup continues...
 
@@ -11,8 +10,7 @@ const app = express();
 
 // Correct placement for body-parser middleware
 app.use(bodyParser.json());
-app.use(express.static('public'));
-
+app.use(express.static("public"));
 
 const corsOptions = {
 	origin: "*", // Replace this with your client's URL for better security in production
@@ -26,52 +24,28 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 const jsonFilePath = path.join(__dirname, "data", "recipeData.json");
+const recipeData = JSON.parse(fs.readFileSync(jsonFilePath, "utf8"));
 
 // GET route
 app.get("/api", (req, res) => {
 	console.log("GET request received at /api");
-	fs.readFile(jsonFilePath, "utf8", (err, data) => {
-		if (err) {
-			console.error("Error reading JSON file:", err);
-			res.status(500).json({ error: "Internal Server Error" });
-			return;
-		}
-		const recipeData = JSON.parse(data);
-		res.json({ recipeData });
-	});
+	res.json(recipeData);
 });
 
 app.post("/api", (req, res) => {
 	const newRecipe = req.body;
 
-	fs.readFile(jsonFilePath, 'utf8', (err, data) => {
-		if (err) {
-			console.error("Error reading the file:", err);
-			return res.status(500).send("Error reading the file.");
-		}
+	// Assign a new ID
+	const newId =
+		recipeData.length > 0
+			? Math.max(...recipeData.map((recipe) => recipe.id)) + 1
+			: 0;
+	newRecipe.id = newId;
 
-		let recipes = JSON.parse(data);
+	const newImage = "/images/avocado-transparent.png";
+	newRecipe.image = newImage;
 
-		// Assign a new ID
-		const newId = recipes.length > 0 ? Math.max(...recipes.map(recipe => recipe.id)) + 1 : 0;
-		newRecipe.id = newId;
-
-		const newImage = '/images/avocado-transparent.png';
-		console.log(newRecipe.image);
-		newRecipe.image = newImage;
-
-		recipes.push(newRecipe); // Append the new recipe
-
-		fs.writeFile(jsonFilePath, JSON.stringify(recipes, null, 2), 'utf8', (err) => {
-			if (err) {
-				console.error("Error writing the file:", err);
-				return res.status(500).send("Error writing the file.");
-			}
-
-			res.status(200).send("Recipe added successfully!");
-		});
-
-	});
+	recipeData.push(newRecipe); // Append the new recipe to the existing data
 });
 
 // Start the server
