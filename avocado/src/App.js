@@ -24,7 +24,7 @@ function App() {
 	const [backendData, setBackendData] = useState([{}]);
 
 	useEffect(() => {
-		fetch("http://localhost:5000/api").then(async (response) => {
+		fetch("http://localhost:5001/api").then(async (response) => {
 			let data = await response.json();
 			setBackendData(data.recipeData);
 		});
