@@ -1,11 +1,10 @@
 import React from "react";
 import RecipeCarousel from "./carousel";
-import recipesData from "../data/recipeData";
 import Container from "react-bootstrap/Container";
 import { Link } from "react-router-dom";
 import "../cssfiles/cook-mode.css";
 
-function CookMode({ recipeId }) {
+function CookMode({ recipeId, recipesData }) {
   const id = parseInt(recipeId);
   const selectedRecipe = recipesData.find((recipe) => recipe.id === id);
 

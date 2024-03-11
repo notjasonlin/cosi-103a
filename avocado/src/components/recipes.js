@@ -1,34 +1,36 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import recipesData from "../data/recipeData.js";
 import { Button } from 'react-bootstrap';
 import { useGroceryContext } from '../data/grocery-context';
 import "../cssfiles/dropDown.css";
 import "../cssfiles/recipes.css";
 
-const RecipeList = ({ recipeId }) => {
-  const { addGrocery } = useGroceryContext();
+const RecipeList = ({ recipeId, recipesData }) => {
+	console.log("recipesData: ", recipesData);
+	console.log("recipeId: ", recipeId);
 
-  // Convert recipeId to an integer
-  const id = parseInt(recipeId);
+	const { addGrocery } = useGroceryContext();
 
-  // Find the recipe with the specified id
-  const selectedRecipe = recipesData.find((recipe) => recipe.id === id);
+	// Convert recipeId to an integer
+	const id = parseInt(recipeId);
 
-  // Check if a recipe with the specified id exists
-  if (!selectedRecipe) {
-    return <div></div>;
-  }
+	// Find the recipe with the specified id
+	const selectedRecipe = recipesData.find((recipe) => recipe.id === id);
 
-  const handleAddToGrocery = (ingredient) => {
-    addGrocery(ingredient);
-  };
+	// Check if a recipe with the specified id exists
+	if (!selectedRecipe) {
+		return <div></div>;
+	}
+
+	const handleAddToGrocery = (ingredient) => {
+		addGrocery(ingredient);
+	};
 
   return (
     <div className="recipe-list">
       <div key={selectedRecipe.id} className="recipe" data-testid="recipe-card">
         <h1>{selectedRecipe.name}</h1>
-        <Link to={`/recipe/${recipeId}/cookingMode`} style={{ textDecoration: "none" }}>
+		<Link to={`/recipe/${recipeId}/cookingMode`} style={{ textDecoration: "none" }}>
 					<Button variant="success" style={{ borderRadius: "2rem" }}>
 						Cooking Mode
 					</Button>

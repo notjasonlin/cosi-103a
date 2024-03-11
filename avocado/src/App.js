@@ -9,15 +9,32 @@ import {
 } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./cssfiles/App.css";
+
 import RecipeContainer from "./components/recipeContainer";
 import RecipeList from "./components/recipes";
 import TeamContainer from "./components/teamContainer";
 import HomePage from "./components/home-page";
 import { GroceryProvider } from "./data/grocery-context";
 import GroceryButton from "./components/grocery-button";
+import DataInputForm from "./components/sendData";
+
+import { useEffect, useState } from "react";
 import CookMode from "./components/cook-mode";
 
 function App() {
+	const [backendData, setBackendData] = useState([{}]);
+
+	useEffect(() => {
+		fetch("http://localhost:5001/api").then(async (response) => {
+			let data = await response.json();
+			setBackendData(data);
+		});
+	}, []);
+
+	useEffect(() => {
+		console.log("backendData: ", backendData);
+	}, [backendData]);
+
 	return (
 		<Router>
 			<GroceryProvider>
@@ -46,15 +63,25 @@ function App() {
 						<NavLink to="/team" className="nav-link">
 							Team
 						</NavLink>
+						<NavLink to="/add-recipes" className="nav-link">
+							Add Your Own Recipes
+						</NavLink>
 					</nav>
-					<GroceryButton/>
+					<GroceryButton />
 
 					<Routes>
 						<Route path="/team" element={<TeamContainer />} />
-						<Route path="/recipes" element={<RecipeContainer />} />
+						<Route
+							path="/recipes"
+							element={<MakeRecipeContainers backendData={backendData} />}
+						/>
 						<Route path="/" element={<HomePage />} exact />
-						<Route path="/recipe/:recipeId" element={<RecipeListPage />} />
-						<Route path="/recipe/:recipeId/cookingMode" element={<CookModePage />} />
+						<Route
+							path="/recipe/:recipeId"
+							element={<RecipeListPage backendData={backendData} />}
+						/>
+						<Route path="/add-recipes" element={<DataInputForm />} />
+						<Route path="/recipe/:recipeId/cookingMode" element={<CookModePage backendData={backendData}/>} />
 						
 					</Routes>
 
@@ -72,14 +99,20 @@ function App() {
 	);
 }
 
-function RecipeListPage() {
+function RecipeListPage({ backendData }) {
 	const { recipeId } = useParams(); // Extract recipeId from URL params
-	return <RecipeList recipeId={recipeId} />;
+	console.log("Data to Recipes: ", backendData);
+	return <RecipeList recipeId={recipeId} recipesData={backendData} />;
 }
 
-function CookModePage() {
+function MakeRecipeContainers({ backendData }) {
+	// console.log(backendData);
+	return <RecipeContainer recipesData={backendData} />;
+}
+
+function CookModePage({ backendData }) {
 	const { recipeId } = useParams(); // Extract recipeId from URL params
-	return <CookMode recipeId={recipeId} />;
+	return <CookMode recipeId={recipeId} recipesData={backendData} />;
 }
 
 
