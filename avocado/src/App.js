@@ -9,12 +9,15 @@ import {
 } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./cssfiles/App.css";
+
 import RecipeContainer from "./components/recipeContainer";
 import RecipeList from "./components/recipes";
 import TeamContainer from "./components/teamContainer";
 import HomePage from "./components/home-page";
 import { GroceryProvider } from "./data/grocery-context";
 import GroceryButton from "./components/grocery-button";
+import DataInputForm from "./components/sendData";
+
 import { useEffect, useState } from "react";
 
 function App() {
@@ -59,6 +62,9 @@ function App() {
 						<NavLink to="/team" className="nav-link">
 							Team
 						</NavLink>
+						<NavLink to="/add-recipes" className="nav-link">
+							Add Your Own Recipes
+						</NavLink>
 					</nav>
 					<GroceryButton />
 
@@ -73,6 +79,7 @@ function App() {
 							path="/recipe/:recipeId"
 							element={<RecipeListPage backendData={backendData} />}
 						/>
+						<Route path="/add-recipes" element={<DataInputForm />} />
 					</Routes>
 
 					<footer className="footer">
