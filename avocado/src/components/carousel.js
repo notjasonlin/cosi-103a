@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import '../cssfiles/carousel-button.css';
+import '../cssfiles/carousel.css';
 
 const Carousel = ({ items }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -19,18 +21,21 @@ const Carousel = ({ items }) => {
 
   return (
     <div className="carousel">
-      <button onClick={prevItem}>Previous</button>
+      <button className="carousel-button left" onClick={prevItem}>Previous</button>
       <div className="carousel-content">
-        <p>{items[currentIndex]}</p>
+        <br/>
+        <p style={{ margin: 0, padding: "20px", fontSize: "2em", fontWeight: "bold", textAlign: "center" }}>Step {currentIndex+1}</p>
+        <p style={{ margin: 0, padding: "20px", fontSize: "2em", fontWeight: "bold", textAlign: "center" }}>{items[currentIndex]}</p>
+        <br/>
       </div>
-      <button onClick={nextItem}>Next</button>
+      <button className="carousel-button right" onClick={nextItem}>Next</button>
     </div>
   );
 };
 
 const RecipeCarousel = ({ selectedRecipe }) => {
   return (
-    <div>
+    <div className="recipe-carousel-container">
       {selectedRecipe.ingredients.length > 0 && (
         <Carousel items={selectedRecipe.ingredients} />
       )}
