@@ -15,14 +15,14 @@ function PostData(data) {
         },
         body: JSON.stringify(data), // Converts the data object to a JSON string
     })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => console.log("Response data:", data))
-    .catch(error => console.error("Error:", error));
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => console.log("Response data:", data))
+        .catch(error => console.error("Error:", error));
 }
 
 function DataInputForm() {
@@ -57,5 +57,5 @@ function DataInputForm() {
         </div>
     );
 }
-	
+
 export default DataInputForm;
