@@ -5,6 +5,9 @@ import RecipeCard from "./recipeCard";
 
 // Container for all recipe cards
 function RecipeContainer({ recipesData }) {
+	if (!recipesData) {
+		return <div></div>;
+	}
 	return (
 		<Container>
 			<Row>

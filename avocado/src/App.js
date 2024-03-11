@@ -21,15 +21,14 @@ function App() {
 	const [backendData, setBackendData] = useState([{}]);
 
 	useEffect(() => {
-		fetch("http://localhost:5000/api")
-			.then((response) => {
-				console.log(response);
-				response.json();
-			})
-			.then((data) => {
-				setBackendData(data);
-			});
-	}, []);
+		let data = null;
+		fetch("http://localhost:5000/api").then(async (response) => {
+			data = await response.json();
+			setBackendData(data.recipeData);
+		});
+
+		console.log(backendData);
+	});
 
 	return (
 		<Router>
