@@ -25,7 +25,7 @@ const Carousel = ({ items }) => {
       <div className="carousel-content">
         <br/>
         <p style={{ margin: 0, padding: "20px", fontSize: "2em", fontWeight: "bold", textAlign: "center" }}>Step {currentIndex+1}</p>
-        <p style={{ margin: 0, padding: "20px", fontSize: "2em", fontWeight: "bold", textAlign: "center" }}>{items[currentIndex]}</p>
+        <p style={{ margin: 0, padding: "20px", fontSize: "2em", textAlign: "center" }}>{items[currentIndex]}</p>
         <br/>
       </div>
       <button className="carousel-button right" onClick={nextItem}>Next</button>
