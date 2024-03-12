@@ -6,8 +6,6 @@ import "../cssfiles/dropDown.css";
 import "../cssfiles/recipes.css";
 
 const RecipeList = ({ recipeId, recipesData }) => {
-  console.log("recipesData: ", recipesData);
-  console.log("recipeId: ", recipeId);
 
   const { addGrocery } = useGroceryContext();
 
