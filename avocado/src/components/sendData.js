@@ -1,8 +1,6 @@
 import React, { useRef } from "react";
+import '../cssfiles/sendData.css'; // Make sure the path matches where you save the CSS file
 
-/**
- * Sends data through a post request to the backend server.
- */
 function PostData(data) {
     const url = "http://localhost:5001/api";
 
@@ -13,7 +11,7 @@ function PostData(data) {
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(data), // Converts the data object to a JSON string
+        body: JSON.stringify(data),
     })
         .then(response => {
             if (!response.ok) {
@@ -26,34 +24,35 @@ function PostData(data) {
 }
 
 function DataInputForm() {
-    const inputRef = useRef(null); // Use useRef for direct DOM access
+    const inputRef = useRef(null);
 
     function GetInputtedData() {
         try {
-            const input = inputRef.current.value; // Access the textarea value using ref
-            const inputData = JSON.parse(input); // Parse the input text as JSON
+            const input = inputRef.current.value;
+            const inputData = JSON.parse(input);
             console.log("Parsed input:", inputData);
-            PostData(inputData); // Send the parsed data to the server
-            inputRef.current.value = ""; // Clear the textarea after sending data
+            PostData(inputData);
+            inputRef.current.value = ""; // Clear the textarea after sending
         } catch (error) {
-            console.error("Parsing error:", error); // Log parsing errors
+            console.error("Parsing error:", error);
         }
     }
 
     return (
-        <div
-            style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                border: "2px solid black",
-                padding: "20px",
-                marginTop: "20px",
-            }}
-        >
+        <div className="recipeFormContainer">
             <h1>Input Your Own Recipe in JSON Format</h1>
-            <textarea ref={inputRef} rows="10" cols="50" placeholder="Enter JSON format data here"></textarea>
-            <button onClick={GetInputtedData} style={{ marginTop: "10px" }}>Submit</button>
+            <textarea
+                className="recipeTextArea"
+                ref={inputRef}
+                rows="10"
+                cols="50"
+                placeholder="Enter JSON format data here">
+            </textarea>
+            <button
+                className="recipeSubmitButton"
+                onClick={GetInputtedData}>
+                Submit
+            </button>
         </div>
     );
 }
