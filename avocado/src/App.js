@@ -81,8 +81,8 @@ function App() {
 							element={<RecipeListPage backendData={backendData} />}
 						/>
 						<Route path="/add-recipes" element={<DataInputForm />} />
-						<Route path="/recipe/:recipeId/cookingMode" element={<CookModePage backendData={backendData}/>} />
-						
+						<Route path="/recipe/:recipeId/cookingMode" element={<CookModePage backendData={backendData} />} />
+
 					</Routes>
 
 					<footer className="footer">
