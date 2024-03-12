@@ -6,35 +6,35 @@ import "../cssfiles/dropDown.css";
 import "../cssfiles/recipes.css";
 
 const RecipeList = ({ recipeId, recipesData }) => {
-	console.log("recipesData: ", recipesData);
-	console.log("recipeId: ", recipeId);
+  console.log("recipesData: ", recipesData);
+  console.log("recipeId: ", recipeId);
 
-	const { addGrocery } = useGroceryContext();
+  const { addGrocery } = useGroceryContext();
 
-	// Convert recipeId to an integer
-	const id = parseInt(recipeId);
+  // Convert recipeId to an integer
+  const id = parseInt(recipeId);
 
-	// Find the recipe with the specified id
-	const selectedRecipe = recipesData.find((recipe) => recipe.id === id);
+  // Find the recipe with the specified id
+  const selectedRecipe = recipesData.find((recipe) => recipe.id === id);
 
-	// Check if a recipe with the specified id exists
-	if (!selectedRecipe) {
-		return <div></div>;
-	}
+  // Check if a recipe with the specified id exists
+  if (!selectedRecipe) {
+    return <div></div>;
+  }
 
-	const handleAddToGrocery = (ingredient) => {
-		addGrocery(ingredient);
-	};
+  const handleAddToGrocery = (ingredient) => {
+    addGrocery(ingredient);
+  };
 
   return (
     <div className="recipe-list">
       <div key={selectedRecipe.id} className="recipe" data-testid="recipe-card">
         <h1>{selectedRecipe.name}</h1>
-		<Link to={`/recipe/${recipeId}/cookingMode`} style={{ textDecoration: "none" }}>
-					<Button variant="success" style={{ borderRadius: "2rem" }}>
-						Cooking Mode
-					</Button>
-				</Link>
+        <Link to={`/recipe/${recipeId}/cookingMode`} style={{ textDecoration: "none" }}>
+          <Button variant="success" style={{ borderRadius: "2rem" }}>
+            Cooking Mode
+          </Button>
+        </Link>
         <img src={selectedRecipe.image} alt={selectedRecipe.name} />
         <div className="description">
           <p>{selectedRecipe.description}</p>
@@ -45,11 +45,12 @@ const RecipeList = ({ recipeId, recipesData }) => {
             {selectedRecipe.ingredients.map((ingredient, index) => (
               <li key={index}>
                 {ingredient}{" "}
-                <button onClick={() => handleAddToGrocery(ingredient)}>
+                <button className="addButton" onClick={() => handleAddToGrocery(ingredient)}>
                   +
                 </button>
               </li>
             ))}
+
           </ul>
         </div>
         <div className="instructions">
@@ -61,7 +62,7 @@ const RecipeList = ({ recipeId, recipesData }) => {
           </ol>
         </div>
         {/* Back button */}
-        <Link to="/">Go Back</Link>
+        <Link to="/" className="goBackButton">Go Back</Link>
       </div>
     </div>
   );

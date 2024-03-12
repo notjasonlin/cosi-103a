@@ -1,0 +1,42 @@
+.recipeFormContainer {
+    background-color: #272727;
+    border: 2px solid #4CAF50;
+    color: white;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 0.5rem 0.3rem green;
+}
+
+.recipeInput,
+.recipeTextArea {
+    background-color: #333;
+    border: 1px solid #4CAF50;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    width: 90%;
+}
+
+.recipeSubmitButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 15px;
+    font-size: 16px;
+}
+
+.recipeSubmitButton:hover {
+    background-color: #357a38;
+}
+
+.recipeTextArea {
+    resize: vertical;
+    /* Allows vertical resizing, horizontal fixed */
+}
