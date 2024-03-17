@@ -4,10 +4,9 @@
     "name": "Avocado Toast",
     "description": "Toasted bread topped with mashed avocado, seasoned with salt, pepper, and a splash of citrus juice. Customize with toppings like tomatoes or poached eggs for a quick and tasty meal.",
     "ingredients": [
-      "1 ripe avocado",
-      "2 slices of your favorite bread (sourdough, whole grain, or multigrain work well)",
-      "Salt and pepper, to taste",
-      "Optional toppings: poached or fried egg, cherry tomatoes, red pepper flakes, feta cheese, or a drizzle of balsamic glaze"
+      "1 avocado",
+      "2 slices of bread",
+      "Salt and pepper"
     ],
     "instructions": [
       "Begin by slicing the avocado in half, removing the pit, and scooping out the flesh into a bowl.",
@@ -24,13 +23,13 @@
     "name": "Avocado Smoothie",
     "description": "Blend ripe avocado with banana, spinach, Greek yogurt, and a splash of almond milk for a creamy and nutritious beverage. This green delight offers a balance of flavors and a boost of vitamins, making it a refreshing and wholesome choice for a quick and easy smoothie.",
     "ingredients": [
-      "1 ripe avocado, peeled and pitted",
-      "1/2 cup milk or almond milk",
-      "1/2 cup yogurt or Greek yogurt",
-      "2 tablespoons honey or to taste",
+      "1 avocado",
+      "1/2 cup milk",
+      "1/2 cup yogurt",
+      "2 tablespoons honey",
       "1/2 teaspoon vanilla extract",
-      "Ice cubes (optional)",
-      "Fresh mint leaves for garnish (optional)"
+      "Ice cubes",
+      "Fresh mint leaves for garnish"
     ],
     "instructions": [
       "Combine the peeled and pitted avocado, milk, yogurt, honey, and vanilla extract in a blender.",
@@ -48,17 +47,17 @@
     "name": "Bacon Guac Bomb",
     "description": "A savory delight featuring crispy bacon wrapped around a creamy guacamole center. These flavor-packed bites are perfect for a party or a tasty snack. The combination of smoky bacon and zesty guacamole creates an explosion of taste in every bite.",
     "ingredients": [
-      "2 ripe avocados, peeled and pitted",
-      "2-3 slices of cooked bacon, crumbled",
-      "1/2 small red onion, finely chopped",
-      "1 Roma tomato, diced",
-      "1 clove garlic, minced",
+      "2 avocados",
+      "2-3 slices of cooked bacon",
+      "1/2 small red onion",
+      "1 Roma tomato",
+      "1 clove garlic",
       "1 tbsp lime juice",
-      "1/4 cup cilantro, chopped",
-      "Salt and pepper, to taste",
-      "1/2 jalapeño, seeded and minced (optional)",
-      "1/4 tsp ground cumin (optional)",
-      "Crushed red pepper flakes (optional, for garnish)"
+      "1/4 cup cilantro",
+      "Salt and pepper",
+      "1/2 jalapeño",
+      "1/4 tsp ground cumin",
+      "Crushed red pepper flakes"
     ],
     "instructions": [
       "In a medium bowl, mash the avocados to your desired consistency.",
@@ -78,18 +77,18 @@
     "name": "Avocado Salad",
     "description": "A refreshing mix of ripe avocados, cherry tomatoes, cucumber, and red onion tossed in a zesty vinaigrette dressing. This vibrant salad offers a perfect balance of creamy and crunchy textures, making it a light and flavorful dish suitable for any meal. Customize with herbs or feta cheese for an extra burst of flavor.",
     "ingredients": [
-      "2 ripe avocados, peeled, pitted, and sliced",
-      "1 cucumber, sliced",
-      "1 cup cherry tomatoes, halved",
-      "1/4 red onion, thinly sliced",
-      "1/2 cup corn kernels, fresh or canned",
-      "1/2 red bell pepper, diced",
-      "1/4 cup cilantro, chopped",
+      "2 avocados",
+      "1 cucumber",
+      "1 cup cherry tomatoes",
+      "1/4 red onion",
+      "1/2 cup corn kernels",
+      "1/2 red bell pepper",
+      "1/4 cup cilantro",
       "Juice of 1 lime",
       "2 tbsp olive oil",
-      "Salt and pepper, to taste",
-      "1/4 cup crumbled feta cheese (optional)",
-      "2 tbsp pumpkin seeds or sunflower seeds (optional)"
+      "Salt and pepper",
+      "1/4 cup crumbled feta cheese",
+      "2 tbsp pumpkin seeds"
     ],
     "instructions": [
       "In a large salad bowl, combine the sliced avocados, cucumber, cherry tomatoes, red onion, corn kernels, and red bell pepper.",
@@ -107,15 +106,14 @@
     "name": "Fried Avocado Bites",
     "description": "Crispy on the outside, creamy on the inside – these bite-sized treats feature slices of avocado coated in a seasoned breadcrumb or batter, then fried to golden perfection. Served with a zesty dipping sauce, these indulgent bites are a delicious combination of textures and flavors, making them a delightful appetizer or snack.",
     "ingredients": [
-      "2 ripe avocados, peeled, pitted, and cut into bite-sized pieces",
+      "2 avocados",
       "1 cup all-purpose flour",
-      "2 large eggs, beaten",
+      "2 large eggs",
       "1 cup panko breadcrumbs",
       "1 tsp garlic powder",
-      "1 tsp paprika (optional for extra flavor)",
-      "Salt and pepper, to taste",
-      "Vegetable oil, for frying",
-      "Your choice of dipping sauce (like ranch dressing, aioli, or hot sauce)"
+      "1 tsp paprika",
+      "Salt and pepper",
+      "Vegetable oil"
     ],
     "instructions": [
       "Set up a breading station with three bowls: one for flour, one for beaten eggs, and one for panko breadcrumbs mixed with garlic powder, paprika, salt, and pepper.",
@@ -133,15 +131,15 @@
     "name": "California Sushi Roll",
     "description": "A classic sushi roll filled with imitation crab, avocado, and cucumber. Wrapped in seaweed and rice, and often topped with sesame seeds, this iconic roll is a fusion of creamy avocado, sweet crab, and refreshing cucumber. Served with soy sauce and wasabi, the California Roll is a popular and accessible choice for sushi enthusiasts.",
     "ingredients": [
-      "2 cups sushi rice, cooked and seasoned with sushi vinegar",
+      "2 cups sushi rice",
       "4 sheets nori (seaweed)",
-      "1/2 cucumber, julienned",
-      "1 avocado, peeled, pitted, and sliced",
-      "8 crab sticks or imitation crab",
-      "1 tbsp sesame seeds (optional)",
-      "Soy sauce, for serving",
-      "Wasabi, for serving (optional)",
-      "Pickled ginger, for serving (optional)"
+      "1/2 cucumber",
+      "1 avocado",
+      "8 crab sticks",
+      "1 tbsp sesame seeds",
+      "Soy sauce",
+      "Wasabi",
+      "Pickled ginger"
     ],
     "instructions": [
       "Lay a sheet of nori on a bamboo sushi mat. Spread a thin layer of sushi rice over the nori, leaving about a half-inch border at the top.",
@@ -160,16 +158,14 @@
     "name": "Grilled Avocados",
     "description": "Halved avocados lightly brushed with olive oil, seasoned with salt and pepper, and grilled until they develop a smoky char. The heat enhances the natural creaminess of the avocado while adding a hint of smokiness. Grilled avocados can be enjoyed on their own, as a side dish, or incorporated into various recipes, offering a unique twist to the beloved fruit.",
     "ingredients": [
-      "2 ripe avocados, halved and pitted",
-      "Olive oil, for brushing",
+      "2 avocados",
+      "1 tbsp olive oil",
       "Juice of 1 lime",
-      "Salt and pepper, to taste",
+      "Salt and pepper",
       "1/4 cup diced tomatoes",
       "1/4 cup diced red onion",
       "1 tbsp chopped cilantro",
-      "1 clove garlic, minced",
-      "Optional: crumbled feta or cotija cheese, for garnish",
-      "Optional: drizzle of balsamic glaze or your choice of dressing"
+      "1 clove garlic"
     ],
     "instructions": [
       "Preheat your grill to medium-high heat.",
@@ -187,15 +183,14 @@
     "name": "Fried Avocado Bites",
     "description": "Crispy on the outside, creamy on the inside – these bite-sized treats feature slices of avocado coated in a seasoned breadcrumb or batter, then fried to golden perfection. Served with a zesty dipping sauce, these indulgent bites are a delicious combination of textures and flavors, making them a delightful appetizer or snack.",
     "ingredients": [
-      "2 ripe avocados, peeled, pitted, and cut into bite-sized pieces",
+      "2 avocados",
       "1 cup all-purpose flour",
-      "2 large eggs, beaten",
+      "2 large eggs",
       "1 cup panko breadcrumbs",
       "1 tsp garlic powder",
-      "1 tsp paprika (optional for extra flavor)",
-      "Salt and pepper, to taste",
-      "Vegetable oil, for frying",
-      "Your choice of dipping sauce (like ranch dressing, aioli, or hot sauce)"
+      "1 tsp paprika",
+      "Salt and pepper",
+      "Vegetable oil"
     ],
     "instructions": [
       "Set up a breading station with three bowls: one for flour, one for beaten eggs, and one for panko breadcrumbs mixed with garlic powder, paprika, salt, and pepper.",
