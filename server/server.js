@@ -89,34 +89,32 @@ app.listen(5001, () => {
 					console.log(ingredient + " " + (data["foods"][0].fdcId));
 					let numberFromApi = data["foods"][0].fdcId;
 					console.log(numberFromApi);
-					try {
-						const response = fetch(url);
-						if (!response.ok) {
-						  throw new Error(`HTTP error! status: ${response.status}`);
+					recipeData.forEach(item => {
+						// Assuming each item has an 'ingredients' property
+						for (const ingredient in item.ingredients) {
+							if (item.ingredients.hasOwnProperty(ingredient)) {
+								// Update the number, here we're just adding 1 for example
+								item.ingredients[ingredient] = numberFromApi;
+							}
 						}
-						const data = response.json();
-						const numberFromApi = data["foods"][0].fdcId;
-						// Update the in-memory JSON object
-						ingredient = numberFromApi;
-					  } catch (error) {
-						console.error('Fetch operation error:', error);
-					  }
+					});
+					
+					// If you need to convert it back to a JSON string
+					const updatedJsonString = JSON.stringify(recipeData, null, 2);
+
+					fs.writeFile('recipeData.json', updatedJsonString, (err) => {
+						if (err) {
+							console.error('Error writing to file:', err);
+						} else {
+							console.log('Successfully updated the file.');
+						}
+					});
+					});
 					// Here you can add code to handle the data as you wish
 				})
-				.catch(error => {
-					// console.log(ingredient);
-					console.error('There was a problem with the fetch operation:', error);
 				});
 		});
-		try {
-			fs.writeFile('path/to/your/updated_file.json', JSON.stringify(recipeData, null, 2));
-			console.log('JSON file has been updated.');
-		  } catch (error) {
-			console.error('Error writing file:', error);
-		  }
-	});
 
-});
 
 
 
