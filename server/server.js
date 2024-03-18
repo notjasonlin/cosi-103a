@@ -56,7 +56,7 @@ app.listen(5001, () => {
 
 	// Set the query parameters
 	const params = {
-		query: 'avocado',
+		query: '1 raw avocado',
 		dataType: ['Survey (FNDDS)'], // This is optional; remove or change as needed
 		pageSize: 5, // Adjust the number of results as needed
 		api_key: 'scwYTY43nWSVgwb58HA1n1ZeOqbpPVf577jy5VHR' // Replace with your actual API key
@@ -76,7 +76,7 @@ app.listen(5001, () => {
 		return response.json();
 	})
 	.then(data => {
-		console.log((data['foods']));
+		console.log((data["foods"][0].fdcId));
 		// Here you can add code to handle the data as you wish
 	})
 	.catch(error => {
