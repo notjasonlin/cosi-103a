@@ -53,45 +53,6 @@ app.listen(5001, () => {
 	console.log("Server started on port 5001");
 
 	const baseUrl = 'https://api.nal.usda.gov/fdc/v1/foods/search';
-	const links = new Map();
-
-	//START
-	// Replace "ingredient" with the actual ingredient you want to search for
-	// const ingredient = " cup red onion";
-
-	// const params = {
-	// 	query: ingredient,
-	// 	dataType: ['Survey (FNDDS)'],
-	// 	pageSize: 5,
-	// 	api_key: 'scwYTY43nWSVgwb58HA1n1ZeOqbpPVf577jy5VHR' // Ensure this API key is valid and authorized
-	// };
-
-	// const queryString = new URLSearchParams(params).toString();
-	// const url = `${baseUrl}?${queryString}`;
-
-	// fetch(url)
-	// 	.then(response => {
-	// 		if (!response.ok) {
-	// 			throw new Error(`HTTP error! status: ${response.status}`);
-	// 		}
-	// 		return response.json();
-	// 	})
-	// 	.then(data => {
-	// 		if (data && data.foods && data.foods.length > 0) {
-	// 			console.log(data.foods[0].fdcId);
-	// 			links.set(ingredient, data.foods[0].fdcId);
-	// 			// Additional data handling logic can be added here if needed
-	// 		} else {
-	// 			console.error(`No food items found for ingredient: ${ingredient}`);
-	// 		}
-	// 	})
-	// 	.catch(error => {
-	// 		console.error('There was a problem with the fetch operation:', error);
-	// 	});
-	// //END
-	
-
-
 
 
 
@@ -125,8 +86,21 @@ app.listen(5001, () => {
 					return response.json();
 				})
 				.then(data => {
-					// console.log(ingredient + " " + (data["foods"][0].fdcId));
-					links.set(ingredient, data["foods"][0].fdcId);
+					console.log(ingredient + " " + (data["foods"][0].fdcId));
+					let numberFromApi = data["foods"][0].fdcId;
+					console.log(numberFromApi);
+					try {
+						const response = fetch(url);
+						if (!response.ok) {
+						  throw new Error(`HTTP error! status: ${response.status}`);
+						}
+						const data = response.json();
+						const numberFromApi = data["foods"][0].fdcId;
+						// Update the in-memory JSON object
+						ingredient = numberFromApi;
+					  } catch (error) {
+						console.error('Fetch operation error:', error);
+					  }
 					// Here you can add code to handle the data as you wish
 				})
 				.catch(error => {
@@ -134,12 +108,14 @@ app.listen(5001, () => {
 					console.error('There was a problem with the fetch operation:', error);
 				});
 		});
+		try {
+			fs.writeFile('path/to/your/updated_file.json', JSON.stringify(recipeData, null, 2));
+			console.log('JSON file has been updated.');
+		  } catch (error) {
+			console.error('Error writing file:', error);
+		  }
 	});
 
-
-	for (const [key, value] of links.entries()) {
-		console.log(`Key: ${key}, Value: ${value}`);
-	}
 });
 
 
