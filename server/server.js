@@ -96,7 +96,9 @@ app.listen(5001, () => {
 
 
 	recipeData.map((recipe) => {
-		recipe.ingredients.map((ingredient) => {
+		arr = recipe.ingredients;
+		dict = arr[0];
+		Object.keys(dict).forEach(ingredient => {
 			const modified = ingredient.replace("/", '');
 
 			// Set the query parameters
@@ -123,13 +125,13 @@ app.listen(5001, () => {
 					return response.json();
 				})
 				.then(data => {
-					console.log(ingredient + (data["foods"][0].fdcId));
+					// console.log(ingredient + " " + (data["foods"][0].fdcId));
 					links.set(ingredient, data["foods"][0].fdcId);
 					// Here you can add code to handle the data as you wish
 				})
 				.catch(error => {
-					console.error("error " + ingredient);
-					// console.error('There was a problem with the fetch operation:', error);
+					// console.log(ingredient);
+					console.error('There was a problem with the fetch operation:', error);
 				});
 		});
 	});
