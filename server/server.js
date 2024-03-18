@@ -48,7 +48,57 @@ app.post("/api", (req, res) => {
 	recipeData.push(newRecipe); // Append the new recipe to the existing data
 });
 
-// Start the server
 app.listen(5001, () => {
-	console.log("Server started on port 5001");
+    console.log("Server started on port 5001");
+
+    const baseUrl = 'https://api.nal.usda.gov/fdc/v1/foods/search';
+
+    // Promisify fetch function
+    const fetchAsync = async (url) => {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return await response.json();
+    };
+
+    // Array to store promises
+    const fetchPromises = [];
+
+    recipeData.forEach((recipe) => {
+        const arr = recipe.ingredients;
+        const dict = arr[0];
+        Object.keys(dict).forEach(ingredient => {
+            const modified = ingredient.replace("/", '');
+
+            const params = {
+                query: modified,
+                dataType: ['Survey (FNDDS)'],
+                pageSize: 5,
+                api_key: 'scwYTY43nWSVgwb58HA1n1ZeOqbpPVf577jy5VHR'
+            };
+
+            const queryString = new URLSearchParams(params).toString();
+            const url = `${baseUrl}?${queryString}`;
+
+            // Push each fetch request promise to the array
+            fetchPromises.push(
+                fetchAsync(url).then(data => {
+                    let numberFromApi = data["foods"][0].fdcId;
+                    dict[ingredient] = numberFromApi;
+                })
+            );
+        });
+    });
+
+    // Wait for all fetch requests to complete
+    Promise.all(fetchPromises)
+        .then(() => {
+            // Write the updated recipe data to the file
+            fs.writeFileSync('./data/recipeData.json', JSON.stringify(recipeData, null, 2));
+            console.log("Recipe data updated successfully!");
+        })
+        .catch(error => {
+            console.error("Error updating recipe data:", error);
+        });
 });

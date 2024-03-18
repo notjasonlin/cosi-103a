@@ -40,15 +40,23 @@ const RecipeList = ({ recipeId, recipesData }) => {
         <div className="ingredients">
           <h2>Ingredients</h2>
           <ul>
-            {selectedRecipe.ingredients.map((ingredient, index) => (
-              <li key={index}>
-                {ingredient}{" "}
-                <button className="addButton" onClick={() => handleAddToGrocery(ingredient)}>
-                  +
-                </button>
-              </li>
-            ))}
-
+          {selectedRecipe.ingredients.map((ingredientObj, index) => (
+            <li key={index}>
+              {Object.keys(ingredientObj).map(ingredientKey => (
+                <span key={ingredientKey}>
+                  <a href={`https://fdc.nal.usda.gov/fdc-app.html#/food-details/${ingredientObj[ingredientKey]}/nutrients`} onClick={(e) => {
+                  }}>
+                    {ingredientKey}
+                  </a>{" "}
+                  <br />
+                  <button className="addButton" onClick={() => handleAddToGrocery(ingredientKey)}>
+                    +
+                  </button>
+                  <br />
+                </span>
+              ))}
+            </li>
+          ))}
           </ul>
         </div>
         <div className="instructions">
