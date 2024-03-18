@@ -40,7 +40,7 @@ const RecipeList = ({ recipeId, recipesData }) => {
         <div className="ingredients">
           <h2>Ingredients</h2>
           <ul>
-            {selectedRecipe.ingredients.map((ingredient, index) => (
+            {Object.keys(selectedRecipe.ingredients[0]).forEach(ingredient =>  (
               <li key={index}>
                 {ingredient}{" "}
                 <button className="addButton" onClick={() => handleAddToGrocery(ingredient)}>
