@@ -51,38 +51,95 @@ app.post("/api", (req, res) => {
 // Start the server
 app.listen(5001, () => {
 	console.log("Server started on port 5001");
-	// Define the base URL for the USDA FoodData Central API
+
 	const baseUrl = 'https://api.nal.usda.gov/fdc/v1/foods/search';
+	const links = new Map();
 
-	// Set the query parameters
-	const params = {
-		query: '1 raw avocado',
-		dataType: ['Survey (FNDDS)'], // This is optional; remove or change as needed
-		pageSize: 5, // Adjust the number of results as needed
-		api_key: 'scwYTY43nWSVgwb58HA1n1ZeOqbpPVf577jy5VHR' // Replace with your actual API key
-	};
+	//START
+	// Replace "ingredient" with the actual ingredient you want to search for
+	// const ingredient = " cup red onion";
 
-	// Convert the parameters to URL-encoded string
-	const queryString = new URLSearchParams(params).toString();
+	// const params = {
+	// 	query: ingredient,
+	// 	dataType: ['Survey (FNDDS)'],
+	// 	pageSize: 5,
+	// 	api_key: 'scwYTY43nWSVgwb58HA1n1ZeOqbpPVf577jy5VHR' // Ensure this API key is valid and authorized
+	// };
 
-	// Combine the base URL and query string to create the full URL
-	const url = `${baseUrl}?${queryString}`;
-		// Perform the fetch operation
-	fetch(url)
-	.then(response => {
-		if (!response.ok) {
-			throw new Error(`HTTP error! status: ${response.status}`);
-		}
-		return response.json();
-	})
-	.then(data => {
-		console.log((data["foods"][0].fdcId));
-		// Here you can add code to handle the data as you wish
-	})
-	.catch(error => {
-		console.error('There was a problem with the fetch operation:', error);
+	// const queryString = new URLSearchParams(params).toString();
+	// const url = `${baseUrl}?${queryString}`;
+
+	// fetch(url)
+	// 	.then(response => {
+	// 		if (!response.ok) {
+	// 			throw new Error(`HTTP error! status: ${response.status}`);
+	// 		}
+	// 		return response.json();
+	// 	})
+	// 	.then(data => {
+	// 		if (data && data.foods && data.foods.length > 0) {
+	// 			console.log(data.foods[0].fdcId);
+	// 			links.set(ingredient, data.foods[0].fdcId);
+	// 			// Additional data handling logic can be added here if needed
+	// 		} else {
+	// 			console.error(`No food items found for ingredient: ${ingredient}`);
+	// 		}
+	// 	})
+	// 	.catch(error => {
+	// 		console.error('There was a problem with the fetch operation:', error);
+	// 	});
+	// //END
+	
+
+
+
+
+
+	recipeData.map((recipe) => {
+		recipe.ingredients.map((ingredient) => {
+			const modified = ingredient.replace("/", '');
+
+			// Set the query parameters
+			const params = {
+				// query: ingredient,
+				query: modified,
+				dataType: ['Survey (FNDDS)'], // This is optional; remove or change as needed
+				pageSize: 5, // Adjust the number of results as needed
+				api_key: 'scwYTY43nWSVgwb58HA1n1ZeOqbpPVf577jy5VHR'
+			};
+	
+			// Convert the parameters to URL-encoded string
+			const queryString = new URLSearchParams(params).toString();
+	
+			// Combine the base URL and query string to create the full URL
+			const url = `${baseUrl}?${queryString}`;
+	
+			// Perform the fetch operation
+			fetch(url)
+				.then(response => {
+					if (!response.ok) {
+						throw new Error(`HTTP error! status: ${response.status}`);
+					}
+					return response.json();
+				})
+				.then(data => {
+					console.log(ingredient + (data["foods"][0].fdcId));
+					links.set(ingredient, data["foods"][0].fdcId);
+					// Here you can add code to handle the data as you wish
+				})
+				.catch(error => {
+					console.error("error " + ingredient);
+					// console.error('There was a problem with the fetch operation:', error);
+				});
+		});
 	});
+
+
+	for (const [key, value] of links.entries()) {
+		console.log(`Key: ${key}, Value: ${value}`);
+	}
 });
+
 
 
 
