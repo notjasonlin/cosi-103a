@@ -48,77 +48,57 @@ app.post("/api", (req, res) => {
 	recipeData.push(newRecipe); // Append the new recipe to the existing data
 });
 
-// Start the server
 app.listen(5001, () => {
-	console.log("Server started on port 5001");
+    console.log("Server started on port 5001");
 
-	const baseUrl = 'https://api.nal.usda.gov/fdc/v1/foods/search';
+    const baseUrl = 'https://api.nal.usda.gov/fdc/v1/foods/search';
 
+    // Promisify fetch function
+    const fetchAsync = async (url) => {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return await response.json();
+    };
 
+    // Array to store promises
+    const fetchPromises = [];
 
-	recipeData.map((recipe) => {
-		arr = recipe.ingredients;
-		dict = arr[0];
-		Object.keys(dict).forEach(ingredient => {
-			const modified = ingredient.replace("/", '');
+    recipeData.forEach((recipe) => {
+        const arr = recipe.ingredients;
+        const dict = arr[0];
+        Object.keys(dict).forEach(ingredient => {
+            const modified = ingredient.replace("/", '');
 
-			// Set the query parameters
-			const params = {
-				// query: ingredient,
-				query: modified,
-				dataType: ['Survey (FNDDS)'], // This is optional; remove or change as needed
-				pageSize: 5, // Adjust the number of results as needed
-				api_key: 'scwYTY43nWSVgwb58HA1n1ZeOqbpPVf577jy5VHR'
-			};
-	
-			// Convert the parameters to URL-encoded string
-			const queryString = new URLSearchParams(params).toString();
-	
-			// Combine the base URL and query string to create the full URL
-			const url = `${baseUrl}?${queryString}`;
-	
-			// Perform the fetch operation
-			fetch(url)
-				.then(response => {
-					if (!response.ok) {
-						throw new Error(`HTTP error! status: ${response.status}`);
-					}
-					return response.json();
-				})
-				.then(data => {
-					console.log(ingredient + " " + (data["foods"][0].fdcId));
-					let numberFromApi = data["foods"][0].fdcId;
-					console.log(numberFromApi);
-					recipeData.forEach(item => {
-						// Assuming each item has an 'ingredients' property
-						for (const ingredient in item.ingredients) {
-							if (item.ingredients.hasOwnProperty(ingredient)) {
-								// Update the number, here we're just adding 1 for example
-								item.ingredients[ingredient] = numberFromApi;
-							}
-						}
-					});
-					
-					// If you need to convert it back to a JSON string
-					const updatedJsonString = JSON.stringify(recipeData, null, 2);
+            const params = {
+                query: modified,
+                dataType: ['Survey (FNDDS)'],
+                pageSize: 5,
+                api_key: 'scwYTY43nWSVgwb58HA1n1ZeOqbpPVf577jy5VHR'
+            };
 
-					fs.writeFile('recipeData.json', updatedJsonString, (err) => {
-						if (err) {
-							console.error('Error writing to file:', err);
-						} else {
-							console.log('Successfully updated the file.');
-						}
-					});
-					});
-					// Here you can add code to handle the data as you wish
-				})
-				});
-		});
+            const queryString = new URLSearchParams(params).toString();
+            const url = `${baseUrl}?${queryString}`;
 
+            // Push each fetch request promise to the array
+            fetchPromises.push(
+                fetchAsync(url).then(data => {
+                    let numberFromApi = data["foods"][0].fdcId;
+                    dict[ingredient] = numberFromApi;
+                })
+            );
+        });
+    });
 
-
-
-
-
-
-
+    // Wait for all fetch requests to complete
+    Promise.all(fetchPromises)
+        .then(() => {
+            // Write the updated recipe data to the file
+            fs.writeFileSync('./data/recipeData.json', JSON.stringify(recipeData, null, 2));
+            console.log("Recipe data updated successfully!");
+        })
+        .catch(error => {
+            console.error("Error updating recipe data:", error);
+        });
+});
