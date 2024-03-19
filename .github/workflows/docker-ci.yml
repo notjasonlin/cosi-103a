@@ -18,16 +18,13 @@ jobs:
    create_env:
     runs-on: ubuntu-latest
     environment: COSI103
+    
     steps:
-      - name: Set up Git repository
-        uses: actions/checkout@v3
-      
       - name: Create .env file
-        run: |
-          echo "FDA_ID: ${{ secrets.FDA_ID }}" > .env
-          cat .env
-        env:
-          FDA_ID: ${{ secrets.FDA_ID }}
+        uses: SpciyPizza/create-envfile@v1
+        with:
+          envkey_FDA_ID: ${{ secrets.FDA_ID }}
+          file_name: .env
 
   deploy_infra:
     runs-on: ubuntu-latest
