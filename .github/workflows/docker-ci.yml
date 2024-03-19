@@ -20,7 +20,7 @@ jobs:
     
     steps:
       - name: Create .env file
-        uses: SpciyPizza/create-envfile@v1
+        uses: SpicyPizza/create-envfile@v1
         with:
           envkey_FDA_ID: ${{ secrets.FDA_ID }}
           file_name: .env
