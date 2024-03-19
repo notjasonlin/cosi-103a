@@ -14,6 +14,18 @@ on:
     branches: ["main"]
 
 jobs:
+  create_env:
+    runs-on: ubuntu-latest
+    environment: COSI103
+    
+    steps:
+      - name: Create .env file
+        uses: SpicyPizza/create-envfile@v2.0
+        with:
+          envkey_DEBUG: false
+          envkey_SOME_API_KEY: "123456!"
+          envkey_SECRET_KEY: ${{ secrets.FDA_ID }}
+          file_name: .env
 
   deploy_infra:
     runs-on: ubuntu-latest
@@ -27,6 +39,7 @@ jobs:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          fda-id: ${{ secrets.FDA_ID }}
       - name: Build and deploy Container App
         uses: azure/container-apps-deploy-action@v1
         with:
