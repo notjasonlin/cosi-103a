@@ -15,11 +15,18 @@ on:
 
 jobs:
 
-  create_env:
-    run: |
-      touch .env
-      echo fda-id=${{ secrets.FDA_ID }} >> .env
-      cat .env
+   create_env:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v3
+      
+      - name: Create .env file
+        run: |
+          echo "FDA_ID: ${{ secrets.FDA_ID }}" > .env
+          cat .env
+        env:
+          FDA_ID: ${{ secrets.FDA_ID }}
 
   deploy_infra:
     runs-on: ubuntu-latest
