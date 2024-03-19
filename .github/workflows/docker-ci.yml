@@ -14,8 +14,7 @@ on:
     branches: ["main"]
 
 jobs:
-
-   create_env:
+  create_env:
     runs-on: ubuntu-latest
     environment: COSI103
     
