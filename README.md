@@ -23,17 +23,19 @@ To create a Docker image to package the current build of avocado website, <br>
 write "docker image build -t <image-name>:latest ." in the command line.<br>
 The "." has the image run from the current directory.<br>
 
+Azure Alerts: <br>
+There are alerts for over 100 replicas used, 0.5uB of Cpu Usage, and over 1000 request to prevent attacks on the server. <br>
 
 Authors: <br>
 
-Name: Artem Lavrov <br>
+Artem Lavrov <br>
 artemlavrov@brandeis.edu <br>
 
-Name: Elan Romo <br>
+Elan Romo <br>
 elanromo@brandeis.edu <br>
 
-Name: Jason Lin <br>
+Jason Lin <br>
 jasonlin@brandeis.edu <br>
 
-Name: John Vnek <br>
+John Vnek <br>
 johnvnek@brandeis.edu <br>
