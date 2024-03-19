@@ -17,6 +17,7 @@ jobs:
 
    create_env:
     runs-on: ubuntu-latest
+    environment: COSI103
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v3
