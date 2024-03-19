@@ -75,7 +75,7 @@ app.listen(5001, () => {
                 query: modified,
                 dataType: ['Survey (FNDDS)'],
                 pageSize: 5,
-                api_key: process.env.FDA_ID
+                api_key: process.env.SECRET_KEY
             };
 
             const queryString = new URLSearchParams(params).toString();
