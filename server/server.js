@@ -124,7 +124,7 @@ app.listen(5001, () => {
                 query: modified,
                 dataType: ['Survey (FNDDS)'],
                 pageSize: 5,
-                api_key: 'scwYTY43nWSVgwb58HA1n1ZeOqbpPVf577jy5VHR'
+                api_key: process.env.SECRET_KEY
             };
 
             const queryString = new URLSearchParams(params).toString();
