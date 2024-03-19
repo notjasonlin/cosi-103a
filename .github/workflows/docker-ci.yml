@@ -20,9 +20,11 @@ jobs:
     
     steps:
       - name: Create .env file
-        uses: SpicyPizza/create-envfile@v1
+        uses: SpicyPizza/create-envfile@v2.0
         with:
-          envkey_FDA_ID: ${{ secrets.FDA_ID }}
+          envkey_DEBUG: false
+          envkey_SOME_API_KEY: "123456!"
+          envkey_SECRET_KEY: ${{ secrets.FDA_ID }}
           file_name: .env
 
   deploy_infra:
