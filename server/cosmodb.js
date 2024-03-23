@@ -1,18 +1,22 @@
+require('dotenv').config();
 const { CosmosClient } = require('@azure/cosmos');
 const { ClientSecretCredential } = require('@azure/identity');
-import { setLogLevel } from "@azure/logger";
 
-setLogLevel("info");
-require('dotenv').config(); // Make sure this comes before using process.env
-
-const endpoint = process.env.COSMOS_ENDPOINT || 'https://cosi103cosmosdbdatabase.documents.azure.com:443/';
+// Make sure these environment variables are set in your .env file
 const tenantId = process.env.AZURE_TENANT_ID;
 const clientId = process.env.AZURE_CLIENT_ID;
 const clientSecret = process.env.AZURE_CLIENT_SECRET;
+const endpoint = process.env.COSMOS_ENDPOINT;
 
-const credential = new DefaultAzureCredential({
-    loggingOptions: { allowLoggingAccountIdentifiers: true },
-  });
+console.log({
+    tenantId,
+    clientId,
+    clientSecret,
+    endpoint
+});
+
+// Using ClientSecretCredential for clarity
+const credential = new ClientSecretCredential(tenantId, clientId, clientSecret);
 
 async function upsertItem() {
     const client = new CosmosClient({
@@ -20,25 +24,26 @@ async function upsertItem() {
         aadCredentials: credential
     });
 
-    const database = client.database('cosi103cosmosdbdatabase');
-    const container = database.container('recipe1');
+    // Your Cosmos DB and container details
+    const databaseId = 'cosi103cosmosdbdatabase';
+    const containerId = 'recipe1';
 
-    var item = {
-        'id': '70b63682-b93a-4c77-aad2-65501347265f',
-        'category': 'gear-surf-surfboards',
-        'name': 'Yamba Surfboard',
-        'quantity': 12,
-        'price': 850.00,
-        'clearance': false
+    // Your item details
+    const item = {
+        id: '70b63682-b93a-4c77-aad2-65501347265f',
+        category: 'gear-surf-surfboards',
+        name: 'Yamba Surfboard',
+        quantity: 12,
+        price: 850.00,
+        clearance: false
     };
 
     try {
-        var response = await container.items.upsert(item);
-        console.log('Upserted item:', response.resource);
+        const { resource } = await client.database(databaseId).container(containerId).items.upsert(item);
+        console.log('Upserted item:', resource);
     } catch (error) {
         console.error('Error upserting item:', error);
     }
 }
 
-// Call the async function
 upsertItem();
