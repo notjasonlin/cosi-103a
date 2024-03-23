@@ -55,7 +55,7 @@ app.post('/api', async (req, res) => {
             query: ingredientName,
             dataType: ['Survey (FNDDS)'],
             pageSize: 1,
-            api_key: apiKey
+            api_key: 'scwYTY43nWSVgwb58HA1n1ZeOqbpPVf577jy5VHR'
         };
         const queryString = new URLSearchParams(params).toString();
         const url = `${baseUrl}?${queryString}`;
@@ -124,7 +124,7 @@ app.listen(5001, () => {
                 query: modified,
                 dataType: ['Survey (FNDDS)'],
                 pageSize: 5,
-                api_key: process.env.SECRET_KEY
+                api_key: 'scwYTY43nWSVgwb58HA1n1ZeOqbpPVf577jy5VHR'
             };
 
             const queryString = new URLSearchParams(params).toString();
