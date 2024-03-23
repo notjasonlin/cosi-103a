@@ -3,6 +3,8 @@ const fs = require("fs");
 const path = require("path");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+require('dotenv').config();
+const apiKey = process.env.SECRET_KEY;
 
 // Your existing setup continues...
 
@@ -39,8 +41,7 @@ app.post('/api', async (req, res) => {
     let newRecipe = req.body; // Assuming users submit ingredient names only, without IDs
 
     // Base URL for the food data API
-    const baseUrl = 'https://api.nal.usda.gov/fdc/v1/foods/search';
-    const apiKey = 'scwYTY43nWSVgwb58HA1n1ZeOqbpPVf577jy5VHR'; // Replace with your actual API key
+    const baseUrl = 'https://api.nal.usda.gov/fdc/v1/foods/search'; 
 
     // Assign a new ID to the new recipe
     const newId = recipeData.length > 0 ? Math.max(...recipeData.map(recipe => recipe.id)) + 1 : 1;
@@ -124,7 +125,7 @@ app.listen(5001, () => {
                 query: modified,
                 dataType: ['Survey (FNDDS)'],
                 pageSize: 5,
-                api_key: process.env.SECRET_KEY
+                api_key: apiKey
             };
 
             const queryString = new URLSearchParams(params).toString();
