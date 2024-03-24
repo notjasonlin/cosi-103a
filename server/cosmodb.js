@@ -1,49 +1,57 @@
-require('dotenv').config();
-const { CosmosClient } = require('@azure/cosmos');
-const { ClientSecretCredential } = require('@azure/identity');
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
 
-// Make sure these environment variables are set in your .env file
-const tenantId = process.env.AZURE_TENANT_ID;
-const clientId = process.env.AZURE_CLIENT_ID;
-const clientSecret = process.env.AZURE_CLIENT_SECRET;
-const endpoint = process.env.COSMOS_ENDPOINT;
+/**
+ * @summary Uses AAD credentials to authenticate with the CosmosClient.
+ */
 
-console.log({
-    tenantId,
-    clientId,
-    clientSecret,
-    endpoint
-});
+import * as dotenv from "dotenv";
+dotenv.config();
 
-// Using ClientSecretCredential for clarity
-const credential = new ClientSecretCredential(tenantId, clientId, clientSecret);
+// import { UsernamePasswordCredential } from "@azure/identity";
+import { UsernamePasswordCredential } from "@azure/identity";
 
-async function upsertItem() {
-    const client = new CosmosClient({
-        endpoint,
-        aadCredentials: credential
-    });
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import { CosmosClient } from "@azure/cosmos";
+// import { handleError, finish, logStep } from "./Shared/handleError";
 
-    // Your Cosmos DB and container details
-    const databaseId = 'cosi103cosmosdbdatabase';
-    const containerId = 'recipe1';
+const key = process.env.COSMOS_KEY || "<cosmos key>";
+const endpoint = process.env.COSMOS_ENDPOINT || "<cosmos endpoint>";
+const existingContainerId = process.env.COSMOS_CONTAINER || "<cosmos container>";
+const tenant_id = process.env.AZURE_TENANT_ID;
+const client_id = process.env.AZURE_CLIENT_ID;
+const 
 
-    // Your item details
-    const item = {
-        id: '70b63682-b93a-4c77-aad2-65501347265f',
-        category: 'gear-surf-surfboards',
-        name: 'Yamba Surfboard',
-        quantity: 12,
-        price: 850.00,
-        clearance: false
-    };
+async function run() {
+//   logStep("Create credential object from @azure/identity");
+  const credentials = new UsernamePasswordCredential(
+    "fake-tenant-id",
+    "fake-client-id",
+    "fakeUsername",
+    "fakePassword",
+  );
+//   logStep("Pass credentials to client object with key aadCredentials");
+  const aadClient = new CosmosClient({
+    endpoint,
+    aadCredentials: credentials,
+  });
 
-    try {
-        const { resource } = await client.database(databaseId).container(containerId).items.upsert(item);
-        console.log('Upserted item:', resource);
-    } catch (error) {
-        console.error('Error upserting item:', error);
-    }
+  const genericClient = new CosmosClient({
+    endpoint,
+    key: key,
+  });
+
+  // fails
+  await aadClient.databases.readAll({}).fetchAll();
+  // succeeds
+  await genericClient.databases.readAll({}).fetchAll();
+
+  // succeeds
+  await aadClient.database("example").container(existingContainerId).items.readAll();
+  // succeeds
+  await genericClient.database("example").container(existingContainerId).items.readAll();
+
 }
 
-upsertItem();
+run();
