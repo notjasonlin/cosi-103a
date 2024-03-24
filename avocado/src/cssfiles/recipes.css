@@ -141,3 +141,40 @@
     background-color: #357a38;
     /* Darker shade on hover */
 }
+
+.ingredient-link {
+    background-color: transparent;
+    color: #4CAF50;
+    /* Adjust the color code to match your desired green */
+    padding: 0;
+    /* Other styles as needed */
+}
+
+/* Existing styles for link within ingredients might look like this */
+.ingredients a {
+    background-color: green;
+    color: #ffffff;
+}
+
+/* Updated styles for ingredient links */
+.ingredients a {
+    background-color: transparent;
+    /* Remove background color */
+    color: #4CAF50;
+    /* Set text color to green */
+    padding: 0;
+    /* Reset padding if it was previously set for background */
+    /* Other styles as needed, ensure they are appropriate for text-only links */
+}
+
+.addButton {
+    /* Your existing styles for the "+" button remain unchanged */
+}
+
+/* Targeting the <ul> within the .ingredients class */
+.ingredients ul {
+    list-style-type: none;
+    /* This removes the bullet points */
+    padding-left: 0;
+    /* This may also be necessary if there's unwanted padding */
+}
