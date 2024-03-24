@@ -9,7 +9,7 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 // import { UsernamePasswordCredential } from "@azure/identity";
-import { UsernamePasswordCredential } from "@azure/identity";
+import { DefaultAzureCredential } from "@azure/identity";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
@@ -21,15 +21,12 @@ const endpoint = process.env.COSMOS_ENDPOINT || "<cosmos endpoint>";
 const existingContainerId = process.env.COSMOS_CONTAINER || "<cosmos container>";
 const tenant_id = process.env.AZURE_TENANT_ID;
 const client_id = process.env.AZURE_CLIENT_ID;
-const 
 
 async function run() {
 //   logStep("Create credential object from @azure/identity");
-  const credentials = new UsernamePasswordCredential(
-    "fake-tenant-id",
-    "fake-client-id",
-    "fakeUsername",
-    "fakePassword",
+  const credentials = new DefaultAzureCredential(
+    tenant_id,
+    client_id
   );
 //   logStep("Pass credentials to client object with key aadCredentials");
   const aadClient = new CosmosClient({
