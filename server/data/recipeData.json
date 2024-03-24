@@ -167,7 +167,7 @@
     "image": "/images/california-roll.jpg"
   },
   {
-    "id": 6,
+    "id": "6",
     "name": "Grilled Avocados",
     "description": "Halved avocados lightly brushed with olive oil, seasoned with salt and pepper, and grilled until they develop a smoky char. The heat enhances the natural creaminess of the avocado while adding a hint of smokiness. Grilled avocados can be enjoyed on their own, as a side dish, or incorporated into various recipes, offering a unique twist to the beloved fruit.",
     "ingredients": [
@@ -195,7 +195,7 @@
     "image": "/images/grilled-avocado.jpg"
   },
   {
-    "id": 7,
+    "id": "7",
     "name": "Fried Avocado Bites",
     "description": "Crispy on the outside, creamy on the inside – these bite-sized treats feature slices of avocado coated in a seasoned breadcrumb or batter, then fried to golden perfection. Served with a zesty dipping sauce, these indulgent bites are a delicious combination of textures and flavors, making them a delightful appetizer or snack.",
     "ingredients": [
