@@ -1,6 +1,6 @@
 [
   {
-    "id": 0,
+    "id": "0",
     "name": "Avocado Toast",
     "description": "Toasted bread topped with mashed avocado, seasoned with salt, pepper, and a splash of citrus juice. Customize with toppings like tomatoes or poached eggs for a quick and tasty meal.",
     "ingredients": [
@@ -21,7 +21,7 @@
     "image": "/images/avocado-toast.png"
   },
   {
-    "id": 1,
+    "id": "1",
     "name": "Avocado Smoothie",
     "description": "Blend ripe avocado with banana, spinach, Greek yogurt, and a splash of almond milk for a creamy and nutritious beverage. This green delight offers a balance of flavors and a boost of vitamins, making it a refreshing and wholesome choice for a quick and easy smoothie.",
     "ingredients": [
@@ -48,7 +48,7 @@
     "image": "/images/avocado_milkshake.jpg"
   },
   {
-    "id": 2,
+    "id": "2",
     "name": "Bacon Guac Bomb",
     "description": "A savory delight featuring crispy bacon wrapped around a creamy guacamole center. These flavor-packed bites are perfect for a party or a tasty snack. The combination of smoky bacon and zesty guacamole creates an explosion of taste in every bite.",
     "ingredients": [
@@ -80,7 +80,7 @@
     "image": "/images/bacon-guac-bombs.jpg"
   },
   {
-    "id": 3,
+    "id": "3",
     "name": "Avocado Salad",
     "description": "A refreshing mix of ripe avocados, cherry tomatoes, cucumber, and red onion tossed in a zesty vinaigrette dressing. This vibrant salad offers a perfect balance of creamy and crunchy textures, making it a light and flavorful dish suitable for any meal. Customize with herbs or feta cheese for an extra burst of flavor.",
     "ingredients": [
@@ -111,7 +111,7 @@
     "image": "/images/avocado-salad.jpg"
   },
   {
-    "id": 4,
+    "id": "4",
     "name": "Fried Avocado Bites",
     "description": "Crispy on the outside, creamy on the inside – these bite-sized treats feature slices of avocado coated in a seasoned breadcrumb or batter, then fried to golden perfection. Served with a zesty dipping sauce, these indulgent bites are a delicious combination of textures and flavors, making them a delightful appetizer or snack.",
     "ingredients": [
