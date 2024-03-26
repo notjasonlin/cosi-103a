@@ -20,8 +20,7 @@ export default async function run() {
 	const container = database.container("Recipes");
 	console.log("3");
 	const query = "SELECT * FROM c ORDER BY c.id";
-	// var response = await container.item("0", "Recipes").read();
-	var response = await container.items.query(query).fetchAll();
-	console.log(response.resources);
-	return response.resources;
+    var response = await container.items.query(query).fetchAll();
+	// console.log(response.resources);
+	return response.resources; // Return the array of documents directly
 }

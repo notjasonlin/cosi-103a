@@ -32,14 +32,13 @@ app.use(cors(corsOptions));
 // const jsonFilePath = path.join(__dirname, "data", "recipeData.json");
 // const recipeData = JSON.parse(fs.readFileSync(jsonFilePath, "utf8"));
 
-const recipeData = run();
+const recipeData = await run();
+console.log(recipeData);
 
 // GET route
 app.get("/api", (req, res) => {
 	console.log("GET request received at /api");
-	const data = run();
-	recipeData = data;
-	res.json(data);
+	res.json(recipeData);
 });
 
 app.post("/api", async (req, res) => {
@@ -123,31 +122,31 @@ app.listen(5001, () => {
 	// Array to store promises
 	const fetchPromises = [];
 
-	// recipeData.forEach((recipe) => {
-	// 	const arr = recipe.ingredients;
-	// 	const dict = arr[0];
-	// 	Object.keys(dict).forEach((ingredient) => {
-	// 		const modified = ingredient.replace("/", "");
+	recipeData.forEach((recipe) => {
+		const arr = recipe.ingredients;
+		const dict = arr[0];
+		Object.keys(dict).forEach((ingredient) => {
+			const modified = ingredient.replace("/", "");
 
-	// 		const params = {
-	// 			query: modified,
-	// 			dataType: ["Survey (FNDDS)"],
-	// 			pageSize: 5,
-	// 			api_key: apiKey,
-	// 		};
+			const params = {
+				query: modified,
+				dataType: ["Survey (FNDDS)"],
+				pageSize: 5,
+				api_key: apiKey,
+			};
 
-	// 		const queryString = new URLSearchParams(params).toString();
-	// 		const url = `${baseUrl}?${queryString}`;
+			const queryString = new URLSearchParams(params).toString();
+			const url = `${baseUrl}?${queryString}`;
 
-	// 		// Push each fetch request promise to the array
-	// 		fetchPromises.push(
-	// 			fetchAsync(url).then((data) => {
-	// 				let numberFromApi = data["foods"][0].fdcId;
-	// 				dict[ingredient] = numberFromApi;
-	// 			})
-	// 		);
-	// 	});
-	// });
+			// Push each fetch request promise to the array
+			fetchPromises.push(
+				fetchAsync(url).then((data) => {
+					let numberFromApi = data["foods"][0].fdcId;
+					dict[ingredient] = numberFromApi;
+				})
+			);
+		});
+	});
 
 	// Wait for all fetch requests to complete
 	Promise.all(fetchPromises)
