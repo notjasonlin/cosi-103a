@@ -16,7 +16,7 @@ import { DefaultAzureCredential } from "@azure/identity";
 import { CosmosClient } from "@azure/cosmos";
 // import { handleError, finish, logStep } from "./Shared/handleError";
 
-const key = process.env.COSMOS_KEY || "<cosmos key>";
+
 const endpoint = process.env.COSMOS_ENDPOINT || "<cosmos endpoint>";
 const existingContainerId = process.env.COSMOS_CONTAINER || "<cosmos container>";
 // const tenant_id = process.env.AZURE_TENANT_ID;
@@ -47,17 +47,6 @@ console.log("2");
   console.log("3");
   var response = await container.item("0", "Recipes").read();
   console.log(response);
-
-  // succeeds
-  // await genericClient.databases.readAll({}).fetchAll();
-  console.log("4");
-  // succeeds
-  await aadClient.database("example").container(existingContainerId).items.readAll();
-  console.log("5");
-  // succeeds
-  await genericClient.database("example").container(existingContainerId).items.readAll();
-  console.log("6");
-
 }
 
 run();
