@@ -6,21 +6,22 @@ import { DefaultAzureCredential } from "@azure/identity";
 import { CosmosClient } from "@azure/cosmos";
 const endpoint = process.env.COSMOS_ENDPOINT || "<cosmos endpoint>";
 
-async function run() {
-  console.log("1");
-  const credentials = new DefaultAzureCredential();
+export default async function run() {
+	console.log("1");
+	const credentials = new DefaultAzureCredential();
 
-console.log("2");
-  const aadClient = new CosmosClient({
-    endpoint,
-    aadCredentials: credentials,
-  });
+	console.log("2");
+	const aadClient = new CosmosClient({
+		endpoint,
+		aadCredentials: credentials,
+	});
 
-  const database = aadClient.database('AvocadoDB');
-  const container = database.container('Recipes');
-  console.log("3");
-  var response = await container.item("0", "Recipes").read();
-  console.log(response);
+	const database = aadClient.database("AvocadoDB");
+	const container = database.container("Recipes");
+	console.log("3");
+	const query = "SELECT * FROM c ORDER BY c.id";
+	// var response = await container.item("0", "Recipes").read();
+	var response = await container.items.query(query).fetchAll();
+	console.log(response.resources);
+	return response.resources;
 }
-
-run();
