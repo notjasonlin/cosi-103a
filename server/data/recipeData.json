@@ -18,7 +18,13 @@
       "If desired, add your choice of optional toppings like a poached or fried egg, cherry tomatoes, red pepper flakes, feta cheese, or a drizzle of balsamic glaze.",
       "Serve immediately and enjoy your delicious avocado toast!"
     ],
-    "image": "/images/avocado-toast.png"
+    "image": "/images/avocado-toast.png",
+    "_rid": "B3A3AMkoyvsMAAAAAAAAAA==",
+    "_self": "dbs/B3A3AA==/colls/B3A3AMkoyvs=/docs/B3A3AMkoyvsMAAAAAAAAAA==/",
+    "_etag": "\"33004ad4-0000-0200-0000-66008a380000\"",
+    "_attachments": "attachments/",
+    "RecipesKey": "Recipes",
+    "_ts": 1711311416
   },
   {
     "id": "1",
@@ -45,7 +51,13 @@
       "Garnish with fresh mint leaves if desired.",
       "Serve immediately and enjoy your refreshing avocado smoothie!"
     ],
-    "image": "/images/avocado_milkshake.jpg"
+    "image": "/images/avocado_milkshake.jpg",
+    "_rid": "B3A3AMkoyvsPAAAAAAAAAA==",
+    "_self": "dbs/B3A3AA==/colls/B3A3AMkoyvs=/docs/B3A3AMkoyvsPAAAAAAAAAA==/",
+    "_etag": "\"33004dd4-0000-0200-0000-66008ad30000\"",
+    "_attachments": "attachments/",
+    "RecipesKey": "Recipes",
+    "_ts": 1711311571
   },
   {
     "id": "2",
@@ -77,7 +89,13 @@
       "Garnish with crushed red pepper flakes, if desired.",
       "Serve immediately with your favorite chips or as a side dish. Enjoy your flavorful Bacon Guac Bomb!"
     ],
-    "image": "/images/bacon-guac-bombs.jpg"
+    "image": "/images/bacon-guac-bombs.jpg",
+    "_rid": "B3A3AMkoyvsQAAAAAAAAAA==",
+    "_self": "dbs/B3A3AA==/colls/B3A3AMkoyvs=/docs/B3A3AMkoyvsQAAAAAAAAAA==/",
+    "_etag": "\"33004fd4-0000-0200-0000-66008aec0000\"",
+    "_attachments": "attachments/",
+    "RecipesKey": "Recipes",
+    "_ts": 1711311596
   },
   {
     "id": "3",
@@ -108,7 +126,13 @@
       "Serve the salad immediately, or chill in the refrigerator for a refreshing and healthy meal or side dish.",
       "Enjoy your vibrant and tasty Avocado Salad!"
     ],
-    "image": "/images/avocado-salad.jpg"
+    "image": "/images/avocado-salad.jpg",
+    "_rid": "B3A3AMkoyvsRAAAAAAAAAA==",
+    "_self": "dbs/B3A3AA==/colls/B3A3AMkoyvs=/docs/B3A3AMkoyvsRAAAAAAAAAA==/",
+    "_etag": "\"330057d4-0000-0200-0000-66008b110000\"",
+    "_attachments": "attachments/",
+    "RecipesKey": "Recipes",
+    "_ts": 1711311633
   },
   {
     "id": "4",
@@ -135,7 +159,13 @@
       "Serve the fried avocado bites hot with your choice of dipping sauce, such as ranch dressing, aioli, or hot sauce.",
       "Enjoy your delicious and crispy Fried Avocado Bites!"
     ],
-    "image": "/images/avocado-bites.jpg"
+    "image": "/images/avocado-bites.jpg",
+    "_rid": "B3A3AMkoyvsSAAAAAAAAAA==",
+    "_self": "dbs/B3A3AA==/colls/B3A3AMkoyvs=/docs/B3A3AMkoyvsSAAAAAAAAAA==/",
+    "_etag": "\"330058d4-0000-0200-0000-66008b2b0000\"",
+    "_attachments": "attachments/",
+    "RecipesKey": "Recipes",
+    "_ts": 1711311659
   },
   {
     "id": "5",
@@ -164,7 +194,13 @@
       "Serve the California rolls with soy sauce, wasabi, and pickled ginger on the side.",
       "Enjoy your delicious homemade California Sushi Rolls!"
     ],
-    "image": "/images/california-roll.jpg"
+    "image": "/images/california-roll.jpg",
+    "_rid": "B3A3AMkoyvsOAAAAAAAAAA==",
+    "_self": "dbs/B3A3AA==/colls/B3A3AMkoyvs=/docs/B3A3AMkoyvsOAAAAAAAAAA==/",
+    "_etag": "\"33004cd4-0000-0200-0000-66008a980000\"",
+    "_attachments": "attachments/",
+    "RecipesKey": "Recipes",
+    "_ts": 1711311512
   },
   {
     "id": "6",
@@ -192,7 +228,13 @@
       "For an extra flavor, drizzle balsamic glaze or your choice of dressing over the filled avocados.",
       "Serve immediately and enjoy your flavorful Grilled Avocados!"
     ],
-    "image": "/images/grilled-avocado.jpg"
+    "image": "/images/grilled-avocado.jpg",
+    "_rid": "B3A3AMkoyvsNAAAAAAAAAA==",
+    "_self": "dbs/B3A3AA==/colls/B3A3AMkoyvs=/docs/B3A3AMkoyvsNAAAAAAAAAA==/",
+    "_etag": "\"33004bd4-0000-0200-0000-66008a580000\"",
+    "_attachments": "attachments/",
+    "RecipesKey": "Recipes",
+    "_ts": 1711311448
   },
   {
     "id": "7",
@@ -219,6 +261,12 @@
       "Serve the fried avocado bites hot with your choice of dipping sauce, such as ranch dressing, aioli, or hot sauce.",
       "Enjoy your delicious and crispy Fried Avocado Bites!"
     ],
-    "image": "/images/avocado-transparent.png"
+    "image": "/images/avocado-transparent.png",
+    "_rid": "B3A3AMkoyvsLAAAAAAAAAA==",
+    "_self": "dbs/B3A3AA==/colls/B3A3AMkoyvs=/docs/B3A3AMkoyvsLAAAAAAAAAA==/",
+    "_etag": "\"330040d4-0000-0200-0000-660089a60000\"",
+    "_attachments": "attachments/",
+    "RecipesKey": "Recipes",
+    "_ts": 1711311270
   }
 ]
