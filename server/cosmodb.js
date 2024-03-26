@@ -19,35 +19,44 @@ import { CosmosClient } from "@azure/cosmos";
 const key = process.env.COSMOS_KEY || "<cosmos key>";
 const endpoint = process.env.COSMOS_ENDPOINT || "<cosmos endpoint>";
 const existingContainerId = process.env.COSMOS_CONTAINER || "<cosmos container>";
-const tenant_id = process.env.AZURE_TENANT_ID;
-const client_id = process.env.AZURE_CLIENT_ID;
+// const tenant_id = process.env.AZURE_TENANT_ID;
+// const client_id = process.env.AZURE_CLIENT_ID;
 
 async function run() {
+  console.log("1");
 //   logStep("Create credential object from @azure/identity");
-  const credentials = new DefaultAzureCredential(
-    tenant_id,
-    client_id
-  );
+  const credentials = new DefaultAzureCredential();
 //   logStep("Pass credentials to client object with key aadCredentials");
+
+console.log("2");
   const aadClient = new CosmosClient({
     endpoint,
     aadCredentials: credentials,
   });
 
-  const genericClient = new CosmosClient({
-    endpoint,
-    key: key,
-  });
-
+  // const genericClient = new CosmosClient({
+  //   endpoint,
+  //   key: key,
+  // });
+  // console.log("3");
   // fails
-  await aadClient.databases.readAll({}).fetchAll();
-  // succeeds
-  await genericClient.databases.readAll({}).fetchAll();
+  // await aadClient.databases.readAll({}).fetchAll();
 
+  const database = aadClient.database('AvocadoDB');
+  const container = database.container('Recipes');
+  console.log("3");
+  var response = await container.item("0", "Recipes").read();
+  console.log(response);
+
+  // succeeds
+  // await genericClient.databases.readAll({}).fetchAll();
+  console.log("4");
   // succeeds
   await aadClient.database("example").container(existingContainerId).items.readAll();
+  console.log("5");
   // succeeds
   await genericClient.database("example").container(existingContainerId).items.readAll();
+  console.log("6");
 
 }
 
