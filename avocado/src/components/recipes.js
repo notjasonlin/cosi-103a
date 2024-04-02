@@ -9,7 +9,7 @@ const RecipeList = ({ recipeId, recipesData }) => {
 	const { addGrocery } = useGroceryContext();
 
 	// Find the recipe with the specified id
-	const selectedRecipe = recipesData.find((recipe) => recipe.id === id);
+	const selectedRecipe = recipesData.find((recipe) => recipe.id === recipeId);
 
 	// Check if a recipe with the specified id exists
 	if (!selectedRecipe) {
