@@ -1,4 +1,4 @@
-name: Trigger auto deployment for avocadoapp2
+name: Trigger auto deployment for avocadoapp3
 
 # When this action will be executed
 on:
@@ -8,7 +8,7 @@ on:
       [ main ]
     paths:
     - '**'
-    - '.github/workflows/avocadoapp2-AutoDeployTrigger-303ae15d-6d69-4454-a989-380ed2276a82.yml'
+    - '.github/workflows/avocadoapp3-AutoDeployTrigger-4c84a7c8-9231-4b19-96ec-d11222404837.yml'
 
   # Allow manual trigger 
   workflow_dispatch:      
@@ -27,20 +27,20 @@ jobs:
       - name: Azure Login
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AVOCADOAPP2_AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AVOCADOAPP2_AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AVOCADOAPP2_AZURE_SUBSCRIPTION_ID }}
+          client-id: ${{ secrets.AVOCADOAPP3_AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AVOCADOAPP3_AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AVOCADOAPP3_AZURE_SUBSCRIPTION_ID }}
 
       - name: Build and push container image to registry
         uses: azure/container-apps-deploy-action@v2
         with:
           appSourcePath: ${{ github.workspace }} 
           registryUrl: avocadoinc.azurecr.io
-          registryUsername: ${{ secrets.AVOCADOAPP2_REGISTRY_USERNAME }}
-          registryPassword: ${{ secrets.AVOCADOAPP2_REGISTRY_PASSWORD }}
-          containerAppName: avocadoapp2
+          registryUsername: ${{ secrets.AVOCADOAPP3_REGISTRY_USERNAME }}
+          registryPassword: ${{ secrets.AVOCADOAPP3_REGISTRY_PASSWORD }}
+          containerAppName: avocadoapp3
           resourceGroup: avocadoinc
-          imageToBuild: avocadoinc.azurecr.io/avocadoapp2:${{ github.sha }}
+          imageToBuild: avocadoinc.azurecr.io/avocadoapp3:${{ github.sha }}
           _buildArgumentsKey_: |
             _buildArgumentsValues_
 
