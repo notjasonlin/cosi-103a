@@ -16,10 +16,12 @@ const app = express();
 
 // Correct placement for body-parser middleware
 app.use(bodyParser.json());
-app.use(express.static("public"));
+// app.use(express.static("public"));
+app.use(express.static("data"));
+
 
 const corsOptions = {
-	origin: "*", // Replace this with your client's URL for better security in production
+	origin: ("20.242.137.131:3000", "https://localhost:3000", "http://127.0.0.1:3000"), // Replace this with your client's URL for better security in production
 	methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 	allowedHeaders: "Content-Type,Authorization", // Adjust based on your needs
 	preflightContinue: false,
@@ -33,12 +35,13 @@ app.use(cors(corsOptions));
 // const recipeData = JSON.parse(fs.readFileSync(jsonFilePath, "utf8"));
 
 const recipeData = await run();
-console.log(recipeData);
+// console.log(recipeData);
 
 // GET route
 app.get("/api", (req, res) => {
 	console.log("GET request received at /api");
 	res.json(recipeData);
+	console.log("Grabbed");
 });
 
 app.post("/api", async (req, res) => {
