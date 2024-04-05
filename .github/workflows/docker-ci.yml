@@ -25,6 +25,7 @@ jobs:
           envkey_DEBUG: false
           envkey_SOME_API_KEY: "123456!"
           envkey_SECRET_KEY: ${{ secrets.FDA_ID }}
+          envkey_COSMOS_ENDPOINT: ${{ secrets.COSMOS_ENDPOINT }}
           file_name: .env
 
   deploy_infra:
