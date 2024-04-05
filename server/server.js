@@ -6,6 +6,7 @@ import path from "path";
 import cors from "cors";
 import bodyParser from "body-parser";
 import * as dotenv from "dotenv";
+
 const apiKey = process.env.SECRET_KEY;
 
 dotenv.config();
@@ -18,10 +19,8 @@ const app = express();
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
-const ip = Location.hostname;
-
 const corsOptions = {
-	origin: "http://" + ip + ":3000", // Replace this with your client's URL for better security in production
+	origin: "http://127.0.0.1:3000", // Replace this with your client's URL for better security in production
 	methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 	allowedHeaders: "Content-Type,Authorization", // Adjust based on your needs
 	preflightContinue: false,
