@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 app.use(express.static("public"));
 
 const corsOptions = {
-	origin: "http://127.0.0.1:3000", // Replace this with your client's URL for better security in production
+	origin: ("http://127.0.0.1:3000", "20.242.137.131:3000"), // Replace this with your client's URL for better security in production
 	methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 	allowedHeaders: "Content-Type,Authorization", // Adjust based on your needs
 	preflightContinue: false,

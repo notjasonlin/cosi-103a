@@ -21,10 +21,18 @@ import DataInputForm from "./components/sendData";
 import { useEffect, useState } from "react";
 import CookMode from "./components/cook-mode";
 
+import * as dns from "dns";
+
 function App() {
 	const [backendData, setBackendData] = useState([{}]);
 
-	const ip = window.self.location.hostname;
+	const options = {
+		// Setting family as 6 i.e. IPv6
+		family: 6,
+		hints: dns.ADDRCONFIG | dns.V4MAPPED,
+	};
+
+	const ip = "20.242.137.131";
 
 	useEffect(() => {
 		fetch("http://" + ip + ":5001/api").then(async (response) => {
