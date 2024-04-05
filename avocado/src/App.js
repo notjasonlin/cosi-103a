@@ -24,8 +24,10 @@ import CookMode from "./components/cook-mode";
 function App() {
 	const [backendData, setBackendData] = useState([{}]);
 
+	const ip = location.hostname;
+
 	useEffect(() => {
-		fetch("http://localhost:5001/api").then(async (response) => {
+		fetch("http://" + ip + ":5001/api").then(async (response) => {
 			let data = await response.json();
 			setBackendData(data);
 		});
@@ -81,8 +83,10 @@ function App() {
 							element={<RecipeListPage backendData={backendData} />}
 						/>
 						<Route path="/add-recipes" element={<DataInputForm />} />
-						<Route path="/recipe/:recipeId/cookingMode" element={<CookModePage backendData={backendData} />} />
-
+						<Route
+							path="/recipe/:recipeId/cookingMode"
+							element={<CookModePage backendData={backendData} />}
+						/>
 					</Routes>
 
 					<footer className="footer">
@@ -114,6 +118,5 @@ function CookModePage({ backendData }) {
 	const { recipeId } = useParams(); // Extract recipeId from URL params
 	return <CookMode recipeId={recipeId} recipesData={backendData} />;
 }
-
 
 export default App;
