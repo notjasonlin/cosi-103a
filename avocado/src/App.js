@@ -24,7 +24,7 @@ import CookMode from "./components/cook-mode";
 function App() {
 	const [backendData, setBackendData] = useState([{}]);
 
-	const ip = Location.hostname;
+	const ip = window.self.location.hostname;
 
 	useEffect(() => {
 		fetch("http://" + ip + ":5001/api").then(async (response) => {
