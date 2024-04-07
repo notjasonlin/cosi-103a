@@ -47,10 +47,10 @@ jobs:
         with:
           appSourcePath: ${{ github.workspace }} 
           registryUrl: avocadoinc.azurecr.io
-          registryUsername: ${{ secrets.AVOCADOAPP2_REGISTRY_USERNAME }}
-          registryPassword: ${{ secrets.AVOCADOAPP2_REGISTRY_PASSWORD }}
-          containerAppName: avocadoapp2
+          registryUsername: ${{ secrets.AVOCADOAPP3_REGISTRY_USERNAME }}
+          registryPassword: ${{ secrets.AVOCADOAPP3_REGISTRY_PASSWORD }}
+          containerAppName: avocadoapp3
           resourceGroup: avocadoinc
-          imageToBuild: avocadoinc.azurecr.io/avocadoapp2:${{ github.sha }}
+          imageToBuild: avocadoinc.azurecr.io/avocadoapp3:${{ github.sha }}
           _buildArgumentsKey_: |
             _buildArgumentsValues_
