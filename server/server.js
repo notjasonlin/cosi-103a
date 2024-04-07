@@ -15,6 +15,7 @@ dotenv.config();
 
 const app = express();
 
+console.log("1");
 // Correct placement for body-parser middleware
 app.use(bodyParser.json());
 // app.use(express.static("public"));
@@ -34,7 +35,7 @@ app.use(cors(corsOptions));
 
 // const jsonFilePath = path.join(__dirname, "data", "recipeData.json");
 // const recipeData = JSON.parse(fs.readFileSync(jsonFilePath, "utf8"));
-
+console.log("2");
 const recipeData = await run();
 // console.log(recipeData);
 
