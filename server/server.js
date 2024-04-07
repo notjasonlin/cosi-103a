@@ -7,7 +7,7 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import * as dotenv from "dotenv";
 
-const apiKey = process.env.SECRET_KEY;
+const apiKey = process.env.SECRET_KEY || "scwYTY43nWSVgwb58HA1n1ZeOqbpPVf577jy5VHR";
 
 dotenv.config();
 
