@@ -5,6 +5,7 @@ dotenv.config();
 import { DefaultAzureCredential } from "@azure/identity";
 import { CosmosClient } from "@azure/cosmos";
 const endpoint = process.env.COSMOS_ENDPOINT || "https://altakie.documents.azure.com:443/";
+const key = "j55ce1vlcvkHhvubzcIeQuIhRyawFmg4VeO8ZAv96izxrISwB1x7p3zMvWdV1PHgCVXQdISboQ3HACDbetfiGA==";
 
 export default async function run() {
 	console.log("1");
@@ -13,7 +14,8 @@ export default async function run() {
 	console.log("2");
 	const aadClient = new CosmosClient({
 		endpoint,
-		aadCredentials: credentials,
+		//aadCredentials: credentials,
+		key
 	});
 
 	const database = aadClient.database("AvocadoDB");
