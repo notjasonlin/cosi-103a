@@ -27,7 +27,7 @@ function App() {
 	const ip = "20.242.137.131";
 
 	useEffect(() => {
-		fetch("https://" + ip + ":5001/api").then(async (response) => {
+		fetch(ip + ":5001/api").then(async (response) => {
 			let data = await response.json();
 			setBackendData(data);
 		});
