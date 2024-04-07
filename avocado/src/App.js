@@ -28,7 +28,7 @@ function App() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`http://${ip}:5001/api`);
+                const response = await fetch(`https://${ip}:5001/api`);
                 const data = await response.json();
                 setBackendData(data);
                 console.log("backendData: ", data); // Correct place to log the fetched data
