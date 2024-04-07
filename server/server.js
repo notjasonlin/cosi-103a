@@ -37,7 +37,7 @@ app.use(cors(corsOptions));
 // const recipeData = JSON.parse(fs.readFileSync(jsonFilePath, "utf8"));
 console.log("2");
 const recipeData = await run();
-// console.log(recipeData);
+console.log(recipeData);
 
 // GET route
 app.get("/api", (req, res) => {
