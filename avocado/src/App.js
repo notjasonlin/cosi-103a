@@ -22,20 +22,23 @@ import { useEffect, useState } from "react";
 import CookMode from "./components/cook-mode";
 
 function App() {
-	const [backendData, setBackendData] = useState([{}]);
+    const [backendData, setBackendData] = useState([{}]);
+    const ip = "20.242.137.131";
 
-	const ip = "20.242.137.131";
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch(`${ip}:5001/api`);
+                const data = await response.json();
+                setBackendData(data);
+                console.log("backendData: ", data); // Correct place to log the fetched data
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
 
-	useEffect(() => {
-		fetch(ip + ":5001/api").then(async (response) => {
-			let data = await response.json();
-			setBackendData(data);
-		});
-	}, []);
-
-	useEffect(() => {
-		console.log("backendData: ", backendData);
-	}, [backendData]);
+        fetchData(); // Call the async function
+    }, []);
 
 	return (
 		<Router>
