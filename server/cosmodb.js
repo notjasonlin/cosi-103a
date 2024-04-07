@@ -4,7 +4,7 @@ import * as dotenv from "dotenv";
 dotenv.config();
 import { DefaultAzureCredential } from "@azure/identity";
 import { CosmosClient } from "@azure/cosmos";
-const endpoint = process.env.COSMOS_ENDPOINT || "<cosmos endpoint>";
+const endpoint = process.env.COSMOS_ENDPOINT || "https://altakie.documents.azure.com:443/";
 
 export default async function run() {
 	console.log("1");
