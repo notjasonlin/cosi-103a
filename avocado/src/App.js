@@ -23,11 +23,11 @@ import CookMode from "./components/cook-mode";
 
 function App() {
     const [backendData, setBackendData] = useState([{}]);
-    //const ip = "20.242.137.131";
+    const ip = "20.242.137.131";
 
     useEffect(() => {
         const fetchData = async () => {
-                const response = await fetch(`https://localhost:5001/api`);
+                const response = await fetch(`https://${ip}:5001/api`);
 				if (!response.ok) {
 					throw new Error(`HTTP status ${response.status}`);
 				}

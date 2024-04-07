@@ -23,7 +23,7 @@ app.use(express.static("data"));
 
 
 const corsOptions = {
-	origin: ("20.242.137.131:3000", "https://localhost:3000", "http://127.0.0.1:3000"), // Replace this with your client's URL for better security in production
+	origin: ("20.242.137.131:3000", "https://localhost:3000", "http://127.0.0.1:3000", "https://20.242.137.131:3000"), // Replace this with your client's URL for better security in production
 	methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 	allowedHeaders: "Content-Type,Authorization", // Adjust based on your needs
 	preflightContinue: false,
