@@ -40,7 +40,8 @@ function App() {
 			if (!ip) return;
 	
 			const port = ":443"; // Set port here if not part of the IP state
-			const apiUrl = `https://${ip}${port}/api`;
+			const apiUrl = "https://"+ip+port+"/api";
+			console.log(apiUrl)
 			try {
 				const response = await fetch(apiUrl);
 				if (!response.ok) {
