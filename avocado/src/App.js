@@ -21,10 +21,11 @@ import DataInputForm from "./components/sendData";
 import { useEffect, useState } from "react";
 import CookMode from "./components/cook-mode";
 import os from "os"; 
-const networkInterfaces = os.networkInterfaces();
 
 function App() {
+	const networkInterfaces = os.networkInterfaces();
 	console.log(networkInterfaces);
+	
     const [backendData, setBackendData] = useState([{}]);
     const ip = "100.100.197.152";
 

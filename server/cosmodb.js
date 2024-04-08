@@ -9,13 +9,14 @@ const key = "j55ce1vlcvkHhvubzcIeQuIhRyawFmg4VeO8ZAv96izxrISwB1x7p3zMvWdV1PHgCVX
 
 export default async function run() {
 	console.log("1");
+	const key = "j55ce1vlcvkHhvubzcIeQuIhRyawFmg4VeO8ZAv96izxrISwB1x7p3zMvWdV1PHgCVXQdISboQ3HACDbetfiGA==";
 	const credentials = new DefaultAzureCredential();
 
 	console.log("2");
 	const aadClient = new CosmosClient({
 		endpoint,
-		//aadCredentials: credentials,
-		key
+		// aadCredentials: credentials,
+		key,
 	});
 
 	const database = aadClient.database("AvocadoDB");
