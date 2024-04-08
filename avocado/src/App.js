@@ -29,6 +29,7 @@ function App() {
 	const getIP = async () => {
 		ip = await ipAddressArray[0]; // Initialize ip variable
 		console.log(ip);
+		console.log(typeof(ip));
 	}
 	
 	
@@ -36,6 +37,7 @@ function App() {
     useEffect(() => {
         const fetchData = async () => {
 			getIP();
+			ip = JSON.stringify(ip);
 			const response = await fetch(`${ip}:5001/api`);
 			if (!response.ok) {
 				throw new Error(`HTTP status ${response.status}`);
