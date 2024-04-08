@@ -20,14 +20,15 @@ import DataInputForm from "./components/sendData";
 
 import { useEffect, useState } from "react";
 import CookMode from "./components/cook-mode";
-import os from "os"; 
+import ipAddressArray from "./ip.js";
+
 
 function App() {
-	const networkInterfaces = os.networkInterfaces();
-	console.log(networkInterfaces);
-	
     const [backendData, setBackendData] = useState([{}]);
-    const ip = "100.100.197.152";
+
+	let ip = ipAddressArray[0]; // Initialize ip variable
+	console.log(ip);
+	
 
     useEffect(() => {
         const fetchData = async () => {
