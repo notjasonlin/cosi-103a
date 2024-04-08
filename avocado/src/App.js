@@ -36,7 +36,7 @@ function App() {
 
     useEffect(() => {
         const fetchData = async () => {
-			getIP();
+			await getIP();
 			ip = JSON.stringify(ip);
 			const response = await fetch(`${ip}:5001/api`);
 			if (!response.ok) {
