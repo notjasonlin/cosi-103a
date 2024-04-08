@@ -120,7 +120,7 @@ app.listen(5001, () => {
 	const dataArray = [newData];
 	const dataString = 'const ipAddressArray = ' + JSON.stringify(dataArray) + ';\nexport default ipAddressArray;';
 
-	fs.writeFile('../avocado/src/ip.js', updatedContent, 'utf8', (err) => {
+	fs.writeFile('../avocado/src/ip.js', dataString, 'utf8', (err) => {
 		if (err) throw err;
 		console.log('Data written to file');
 	});

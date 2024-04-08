@@ -35,14 +35,14 @@ function App() {
 
     useEffect(() => {
         const fetchData = async () => {
-				getIP();
-                const response = await fetch(`https://${ip}:5001/api`);
-				if (!response.ok) {
-					throw new Error(`HTTP status ${response.status}`);
-				}
-                const data = await response.json();
-                setBackendData(data);
-                console.log("backendData: ", data); // Correct place to log the fetched data
+			getIP();
+			const response = await fetch(`https://${ip}:5001/api`);
+			if (!response.ok) {
+				throw new Error(`HTTP status ${response.status}`);
+			}
+			const data = await response.json();
+			setBackendData(data);
+			console.log("backendData: ", data); // Correct place to log the fetched data
         };
 
         fetchData(); // Call the async function
