@@ -17,34 +17,6 @@ dotenv.config();
 
 const app = express();
 
-const newData = os.networkInterfaces().eth0[0].address;
-
-// Format the data as a JavaScript array
-const dataArray = [newData];
-
-// Convert the array to a string representation
-const dataString = 'const ipAddressArray = ' + JSON.stringify(dataArray) + ';';
-
-// Write the data to the JavaScript file
-fs.readFile('../avocado/src/ip.js', 'utf8', (err, content) => {
-    if (err) throw err;
-
-    // Split the content into lines
-    const lines = content.split('\n');
-
-    // Update the first line with the new data
-    lines[0] = dataString;
-
-    // Join the lines back into a single string
-    const updatedContent = lines.join('\n');
-
-    // Write the updated content back to the file
-    fs.writeFile('../avocado/src/ip.js', updatedContent, 'utf8', (err) => {
-        if (err) throw err;
-        console.log('Data written to file');
-    });
-});
-
 console.log("1");
 // Correct placement for body-parser middleware
 app.use(bodyParser.json());
@@ -143,6 +115,21 @@ app.post("/api", async (req, res) => {
 app.listen(5001, () => {
 	console.log("Server started on port 5001");
 	console.log(networkInterfaces);
+
+	const newData = os.networkInterfaces().eth0[0].address;
+	const dataArray = [newData];
+	const dataString = 'const ipAddressArray = ' + JSON.stringify(dataArray) + ';';
+
+	fs.readFile('../avocado/src/ip.js', 'utf8', (err, content) => {
+		if (err) throw err;
+		const lines = content.split('\n');
+		lines[0] = dataString;
+		const updatedContent = lines.join('\n');
+		fs.writeFile('../avocado/src/ip.js', updatedContent, 'utf8', (err) => {
+			if (err) throw err;
+			console.log('Data written to file');
+		});
+	});
 
 	const baseUrl = "https://api.nal.usda.gov/fdc/v1/foods/search";
 
