@@ -36,25 +36,26 @@ function App() {
     };
 
     useEffect(() => {
-        const fetchData = async () => {
-            if (!ip) return; // Do not proceed if ip is not set
-
-            try {
-                const response = await fetch(`https://${ip}:443/api`);
-                if (!response.ok) {
-                    throw new Error(`HTTP status ${response.status}`);
-                }
-                const data = await response.json();
-                setBackendData(data);
-                console.log("backendData: ", data); // Correct place to log the fetched data
-            } catch (error) {
-                console.error('Failed to fetch data:', error);
-            }
-        };
-
-        getIP(); // Fetch IP on component mount
-        fetchData(); // Then fetch data
-    }, [ip]);
+		const fetchData = async () => {
+			if (!ip) return;
+	
+			const port = ":443"; // Set port here if not part of the IP state
+			const apiUrl = `https://${ip}${port}/api`;
+			try {
+				const response = await fetch(apiUrl);
+				if (!response.ok) {
+					throw new Error(`HTTP status ${response.status}`);
+				}
+				const data = await response.json();
+				setBackendData(data);
+			} catch (error) {
+				console.error('Failed to fetch data:', error);
+			}
+		};
+	
+		getIP(); // Fetch IP on component mount
+		fetchData(); // Then fetch data
+	}, [ip]); // Dependency on IP address
 
 	return (
 		<Router>
