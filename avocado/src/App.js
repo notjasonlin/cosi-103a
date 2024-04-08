@@ -25,13 +25,17 @@ import ipAddressArray from "./ip.js";
 
 function App() {
     const [backendData, setBackendData] = useState([{}]);
-
-	let ip = ipAddressArray[0]; // Initialize ip variable
-	console.log(ip);
+	let ip;
+	const getIP = async () => {
+		ip = await ipAddressArray[0]; // Initialize ip variable
+		console.log(ip);
+	}
+	
 	
 
     useEffect(() => {
         const fetchData = async () => {
+				getIP();
                 const response = await fetch(`https://${ip}:5001/api`);
 				if (!response.ok) {
 					throw new Error(`HTTP status ${response.status}`);
