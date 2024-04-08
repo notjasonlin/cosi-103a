@@ -118,17 +118,11 @@ app.listen(5001, () => {
 
 	const newData = os.networkInterfaces().eth0[0].address;
 	const dataArray = [newData];
-	const dataString = 'const ipAddressArray = ' + JSON.stringify(dataArray) + ';';
+	const dataString = 'const ipAddressArray = ' + JSON.stringify(dataArray) + ';\nexport default ipAddressArray;';
 
-	fs.readFile('../avocado/src/ip.js', 'utf8', (err, content) => {
+	fs.writeFile('../avocado/src/ip.js', updatedContent, 'utf8', (err) => {
 		if (err) throw err;
-		const lines = content.split('\n');
-		lines[0] = dataString;
-		const updatedContent = lines.join('\n');
-		fs.writeFile('../avocado/src/ip.js', updatedContent, 'utf8', (err) => {
-			if (err) throw err;
-			console.log('Data written to file');
-		});
+		console.log('Data written to file');
 	});
 
 	const baseUrl = "https://api.nal.usda.gov/fdc/v1/foods/search";
