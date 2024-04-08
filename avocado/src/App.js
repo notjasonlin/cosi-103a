@@ -23,7 +23,7 @@ import CookMode from "./components/cook-mode";
 
 function App() {
     const [backendData, setBackendData] = useState([{}]);
-    const ip = "20.242.137.131";
+    const ip = "100.100.197.152";
 
     useEffect(() => {
         const fetchData = async () => {
