@@ -36,7 +36,7 @@ function App() {
     useEffect(() => {
         const fetchData = async () => {
 			getIP();
-			const response = await fetch(`https://${ip}:5001/api`);
+			const response = await fetch(`${ip}:5001/api`);
 			if (!response.ok) {
 				throw new Error(`HTTP status ${response.status}`);
 			}
