@@ -6,6 +6,8 @@ import path from "path";
 import cors from "cors";
 import bodyParser from "body-parser";
 import * as dotenv from "dotenv";
+const os = require('os');
+const networkInterfaces = os.networkInterfaces();
 
 const apiKey = process.env.SECRET_KEY || "scwYTY43nWSVgwb58HA1n1ZeOqbpPVf577jy5VHR";
 
@@ -22,16 +24,16 @@ app.use(bodyParser.json());
 app.use(express.static("data"));
 
 
-const corsOptions = {
-	origin: ("*"), // Replace this with your client's URL for better security in production
-	methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-	allowedHeaders: "Content-Type,Authorization", // Adjust based on your needs
-	preflightContinue: false,
-	optionsSuccessStatus: 204,
-};
+// const corsOptions = {
+// 	origin: ("20.242.137.131:3000", "https://localhost:3000", "http://127.0.0.1:3000", "https://20.242.137.131:3000"), // Replace this with your client's URL for better security in production
+// 	methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+// 	allowedHeaders: "Content-Type,Authorization", // Adjust based on your needs
+// 	preflightContinue: false,
+// 	optionsSuccessStatus: 204,
+// };
 
 // Apply CORS options
-app.use(cors(corsOptions));
+app.use(cors());
 
 // const jsonFilePath = path.join(__dirname, "data", "recipeData.json");
 // const recipeData = JSON.parse(fs.readFileSync(jsonFilePath, "utf8"));
@@ -112,6 +114,7 @@ app.post("/api", async (req, res) => {
 
 app.listen(5001, () => {
 	console.log("Server started on port 5001");
+	console.log(networkInterfaces);
 
 	const baseUrl = "https://api.nal.usda.gov/fdc/v1/foods/search";
 
