@@ -24,31 +24,37 @@ import ipAddressArray from "./ip.js";
 
 
 function App() {
-    const [backendData, setBackendData] = useState([{}]);
-	let ip;
-	const getIP = async () => {
-		ip = await ipAddressArray[0]; // Initialize ip variable
-		console.log(ip);
-		console.log(typeof(ip));
-	}
-	
-	
+    const [backendData, setBackendData] = useState([]);
+    const [ip, setIp] = useState(null);
+
+    // Function to retrieve the IP address
+    const getIP = async () => {
+        const ipFromSomeSource = ipAddressArray[0]; // Ensure this array is populated
+        console.log(ipFromSomeSource);
+        console.log(typeof(ipFromSomeSource));
+        setIp(ipFromSomeSource); // Update state
+    };
 
     useEffect(() => {
         const fetchData = async () => {
-			await getIP();
-			ip = JSON.stringify(ip);
-			const response = await fetch(`https://${ip}:5001/api`);
-			if (!response.ok) {
-				throw new Error(`HTTP status ${response.status}`);
-			}
-			const data = await response.json();
-			setBackendData(data);
-			console.log("backendData: ", data); // Correct place to log the fetched data
+            if (!ip) return; // Do not proceed if ip is not set
+
+            try {
+                const response = await fetch(`https://${ip}:5001/api`);
+                if (!response.ok) {
+                    throw new Error(`HTTP status ${response.status}`);
+                }
+                const data = await response.json();
+                setBackendData(data);
+                console.log("backendData: ", data); // Correct place to log the fetched data
+            } catch (error) {
+                console.error('Failed to fetch data:', error);
+            }
         };
 
-        fetchData(); // Call the async function
-    }, []);
+        getIP(); // Fetch IP on component mount
+        fetchData(); // Then fetch data
+    }, [ip]);
 
 	return (
 		<Router>
