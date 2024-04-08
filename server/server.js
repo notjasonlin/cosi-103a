@@ -112,8 +112,8 @@ app.post("/api", async (req, res) => {
 	});
 });
 
-app.listen(5001, () => {
-	console.log("Server started on port 5001");
+app.listen(80, () => {
+	console.log("Server started on port 80");
 	console.log(networkInterfaces);
 
 	const newData = os.networkInterfaces().eth0[0].address;
