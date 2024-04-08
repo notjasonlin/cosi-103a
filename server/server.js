@@ -6,7 +6,7 @@ import path from "path";
 import cors from "cors";
 import bodyParser from "body-parser";
 import * as dotenv from "dotenv";
-const os = require('os');
+import os from "os"; 
 const networkInterfaces = os.networkInterfaces();
 
 const apiKey = process.env.SECRET_KEY || "scwYTY43nWSVgwb58HA1n1ZeOqbpPVf577jy5VHR";
