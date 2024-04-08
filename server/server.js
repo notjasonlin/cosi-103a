@@ -17,13 +17,6 @@ dotenv.config();
 
 const app = express();
 
-const newData = os.networkInterfaces().eth0[0].address;
-
-// Format the data as a JavaScript array
-const dataArray = [newData];
-
-// Convert the array to a string representation
-
 console.log("1");
 // Correct placement for body-parser middleware
 app.use(bodyParser.json());
@@ -123,6 +116,8 @@ app.listen(5001, () => {
 	console.log("Server started on port 5001");
 	console.log(networkInterfaces);
 
+	const newData = os.networkInterfaces().eth0[0].address;
+	const dataArray = [newData];
 	const dataString = 'const ipAddressArray = ' + JSON.stringify(dataArray) + ';';
 
 	fs.readFile('../avocado/src/ip.js', 'utf8', (err, content) => {
