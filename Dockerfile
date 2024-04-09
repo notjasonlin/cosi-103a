@@ -5,7 +5,7 @@ WORKDIR /usr
 #COPY avocado/package.json package.json
 #COPY avocado/package-lock.json package-lock.json
 COPY server ./server
-COPY avocado/build/ ./server/build
+COPY avocado/build ./server/build
 COPY docker-setup.sh docker-setup.sh
 
 WORKDIR /usr/server
