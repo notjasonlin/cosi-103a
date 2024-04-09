@@ -27,36 +27,18 @@ function App() {
     const [backendData, setBackendData] = useState([]);
     const [ip, setIp] = useState(null);
 
-    // Function to retrieve the IP address
-    const getIP = async () => {
-        const ipFromSomeSource = ipAddressArray[0]; // Ensure this array is populated
-        console.log(ipFromSomeSource);
-        console.log(typeof(ipFromSomeSource));
-        setIp(ipFromSomeSource); // Update state
-    };
+	// const ip = "20.242.137.131";
 
-    useEffect(() => {
-		const fetchData = async () => {
-			if (!ip) return;
-	
-			const port = ":444"; // Set port here if not part of the IP state
-			const apiUrl = "https://"+ip+port+"/api";
-			console.log(apiUrl)
-			try {
-				const response = await fetch(apiUrl);
-				if (!response.ok) {
-					throw new Error(`HTTP status ${response.status}`);
-				}
-				const data = await response.json();
-				setBackendData(data);
-			} catch (error) {
-				console.error('Failed to fetch data:', error);
-			}
-		};
-	
-		getIP(); // Fetch IP on component mount
-		fetchData(); // Then fetch data
-	}, [ip]); // Dependency on IP address
+	useEffect(() => {
+		fetch("/api").then(async (response) => {
+			let data = await response.json();
+			setBackendData(data);
+		});
+	}, []);
+
+	useEffect(() => {
+		console.log("backendData: ", backendData);
+	}, [backendData]);
 
 	return (
 		<Router>

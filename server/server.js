@@ -6,10 +6,8 @@ import path from "path";
 import cors from "cors";
 import bodyParser from "body-parser";
 import * as dotenv from "dotenv";
-import os from "os"; 
-const networkInterfaces = os.networkInterfaces();
 
-const apiKey = process.env.SECRET_KEY || "scwYTY43nWSVgwb58HA1n1ZeOqbpPVf577jy5VHR";
+const apiKey = process.env.SECRET_KEY;
 
 dotenv.config();
 
@@ -17,27 +15,24 @@ dotenv.config();
 
 const app = express();
 
-console.log("1");
 // Correct placement for body-parser middleware
 app.use(bodyParser.json());
-// app.use(express.static("public"));
-app.use(express.static("data"));
+app.use(express.static("build"));
 
-
-// const corsOptions = {
-// 	origin: ("20.242.137.131:3000", "https://localhost:3000", "http://127.0.0.1:3000", "https://20.242.137.131:3000"), // Replace this with your client's URL for better security in production
-// 	methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-// 	allowedHeaders: "Content-Type,Authorization", // Adjust based on your needs
-// 	preflightContinue: false,
-// 	optionsSuccessStatus: 204,
-// };
+const corsOptions = {
+	origin: ("http://127.0.0.1:3000", "20.242.137.131:3000"), // Replace this with your client's URL for better security in production
+	methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+	allowedHeaders: "Content-Type,Authorization", // Adjust based on your needs
+	preflightContinue: false,
+	optionsSuccessStatus: 204,
+};
 
 // Apply CORS options
-app.use(cors());
+app.use(cors(corsOptions));
 
 // const jsonFilePath = path.join(__dirname, "data", "recipeData.json");
 // const recipeData = JSON.parse(fs.readFileSync(jsonFilePath, "utf8"));
-console.log("2");
+
 const recipeData = await run();
 console.log(recipeData);
 
@@ -45,7 +40,6 @@ console.log(recipeData);
 app.get("/api", (req, res) => {
 	console.log("GET request received at /api");
 	res.json(recipeData);
-	console.log("Grabbed");
 });
 
 app.post("/api", async (req, res) => {
@@ -112,18 +106,8 @@ app.post("/api", async (req, res) => {
 	});
 });
 
-app.listen(444, () => {
-	console.log("Server started on port 80");
-	console.log(networkInterfaces);
-
-	const newData = os.networkInterfaces().eth0[0].address;
-	const dataArray = [newData];
-	const dataString = 'const ipAddressArray = ' + JSON.stringify(dataArray) + ';\nexport default ipAddressArray;';
-
-	fs.writeFile('../src/ip.js', dataString, 'utf8', (err) => {
-		if (err) throw err;
-		console.log('Data written to file');
-	});
+app.listen(5001, () => {
+	console.log("Server started on port 5001");
 
 	const baseUrl = "https://api.nal.usda.gov/fdc/v1/foods/search";
 

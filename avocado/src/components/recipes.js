@@ -6,19 +6,13 @@ import "../cssfiles/dropDown.css";
 import "../cssfiles/recipes.css";
 
 const RecipeList = ({ recipeId, recipesData }) => {
-	// console.log("recipesData: ", recipesData);
-
 	const { addGrocery } = useGroceryContext();
-
-	// Convert recipeId to an integer
-	// const id = recipeId;
 
 	// Find the recipe with the specified id
 	const selectedRecipe = recipesData.find((recipe) => recipe.id === recipeId);
 
 	// Check if a recipe with the specified id exists
 	if (!selectedRecipe) {
-		console.log("tragedy occured");
 		return <div></div>;
 	}
 
