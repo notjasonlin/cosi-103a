@@ -106,8 +106,10 @@ app.post("/api", async (req, res) => {
 	});
 });
 
-app.listen(5001, () => {
-	console.log("Server started on port 5001");
+const port = 5001;
+
+app.listen(port, () => {
+	console.log("Server started on port " + port);
 
 	const baseUrl = "https://api.nal.usda.gov/fdc/v1/foods/search";
 

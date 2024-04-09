@@ -1,6 +1,6 @@
 #!/bin/bash
 
 cd server
-node server & 
+npm start & 
 cd ../avocado
 npm start 
