@@ -20,9 +20,12 @@ import DataInputForm from "./components/sendData";
 
 import { useEffect, useState } from "react";
 import CookMode from "./components/cook-mode";
+import ipAddressArray from "./ip.js";
+
 
 function App() {
-	const [backendData, setBackendData] = useState([{}]);
+    const [backendData, setBackendData] = useState([]);
+    const [ip, setIp] = useState(null);
 
 	// const ip = "20.242.137.131";
 

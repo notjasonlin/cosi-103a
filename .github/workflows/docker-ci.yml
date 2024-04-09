@@ -1,6 +1,7 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
+
 name: Docker CI
 
 permissions:
@@ -25,6 +26,7 @@ jobs:
           envkey_DEBUG: false
           envkey_SOME_API_KEY: "123456!"
           envkey_SECRET_KEY: ${{ secrets.FDA_ID }}
+          envkey_COSMOS_ENDPOINT: ${{ secrets.COSMOS_ENDPOINT }}
           file_name: .env
 
   deploy_infra:
@@ -45,10 +47,10 @@ jobs:
         with:
           appSourcePath: ${{ github.workspace }} 
           registryUrl: avocadoinc.azurecr.io
-          registryUsername: ${{ secrets.AVOCADOAPP2_REGISTRY_USERNAME }}
-          registryPassword: ${{ secrets.AVOCADOAPP2_REGISTRY_PASSWORD }}
-          containerAppName: avocadoapp2
+          registryUsername: ${{ secrets.AVOCADOAPP3_REGISTRY_USERNAME }}
+          registryPassword: ${{ secrets.AVOCADOAPP3_REGISTRY_PASSWORD }}
+          containerAppName: avocadoapp3
           resourceGroup: avocadoinc
-          imageToBuild: avocadoinc.azurecr.io/avocadoapp2:${{ github.sha }}
+          imageToBuild: avocadoinc.azurecr.io/avocadoapp3:${{ github.sha }}
           _buildArgumentsKey_: |
             _buildArgumentsValues_
