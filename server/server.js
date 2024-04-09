@@ -17,7 +17,7 @@ const app = express();
 
 // Correct placement for body-parser middleware
 app.use(bodyParser.json());
-app.use(express.static("public"));
+app.use(express.static("build"));
 
 const corsOptions = {
 	origin: ("http://127.0.0.1:3000", "20.242.137.131:3000"), // Replace this with your client's URL for better security in production
