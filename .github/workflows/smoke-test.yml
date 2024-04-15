@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Azure CLI
         uses: azure/login@v1
@@ -19,25 +19,28 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
+      - name: Get current revision
+        id: get_current_revision
+        run: echo "CURRENT_REVISION=$(az containerapp revision list --name avocadoapp3 --resource-group avocadoinc --query \"[?trafficWeight=='100'].name\" -o tsv)" >> $GITHUB_ENV
+
       - name: Deploy new revision with 0% traffic
+        id: deploy_new_revision
         run: |
-          az containerapp revision copy --name myapp --resource-group myResourceGroup --from-revision ${{env.CURRENT_REVISION}} --no-wait
-          az containerapp update --name myapp --resource-group myResourceGroup --traffic-weight ${NEW_REVISION}=0
+          NEW_REVISION=$(az containerapp revision copy --name avocadoapp3 --resource-group avocadoinc --from-revision $CURRENT_REVISION --query "name" -o tsv)
+          az containerapp update --name avocadoapp3 --resource-group avocadoinc --traffic-weight $NEW_REVISION=0
+          echo "NEW_REVISION=$NEW_REVISION" >> $GITHUB_ENV
 
       - name: Run smoke tests
         run: |
-          # Replace with your method to run smoke tests
-          ./run-smoke-tests.sh --revision-url ${{env.NEW_REVISION_URL}}
+          ./run-smoke-tests.sh --revision-url ${{env.NEW_REVISION_URL}}  # Ensure you configure NEW_REVISION_URL properly
 
       - name: Update traffic to new revision on success
         if: success()
         run: |
-          az containerapp update --name myapp --resource-group myResourceGroup --traffic-weight ${NEW_REVISION}=100
+          az containerapp update --name avocadoapp3 --resource-group avocadoinc --traffic-weight ${{ env.NEW_REVISION }}=100
 
       - name: Rollback on failure
         if: failure()
         run: |
-          # Keep the traffic at the current stable revision
           echo "Tests failed. Rolling back to the stable revision."
-          az containerapp update --name myapp --resource-group myResourceGroup --traffic-weight ${CURRENT_REVISION}=100
-
+          az containerapp update --name avocadoapp3 --resource-group avocadoinc --traffic-weight ${{ env.CURRENT_REVISION }}=100
