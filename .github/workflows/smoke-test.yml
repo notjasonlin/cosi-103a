@@ -36,8 +36,9 @@ jobs:
 
       - name: Deploy new revision with 0% traffic
         run: |
+          echo "Deploying new revision copied from $CURRENT_REVISION..."
           NEW_REVISION=$(az containerapp revision copy --name avocadoapp3 --resource-group avocadoinc --from-revision $CURRENT_REVISION --query "name" -o tsv)
-          az containerapp update --name avocadoapp3 --resource-group avocadoinc --traffic-weights "$NEW_REVISION=0"
+          az containerapp ingress traffic set --name avocadoapp3 --resource-group avocadoinc --revision-weight "$NEW_REVISION=0"
           echo "NEW_REVISION=$NEW_REVISION" >> $GITHUB_ENV
 
       - name: Run smoke tests
