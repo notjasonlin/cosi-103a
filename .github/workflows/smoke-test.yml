@@ -27,14 +27,7 @@ jobs:
         run: |
           echo "Retrieving the current active revision tagged as 'current'..."
           CURRENT_REVISION=$(az containerapp revision list -n avocadoapp3 -g avocadoinc --query "[?properties.trafficWeight==\`100\`].name")
-          if [ -z "$CURRENT_REVISION" ]; then
-            echo "No revision labeled as 'current' found. This might be the first deployment or something is wrong."
-            echo "Failing the workflow as no baseline revision is available for safe deployment."
-            exit 1
-          fi
-          echo "CURRENT_REVISION=$CURRENT_REVISION"
-          echo "::set-output name=current_revision::$CURRENT_REVISION"
-
+          echo "CURRENT_REVISION=$CURRENT_REVISION" >> $GITHUB_ENV
 
       - name: Deploy new revision with 0% traffic
         run: |
