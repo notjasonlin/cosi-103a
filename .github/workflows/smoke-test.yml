@@ -26,7 +26,7 @@ jobs:
         id: get_current_revision
         run: |
           echo "Retrieving the current active revision tagged as 'current'..."
-          CURRENT_REVISION=$(az containerapp revision list --name avocadoapp3 --resource-group avocadoinc --query "[?labels.current=='true'].name" -o tsv)
+          CURRENT_REVISION=$(az containerapp revision list -n avocadoapp3 -g avocadoinc --query "[?properties.trafficWeight==\`100\`].name")
           if [ -z "$CURRENT_REVISION" ]; then
             echo "No revision labeled as 'current' found. This might be the first deployment or something is wrong."
             echo "Failing the workflow as no baseline revision is available for safe deployment."
