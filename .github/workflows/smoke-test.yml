@@ -27,10 +27,13 @@ jobs:
         run: echo "CURRENT_REVISION=$(az containerapp revision list --name avocadoapp3 --resource-group avocadoinc --query \"[?trafficWeight=='100'].name\" -o tsv)" >> $GITHUB_ENV
 
       - name: Deploy new revision with 0% traffic
-        id: deploy_new_revision
         run: |
-          NEW_REVISION=$(az containerapp revision copy --name avocadoapp3 --resource-group avocadoinc --from-revision $CURRENT_REVISION --query "name" -o tsv)
-          az containerapp update --name avocadoapp3 --resource-group avocadoinc --traffic-weight $NEW_REVISION=0
+          if [ -z "${{ env.CURRENT_REVISION }}" ]; then
+            echo "No current revision found, can't deploy new revision."
+            exit 1
+          fi
+          NEW_REVISION=$(az containerapp revision copy --name avocadoapp3 --resource-group avocadoinc --from-revision ${{ env.CURRENT_REVISION }} --query "name" -o tsv)
+          az containerapp update --name avocadoapp3 --resource-group avocadoinc --traffic-weight "$NEW_REVISION=0"
           echo "NEW_REVISION=$NEW_REVISION" >> $GITHUB_ENV
 
       - name: Run smoke tests
