@@ -36,11 +36,32 @@ jobs:
 
       - name: Deploy new revision with 0% traffic
         run: |
-            echo "Deploying new revision..."
-            NEW_REVISION_NAME="myapp-$(date +%Y%m%d%H%M%S)"  # Generate a custom revision name
-            NEW_REVISION=$(az containerapp revision copy --name avocadoapp3 --resource-group avocadoinc --from-revision $CURRENT_REVISION --name $NEW_REVISION_NAME --query "name" -o tsv)
-            az containerapp ingress traffic set --name avocadoapp3 --resource-group avocadoinc --revision-weight "$NEW_REVISION=0"
-            echo "NEW_REVISION=$NEW_REVISION" >> $GITHUB_ENV
+          echo "Deploying new revision..."
+          NEW_REVISION_NAME="myapp-$(date +%Y%m%d%H%M%S)"  # Generate a custom revision name
+          echo "New revision name will be $NEW_REVISION_NAME"
+          
+          # Copying the revision and assigning a new name
+          NEW_REVISION=$(az containerapp revision copy \
+            --name avocadoapp3 \
+            --resource-group avocadoinc \
+            --from-revision $CURRENT_REVISION \
+            --revision-name $NEW_REVISION_NAME \
+            --query "name" -o tsv)
+          
+          # Check if NEW_REVISION is set correctly
+          if [ -z "$NEW_REVISION" ]; then
+            echo "Failed to create new revision."
+            exit 1
+          fi
+          
+          # Setting initial traffic to 0%
+          az containerapp ingress traffic set \
+            --name avocadoapp3 \
+            --resource-group avocadoinc \
+            --revision-weight "$NEW_REVISION=0"
+          
+          echo "NEW_REVISION=$NEW_REVISION" >> $GITHUB_ENV
+
 
       - name: Run smoke tests
         run: |
