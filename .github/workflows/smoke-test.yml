@@ -3,14 +3,14 @@ name: Deploy Azure Container Application
 on:
   push:
     branches:
-      - main  # Trigger on pushes to the main branch
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     permissions: 
-      id-token: write  # This is required for requesting the OIDC JWT Token
-      contents: read  # Required when GH token is used to authenticate with private repo
+      id-token: write
+      contents: read
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
@@ -26,21 +26,21 @@ jobs:
         id: get_current_revision
         run: |
           CURRENT_REVISION=$(az containerapp revision list --name avocadoapp3 --resource-group avocadoinc --query "[?trafficWeight=='100'].name" -o tsv)
-          echo "CURRENT_REVISION=$CURRENT_REVISION" >> $GITHUB_ENV
+          echo "CURRENT_REVISION=$CURRENT_REVISION"
+          if [ -z "$CURRENT_REVISION" ]; then
+            echo "No current revision found. This might be the first deployment or something is wrong."
+            exit 1
+          fi
 
       - name: Deploy new revision with 0% traffic
         run: |
-          if [ -z "$CURRENT_REVISION" ]; then
-            echo "No current revision found, can't deploy new revision."
-            exit 1
-          fi
           NEW_REVISION=$(az containerapp revision copy --name avocadoapp3 --resource-group avocadoinc --from-revision $CURRENT_REVISION --query "name" -o tsv)
           az containerapp update --name avocadoapp3 --resource-group avocadoinc --traffic-weight "$NEW_REVISION=0"
           echo "NEW_REVISION=$NEW_REVISION" >> $GITHUB_ENV
 
       - name: Run smoke tests
         run: |
-          ./run-smoke-tests.sh --revision-url ${{ env.NEW_REVISION_URL }}  # Make sure this script is properly configured to use NEW_REVISION_URL
+          ./run-smoke-tests.sh --revision-url ${{env.NEW_REVISION_URL}} 
 
       - name: Update traffic to new revision on success
         if: success()
