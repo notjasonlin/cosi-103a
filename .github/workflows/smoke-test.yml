@@ -9,8 +9,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     permissions: 
-      id-token: write #This is required for requesting the OIDC JWT Token
-      contents: read #Required when GH token is used to authenticate with private repo
+      id-token: write  # This is required for requesting the OIDC JWT Token
+      contents: read  # Required when GH token is used to authenticate with private repo
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
@@ -24,21 +24,23 @@ jobs:
 
       - name: Get current revision
         id: get_current_revision
-        run: echo "CURRENT_REVISION=$(az containerapp revision list --name avocadoapp3 --resource-group avocadoinc --query \"[?trafficWeight=='100'].name\" -o tsv)" >> $GITHUB_ENV
+        run: |
+          CURRENT_REVISION=$(az containerapp revision list --name avocadoapp3 --resource-group avocadoinc --query "[?trafficWeight=='100'].name" -o tsv)
+          echo "CURRENT_REVISION=$CURRENT_REVISION" >> $GITHUB_ENV
 
       - name: Deploy new revision with 0% traffic
         run: |
-          if [ -z "${{ env.CURRENT_REVISION }}" ]; then
+          if [ -z "$CURRENT_REVISION" ]; then
             echo "No current revision found, can't deploy new revision."
             exit 1
           fi
-          NEW_REVISION=$(az containerapp revision copy --name avocadoapp3 --resource-group avocadoinc --from-revision ${{ env.CURRENT_REVISION }} --query "name" -o tsv)
+          NEW_REVISION=$(az containerapp revision copy --name avocadoapp3 --resource-group avocadoinc --from-revision $CURRENT_REVISION --query "name" -o tsv)
           az containerapp update --name avocadoapp3 --resource-group avocadoinc --traffic-weight "$NEW_REVISION=0"
           echo "NEW_REVISION=$NEW_REVISION" >> $GITHUB_ENV
 
       - name: Run smoke tests
         run: |
-          ./run-smoke-tests.sh --revision-url ${{env.NEW_REVISION_URL}}  # Ensure you configure NEW_REVISION_URL properly
+          ./run-smoke-tests.sh --revision-url ${{ env.NEW_REVISION_URL }}  # Make sure this script is properly configured to use NEW_REVISION_URL
 
       - name: Update traffic to new revision on success
         if: success()
