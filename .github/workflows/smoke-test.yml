@@ -26,7 +26,12 @@ jobs:
         id: get_current_revision
         run: |
           echo "Retrieving the current active revision tagged as 'current'..."
-          CURRENT_REVISION=$(az containerapp revision list -n avocadoapp3 -g avocadoinc --query "[?properties.trafficWeight==\`100\`].name")
+          CURRENT_REVISION=$(az containerapp revision list -n avocadoapp3 -g avocadoinc --query "[?properties.trafficWeight==\`100\`].name" -o tsv)
+          if [ -z "$CURRENT_REVISION" ]; then
+            echo "No current revision found."
+            exit 1
+          fi
+          echo "CURRENT_REVISION=$CURRENT_REVISION"
           echo "CURRENT_REVISION=$CURRENT_REVISION" >> $GITHUB_ENV
 
       - name: Deploy new revision with 0% traffic
